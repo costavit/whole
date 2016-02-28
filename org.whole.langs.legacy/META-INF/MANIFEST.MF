@@ -6,8 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-ClassPath: .
-Export-Package: org.whole.lang.bytecode.util,
- org.whole.lang.java.builders,
+Export-Package: org.whole.lang.java.builders,
  org.whole.lang.java.codebase,
  org.whole.lang.java.factories,
  org.whole.lang.java.model,
@@ -78,7 +77,6 @@ Require-Bundle: org.whole.lang,
  org.eclipse.core.runtime;bundle-version="3.9.0",
  org.mozilla.rhino;visibility:=reexport,
  org.beanshell.bsh;visibility:=reexport,
- org.objectweb.asm;bundle-version="3.1.0";visibility:=reexport,
  net.sourceforge.jodatime;visibility:=reexport,
  com.fasterxml.jackson;visibility:=reexport
 Bundle-ActivationPolicy: lazy
