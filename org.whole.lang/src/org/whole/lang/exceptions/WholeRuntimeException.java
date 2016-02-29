@@ -80,4 +80,7 @@ public class WholeRuntimeException extends RuntimeException implements IWholeRun
 		return sourceCause;
 	}
 //end same code
+	public RuntimeException asException() {
+		return (RuntimeException) this;
+	}
 }

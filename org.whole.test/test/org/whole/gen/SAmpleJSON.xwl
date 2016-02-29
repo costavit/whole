@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<json:Object xmlns:json="whole:org.whole.lang.json:JSONModel" initialCapacity="3">
+    <json:Pair>
+        <json:Name value="candy"/>
+        <json:String value="f1Val"/>
+    </json:Pair>
+    <json:Pair>
+        <json:Name value="f2"/>
+        <json:Array initialCapacity="3">
+            <json:String value="f2Elem"/>
+            <json:String value="f2Elem"/>
+            <json:String value="f2Elem"/>
+        </json:Array>
+    </json:Pair>
+    <json:Pair>
+        <json:Name value="f3"/>
+        <json:Object initialCapacity="2">
+            <json:Pair>
+                <json:Name value="f31"/>
+                <json:String value="f31Val"/>
+            </json:Pair>
+            <json:Pair>
+                <json:Name value="f32"/>
+                <json:Array initialCapacity="3">
+                    <json:String value="f32Elem"/>
+                    <json:String value="f32Elem"/>
+                    <json:String value="f32Elem"/>
+                </json:Array>
+            </json:Pair>
+        </json:Object>
+    </json:Pair>
+</json:Object>

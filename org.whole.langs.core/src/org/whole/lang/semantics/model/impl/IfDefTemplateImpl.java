@@ -22,7 +22,7 @@ import org.whole.lang.semantics.model.IfDefTemplate;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.semantics.reflect.SemanticsEntityDescriptorEnum;
 import org.whole.lang.semantics.visitors.ISemanticsVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.semantics.model.Term;
 import org.whole.lang.semantics.reflect.SemanticsFeatureDescriptorEnum;
 import org.whole.lang.model.IEntity;
@@ -45,7 +45,7 @@ public class IfDefTemplateImpl extends AbstractSimpleEntity implements IfDefTemp
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
     private Term expression;

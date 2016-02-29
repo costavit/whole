@@ -22,7 +22,7 @@ import org.whole.lang.java.model.ThisExpression;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.java.reflect.JavaEntityDescriptorEnum;
 import org.whole.lang.java.visitors.IJavaVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.java.model.Name;
 import org.whole.lang.java.reflect.JavaFeatureDescriptorEnum;
 import org.whole.lang.model.IEntity;
@@ -45,7 +45,7 @@ public class ThisExpressionImpl extends AbstractSimpleEntity implements ThisExpr
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
     private Name qualifier;

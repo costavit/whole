@@ -55,6 +55,7 @@ import org.whole.lang.reusables.model.Reusable;
 import org.whole.lang.reusables.model.Reuse;
 import org.whole.lang.reusables.model.Synch;
 import org.whole.lang.reusables.operations.EvaluateCloneOperation;
+import org.whole.lang.reusables.operations.Predicate;
 import org.whole.lang.reusables.reflect.ReusablesEntityDescriptorEnum;
 import org.whole.lang.util.BehaviorUtils;
 import org.whole.lang.util.EntityUtils;
@@ -68,10 +69,14 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
     protected EvaluateCloneOperation evaluateCloneOperation;
     protected EvaluateCloneOperation getEvaluateCloneOperation() {
 		if (evaluateCloneOperation == null) {
-			evaluateCloneOperation = new EvaluateCloneOperation(getOperation(), entity -> Matcher.matchAnyImpl(entity,
-					ReusablesEntityDescriptorEnum.Adapt, ReusablesEntityDescriptorEnum.Resource,
-					ReusablesEntityDescriptorEnum.Include, ReusablesEntityDescriptorEnum.Reuse,
-					ReusablesEntityDescriptorEnum.Synch));
+			evaluateCloneOperation = new EvaluateCloneOperation(getOperation(), new Predicate<IEntity>() {
+				public boolean test(IEntity entity) {
+					return Matcher.matchAnyImpl(entity,
+							ReusablesEntityDescriptorEnum.Adapt, ReusablesEntityDescriptorEnum.Resource,
+							ReusablesEntityDescriptorEnum.Include, ReusablesEntityDescriptorEnum.Reuse,
+							ReusablesEntityDescriptorEnum.Synch);
+				}
+			});
 		}
 		return evaluateCloneOperation;
     }
@@ -125,7 +130,7 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
     }
 
 	@Override
-	public void visit(Adapt entity) {
+	public void visit(final Adapt entity) {
 		Reusable reusable = entity.getAdapted();
 
 		IEntityIterator<?> contentIterator = null;
@@ -142,9 +147,10 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
 		if (contentIterator == null)
 			contentIterator = IteratorFactory.constantIterator(reusable, false);
 
-		boolean updateAdapted = EntityUtils.isResolver(entity.getAdapted());
-		IEntityIterator<?> evaluateIterator = IteratorFactory.singleValuedRunnableIterator(
-			(selfEntity, bm, arguments) -> {
+		final boolean updateAdapted = EntityUtils.isResolver(entity.getAdapted());
+		IEntityIterator<?> evaluateIterator = IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+			@Override
+			public void run(IEntity selfEntity, IBindingManager bm, IEntity... arguments) {
 				try {
 					getBindings().wEnterScope();
 					getBindings().wDefValue("evaluateCloneOperation", true);
@@ -163,7 +169,7 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
 					}
 				}
 			}
-		);
+		});
 
 		IEntityIterator<? extends IEntity> expandIterator = adapterIterator != null ? 
 				IteratorFactory.composeIterator(evaluateIterator, adapterIterator, contentIterator) :
@@ -186,8 +192,12 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
 				QueriesEntityDescriptorEnum.PathExpression, entity.getSource().wGetAdaptee(false)) ?
 						IteratorFactory.constantComposeIterator(entity, getResultIterator()) : getResultIterator();
 
-		IEntityIterator<?> evaluateIterator = IteratorFactory.singleValuedRunnableIterator(
-				(selfEntity, bm, arguments) -> evaluateAndClone(selfEntity, bm));
+		IEntityIterator<?> evaluateIterator = IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+			@Override
+			public void run(IEntity selfEntity, IBindingManager bm, IEntity... arguments) {
+				evaluateAndClone(selfEntity, bm);
+			}
+		});
 		setResultIterator(IteratorFactory.composeIterator(evaluateIterator, contentIterator));
 	}
 
@@ -199,13 +209,17 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
 				QueriesEntityDescriptorEnum.PathExpression, entity.getSource().wGetAdaptee(false)) ?
 						IteratorFactory.constantComposeIterator(entity, getResultIterator()) : getResultIterator();
 
-		IEntityIterator<?> evaluateIterator = IteratorFactory.singleValuedRunnableIterator(
-				(selfEntity, bm, arguments) -> evaluateAndClone(selfEntity, bm));
+		IEntityIterator<?> evaluateIterator = IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+			@Override
+			public void run(IEntity selfEntity, IBindingManager bm, IEntity... arguments) {
+				evaluateAndClone(selfEntity, bm);
+			}
+		});
 		setResultIterator(IteratorFactory.composeIterator(evaluateIterator, contentIterator));
 	}
 
 	@Override
-	public void visit(Reuse entity) {
+	public void visit(final Reuse entity) {
 		Reusable reusable = entity.getAdapted();
 
 		Reusable original = CommonsEntityAdapterFactory.createResolver(Reusable);
@@ -249,9 +263,11 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
 		if (contentIterator == null)
 			contentIterator = IteratorFactory.constantIterator(reusable, false);
 
-		boolean updateAdapted = EntityUtils.isResolver(entity.getAdapted());
-		IEntityIterator<?> evaluateIterator = IteratorFactory.singleValuedRunnableIterator(
-			(selfEntity, bm, arguments) -> {
+		final boolean updateAdapted = EntityUtils.isResolver(entity.getAdapted());
+		IEntityIterator<?> evaluateIterator = IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+			
+			@Override
+			public void run(IEntity selfEntity, IBindingManager bm, IEntity... arguments) {
 				try {
 					getBindings().wEnterScope();
 					getBindings().wDefValue("evaluateCloneOperation", true);
@@ -270,7 +286,7 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
 					}
 				}
 			}
-		);
+		});
 
 		setResultIterator(adapterIterator != null ? 
 				IteratorFactory.composeIterator(evaluateIterator, adapterIterator, contentIterator) :
@@ -285,9 +301,12 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
 			visit((Reuse) entity);
 		else {
 			setResultIterator(IteratorFactory.constantComposeIterator(reusable,
-					IteratorFactory.singleValuedRunnableIterator(
-							(selfEntity, bm, arguments) -> evaluateAndClone(selfEntity, bm)
-			)));
+					IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+						@Override
+						public void run(IEntity selfEntity, IBindingManager bm, IEntity... arguments) {
+							evaluateAndClone(selfEntity, bm);
+						}
+					})));
 		}
 	}
 
@@ -313,11 +332,11 @@ public class ReusablesInterpreterVisitor extends ReusablesIdentityDefaultVisitor
 		entity.getPersistence().accept(this);
 		IEntity persistence = getResult();
 
-		String persistenceKitId = persistence != null && !BindingManagerFactory.instance.isVoid(persistence) &&
+		final String persistenceKitId = persistence != null && !BindingManagerFactory.instance.isVoid(persistence) &&
 				ReflectionFactory.hasPersistenceKit(persistence.wStringValue()) ?
 				persistence.wStringValue() : "org.whole.lang.xml.codebase.XmlBuilderPersistenceKit";
 
-		IPersistenceKit persistenceKit = ReflectionFactory.getPersistenceKit(persistenceKitId);
+		final IPersistenceKit persistenceKit = ReflectionFactory.getPersistenceKit(persistenceKitId);
 
 		Locator locator = entity.getLocator();
 		locator.accept(this);

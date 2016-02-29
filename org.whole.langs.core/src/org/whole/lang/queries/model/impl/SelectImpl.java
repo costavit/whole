@@ -22,7 +22,7 @@ import org.whole.lang.queries.model.Select;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.queries.reflect.QueriesEntityDescriptorEnum;
 import org.whole.lang.queries.visitors.IQueriesVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.queries.model.PathExpression;
 import org.whole.lang.queries.reflect.QueriesFeatureDescriptorEnum;
 import org.whole.lang.model.IEntity;
@@ -47,7 +47,7 @@ public class SelectImpl extends AbstractSimpleEntity implements Select {
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
     private PathExpression selectClause;

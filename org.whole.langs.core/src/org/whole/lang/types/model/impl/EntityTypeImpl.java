@@ -20,7 +20,7 @@ package org.whole.lang.types.model.impl;
 import org.whole.lang.model.AbstractDataEntity;
 import org.whole.lang.types.model.EntityType;
 import org.whole.lang.types.visitors.ITypesVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.types.reflect.TypesEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
 
@@ -43,7 +43,7 @@ public class EntityTypeImpl extends AbstractDataEntity implements EntityType {
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

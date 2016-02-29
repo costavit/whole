@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<queries:QueryDeclaration xmlns:queries="http://lang.whole.org/Queries">
+    <queries:Name value="name"/>
+    <commons:Resolver xmlns:commons="http://lang.whole.org/Commons"/>
+    <commons:Resolver xmlns:commons="http://lang.whole.org/Commons"/>
+</queries:QueryDeclaration>

@@ -20,7 +20,7 @@ package org.whole.lang.patterns.model.impl;
 import org.whole.lang.model.AbstractDataEntity;
 import org.whole.lang.patterns.model.FunctionStep;
 import org.whole.lang.patterns.visitors.IPatternsVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.patterns.reflect.PatternsEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
 
@@ -43,7 +43,7 @@ public class FunctionStepImpl extends AbstractDataEntity implements FunctionStep
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

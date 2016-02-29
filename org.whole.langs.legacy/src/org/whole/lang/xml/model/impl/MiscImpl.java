@@ -20,7 +20,7 @@ package org.whole.lang.xml.model.impl;
 import org.whole.lang.model.AbstractListCompositeEntity;
 import org.whole.lang.xml.model.*;
 import org.whole.lang.xml.visitors.IXmlVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.xml.reflect.XmlEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
 
@@ -34,7 +34,7 @@ public class MiscImpl extends AbstractListCompositeEntity<IMisc> implements Misc
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

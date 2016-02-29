@@ -21,7 +21,7 @@ import org.whole.lang.model.AbstractListCompositeEntity;
 import org.whole.lang.json.model.*;
 import org.whole.lang.json.model.Object;
 import org.whole.lang.json.visitors.IJSONVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.json.reflect.JSONEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
 
@@ -35,7 +35,7 @@ public class ObjectImpl extends AbstractListCompositeEntity<Pair> implements Obj
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

@@ -78,4 +78,7 @@ public class WholeIllegalStateException extends IllegalStateException implements
 		return sourceCause;
 	}
 //end same code
+	public RuntimeException asException() {
+		return (RuntimeException) this;
+	}
 }

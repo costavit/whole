@@ -22,7 +22,7 @@ import org.whole.lang.math.model.NotIn;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.math.reflect.MathEntityDescriptorEnum;
 import org.whole.lang.math.visitors.IMathVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.math.model.Expression;
 import org.whole.lang.math.reflect.MathFeatureDescriptorEnum;
 import org.whole.lang.model.IEntity;
@@ -46,7 +46,7 @@ public class NotInImpl extends AbstractSimpleEntity implements NotIn {
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
     private Expression element;

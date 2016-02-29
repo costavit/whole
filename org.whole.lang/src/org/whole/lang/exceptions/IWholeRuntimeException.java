@@ -30,8 +30,9 @@ public interface IWholeRuntimeException {
 	public IBindingManager getBindings();
 
 	public IWholeRuntimeException getSourceCause();
-
-	default public RuntimeException asException() {
+	
+	public RuntimeException asException();
+	/*default public RuntimeException asException() {
 		return (RuntimeException) this;
 	}
 
@@ -60,5 +61,5 @@ public interface IWholeRuntimeException {
 			e.initCause(we);
 		//TODO else add lazy complete
 		return e;
-	}
+	}*/
 }

@@ -7,6 +7,7 @@ import org.whole.lang.commons.model.Variable;
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
 import org.whole.lang.commons.reflect.CommonsFeatureDescriptorEnum;
 import org.whole.lang.commons.visitors.ICommonsVisitor;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.matchers.GenericMatcher;
 import org.whole.lang.model.AbstractSimpleEntity;
 import org.whole.lang.model.IEntity;
@@ -33,7 +34,7 @@ public class VariableImpl extends AbstractSimpleEntity implements Variable {
 		try {
 			visitor.visit(this);
 		} catch (Exception e) {
-			throw org.whole.lang.exceptions.IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
 		}
 	}
 

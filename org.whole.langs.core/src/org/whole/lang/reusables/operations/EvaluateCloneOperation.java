@@ -19,7 +19,7 @@ package org.whole.lang.reusables.operations;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.function.Predicate;
+//import java.util.function.Predicate;
 
 import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.iterators.IEntityIterator;
@@ -32,6 +32,7 @@ import org.whole.lang.queries.iterators.QueriesIteratorFactory;
 import org.whole.lang.reflect.FeatureDescriptor;
 import org.whole.lang.util.BehaviorUtils;
 import org.whole.lang.util.EntityUtils;
+import org.whole.lang.util.IRunnable;
 
 /**
  * @author Enrico Persiani
@@ -58,16 +59,20 @@ public class EvaluateCloneOperation extends CloneOperationOld {
 				getBindings().wDef("self", selfEntity);	
 	}
 	@Override
-	protected void cloneAndUpdate(IEntity entityClone, int index) {
+	protected void cloneAndUpdate(final IEntity entityClone, final int index) {
 		IEntity child = entityClone.wGet(index);
 		if (shouldEvaluate.test(child)) {
 			IEntity selfEntity = getBindings().wGet("self");
 			IEntityIterator<?> iterator = BehaviorUtils.lazyEvaluate(child, 0, getBindings());
 //			IEntityIterator<?> iterator = DynamicCompilerOperation.compile(child, getBindings()).getResultIterator();
 			if (EntityUtils.isSimple(entityClone)) {
-				iterator = IteratorFactory.composeIterator(IteratorFactory.singleValuedRunnableIterator(
-						(self, bm, arguments) -> entityClone.wSet(index, self)
-				),	iterator);
+				iterator = IteratorFactory.composeIterator(IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+					
+					@Override
+					public void run(IEntity self, IBindingManager bm, IEntity... arguments) {
+						entityClone.wSet(index, self);
+					}
+				}),	iterator);
 			} else {
 				if (index == entityClone.wSize()-1)
 					iterator = QueriesIteratorFactory.cartesianInsertIterator(iterator, 
@@ -86,15 +91,18 @@ public class EvaluateCloneOperation extends CloneOperationOld {
 			super.cloneAndUpdate(entityClone, index);
 	}
 	@Override
-	protected void cloneAndUpdate(IEntity entityClone, FeatureDescriptor fd) {
+	protected void cloneAndUpdate(final IEntity entityClone, final FeatureDescriptor fd) {
 		IEntity child = entityClone.wGet(fd);
 		if (shouldEvaluate.test(child)) {
 			IEntity selfEntity = getBindings().wGet("self");
 			IEntityIterator<?> iterator = BehaviorUtils.lazyEvaluate(child, 0, getBindings());
 //			IEntityIterator<?> iterator = DynamicCompilerOperation.compile(child, getBindings()).getResultIterator();
-			iterator = IteratorFactory.composeIterator(IteratorFactory.singleValuedRunnableIterator(
-					(self, bm, arguments) -> entityClone.wSet(fd, self)
-			),	iterator);
+			iterator = IteratorFactory.composeIterator(IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+				@Override
+				public void run(IEntity self, IBindingManager bm, IEntity... arguments) {
+					entityClone.wSet(fd, self);
+				}
+			}),	iterator);
 			entityClone.wRemove(fd);
 			BehaviorUtils.evaluate(iterator, entityClone, getBindings());
 			resetSelfEntity(selfEntity);
@@ -119,7 +127,10 @@ public class EvaluateCloneOperation extends CloneOperationOld {
 			return super.cloneAll(entities);
 		} else {
 			Collection<E> clonedEntities = new ArrayList<E>(entities.size());
-			entities.forEach(entity -> clonedEntities.add((E) cloneDescendantTree(entity)));
+			for (E entity : entities) {
+				clonedEntities.add((E) cloneDescendantTree(entity));
+			}
+			//entities.forEach(entity -> clonedEntities.add((E) cloneDescendantTree(entity)));
 			return clonedEntities;
 		}
 	}

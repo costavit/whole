@@ -20,7 +20,7 @@ package org.whole.lang.environment.model.impl;
 import org.whole.lang.model.AbstractDataEntity;
 import org.whole.lang.environment.model.BooleanData;
 import org.whole.lang.environment.visitors.IEnvironmentVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.environment.reflect.EnvironmentEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
 
@@ -43,7 +43,7 @@ public class BooleanDataImpl extends AbstractDataEntity implements BooleanData {
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

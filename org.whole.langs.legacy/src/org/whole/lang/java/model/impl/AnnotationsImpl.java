@@ -20,7 +20,7 @@ package org.whole.lang.java.model.impl;
 import org.whole.lang.model.AbstractListCompositeEntity;
 import org.whole.lang.java.model.*;
 import org.whole.lang.java.visitors.IJavaVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.java.reflect.JavaEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
 
@@ -34,7 +34,7 @@ public class AnnotationsImpl extends AbstractListCompositeEntity<Annotation> imp
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

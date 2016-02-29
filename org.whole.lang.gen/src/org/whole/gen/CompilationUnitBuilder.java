@@ -55,6 +55,7 @@ import org.eclipse.jdt.core.dom.InstanceofExpression;
 import org.eclipse.jdt.core.dom.Javadoc;
 import org.eclipse.jdt.core.dom.MethodDeclaration;
 import org.eclipse.jdt.core.dom.MethodInvocation;
+import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.eclipse.jdt.core.dom.Name;
 import org.eclipse.jdt.core.dom.NullLiteral;
 import org.eclipse.jdt.core.dom.NumberLiteral;
@@ -86,9 +87,8 @@ import org.eclipse.jdt.core.dom.VariableDeclarationExpression;
 import org.eclipse.jdt.core.dom.VariableDeclarationFragment;
 import org.eclipse.jdt.core.dom.VariableDeclarationStatement;
 import org.eclipse.jdt.core.dom.WhileStatement;
-import org.eclipse.jdt.core.dom.Modifier.ModifierKeyword;
 import org.whole.gen.lang.LanguageGenerator;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.factories.EntityBuilder;
 import org.whole.lang.factories.IEntityBuilder;
 import org.whole.lang.model.AbstractEntity;
@@ -467,7 +467,7 @@ public class CompilationUnitBuilder extends AbstractEntity {
 			tryStm.getBody().statements().add(newExpressionStatement(callExp));
 
 			callExp = ast.newMethodInvocation();
-			callExp.setExpression(newSimpleName(IWholeRuntimeException.class.getName()));
+			callExp.setExpression(newSimpleName(WholeExceptionUtil.class.getName()));
 			callExp.setName(ast.newSimpleName("asWholeException"));
 			callExp.arguments().add(newSimpleName("e"));
 			callExp.arguments().add(ast.newThisExpression());

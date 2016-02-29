@@ -1,9 +1,10 @@
 package org.whole.lang.commons.model.impl;
 
-import org.whole.lang.model.AbstractDataEntity;
-import org.whole.lang.commons.model.*;
-import org.whole.lang.commons.visitors.ICommonsVisitor;
+import org.whole.lang.commons.model.VarName;
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
+import org.whole.lang.commons.visitors.ICommonsVisitor;
+import org.whole.lang.exceptions.WholeExceptionUtil;
+import org.whole.lang.model.AbstractDataEntity;
 import org.whole.lang.reflect.EntityDescriptor;
 
 /** 
@@ -25,7 +26,7 @@ public class VarNameImpl extends AbstractDataEntity implements VarName {
 		try {
 			visitor.visit(this);
 		} catch (Exception e) {
-			throw org.whole.lang.exceptions.IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
 		}
 	}
 

@@ -22,7 +22,7 @@ import org.whole.lang.environment.model.VariablesViewModel;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.environment.reflect.EnvironmentEntityDescriptorEnum;
 import org.whole.lang.environment.visitors.IEnvironmentVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.environment.model.EnvironmentManager;
 import org.whole.lang.environment.reflect.EnvironmentFeatureDescriptorEnum;
 import org.whole.lang.model.IEntity;
@@ -46,7 +46,7 @@ public class VariablesViewModelImpl extends AbstractSimpleEntity implements Vari
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
     private EnvironmentManager environmentManager;

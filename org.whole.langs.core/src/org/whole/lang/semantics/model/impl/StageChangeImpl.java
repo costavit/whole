@@ -20,7 +20,7 @@ package org.whole.lang.semantics.model.impl;
 import org.whole.lang.model.AbstractDataEntity;
 import org.whole.lang.semantics.model.StageChange;
 import org.whole.lang.semantics.visitors.ISemanticsVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.semantics.reflect.SemanticsEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.semantics.model.StageChangeEnum;
@@ -45,7 +45,7 @@ public class StageChangeImpl extends AbstractDataEntity implements StageChange {
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

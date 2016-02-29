@@ -1,0 +1,2032 @@
+:init_build
+:build_ef SKIPPED
+:set_build_version
+:package_lw
+[INFO] Scanning for projects...
+[WARNING] The POM for org.apache.maven:maven-toolchain:jar:2.0.9 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang/pom-lw.xml
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/mars/ (0B at 0B/s)
+[INFO] Adding repository http://download.eclipse.org/releases/mars
+[INFO] Fetching p2.index from http://download.eclipse.org/technology/epp/packages/mars/ (0B at 0B/s)
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/mars/201506241002/ (0B at 0B/s)
+[INFO] Adding repository file:../../whole-java-libs/org.whole.product.ef.releng/whole-ef-updates/
+[INFO] Fetching p2.index from http://download.eclipse.org/eclipse/updates/4.5/ (0B at 0B/s)
+[INFO] Adding repository http://download.eclipse.org/eclipse/updates/4.5
+[INFO] Fetching p2.index from http://download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000/ (0B at 0B/s)
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.e4.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.e4.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.e4.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.e4.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.e4.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.e4.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.e4.ui.compatibility:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.e4.ui.compatibility:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.e4.ui.compatibility:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.ui.notations:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ui.notations/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.ui.notations:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ui.notations/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.ui.notations:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ui.notations/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.core:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.core:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.core:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.legacy:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.legacy:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.legacy:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.db:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.db:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.db:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.core.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core.op/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.core.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core.op/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.core.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core.op/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.legacy.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy.op/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.legacy.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy.op/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.legacy.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy.op/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.db.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db.op/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.db.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db.op/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.db.op:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db.op/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.standalone:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.standalone/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.standalone:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.standalone/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.standalone:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.standalone/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.standalone.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.standalone.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.standalone.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.standalone.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.standalone.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.standalone.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.core.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.core.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.core.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.core.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.legacy.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.legacy.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.legacy.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.legacy.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.db.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.db.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.db.ui:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.db.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.gen:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.gen/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.gen:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.gen/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.gen:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.gen/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.gen.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.gen.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.gen.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.gen.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.gen.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.gen.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.rcp:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.rcp/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.rcp:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.rcp/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.rcp:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.rcp/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.rcp.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.rcp.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.rcp.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.rcp.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.rcp.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.rcp.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.misc:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.misc/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.misc:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.misc/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.misc:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.misc/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.misc.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.misc.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.misc.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.misc.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.misc.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.langs.misc.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.ide:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ide/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.ide:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ide/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.ide:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.lang.ide/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.ide:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.ide/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.ide:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.ide/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.ide:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.ide/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.ide.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.ide.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.ide.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.ide.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.ide.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.ide.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.examples:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.examples:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.examples:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.examples.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.examples.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.examples.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.examples.db:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.db/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.examples.db:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.db/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.examples.db:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.db/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.examples.db.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.db.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.examples.db.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.db.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.examples.db.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.examples.db.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.extras:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.extras/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.extras:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.extras/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.extras:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.extras/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.extras.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.extras.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.extras.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.extras.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.extras.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.extras.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.test:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.test/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.test:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.test/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.test:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.test/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.test.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.test.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.test.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.test.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.test.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.test.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.sdk:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.sdk/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.sdk:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.sdk/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.sdk:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.sdk/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.sdk.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.sdk.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.sdk.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.sdk.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.sdk.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.sdk.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.product.lw:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.product.lw:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.product.lw:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.product.lw.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.product.lw.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.product.lw.feature:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.product.lw.product:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.product/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.product.lw.product:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.product/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.product.lw.product:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.product/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.product.lw.repository:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.repository/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.product.lw.repository:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.repository/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.product.lw.repository:1.0.0.v20150908-1125 @ /home/costav/git.repo/whole/org.whole.product.lw.repository/pom-lw.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Whole Platform
+[INFO] org.whole.product.lw.target
+[INFO] Whole Language Frameworks
+[INFO] org.whole.lang.feature
+[INFO] org.whole.lang.ui
+[INFO] Whole Core Languages
+[INFO] org.whole.lang.e4.ui
+[INFO] org.whole.lang.e4.ui.compatibility
+[INFO] org.whole.lang.ui.notations
+[INFO] Whole Legacy Languages
+[INFO] Whole DB Languages
+[INFO] Whole Core Languages Operations
+[INFO] Whole Legacy Languages Operations
+[INFO] Whole DB Languages Operations
+[INFO] org.whole.standalone
+[INFO] org.whole.standalone.feature
+[INFO] org.whole.langs.core.ui
+[INFO] org.whole.langs.legacy.ui
+[INFO] org.whole.langs.db.ui
+[INFO] org.whole.lang.gen
+[INFO] org.whole.lang.gen.feature
+[INFO] org.whole.rcp
+[INFO] org.whole.rcp.feature
+[INFO] org.whole.langs.misc
+[INFO] org.whole.langs.misc.feature
+[INFO] org.whole.lang.ide
+[INFO] org.whole.ide
+[INFO] org.whole.ide.feature
+[INFO] org.whole.examples
+[INFO] org.whole.examples.feature
+[INFO] org.whole.examples.db
+[INFO] org.whole.examples.db.feature
+[INFO] org.whole.extras
+[INFO] org.whole.test
+[INFO] org.whole.test.feature
+[INFO] org.whole.extras.feature
+[INFO] org.whole.sdk
+[INFO] org.whole.sdk.feature
+[INFO] org.whole.product.lw
+[INFO] org.whole.product.lw.feature
+[INFO] org.whole.product.lw.product
+[INFO] org.whole.product.lw.repository
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Platform 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.products.releng ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw.target 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[WARNING] The POM for org.codehaus.mojo:build-helper-maven-plugin:jar:1.3 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.product.lw.target ---
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.3:attach-artifact (attach-artifacts) @ org.whole.product.lw.target ---
+[WARNING] The POM for org.codehaus.mojo:build-helper-maven-plugin:jar:1.3 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Language Frameworks 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.lang ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.lang ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.lang ---
+[INFO] Compiling 564 source files to /home/costav/git.repo/whole/org.whole.lang/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.lang ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang/target/org.whole.lang-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.lang ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang/target/org.whole.lang-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.lang.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.lang.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.feature/target/org.whole.lang.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.lang.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.ui 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.lang.ui ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang.ui ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.lang.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.ui/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.lang.ui ---
+[INFO] Compiling 355 source files to /home/costav/git.repo/whole/org.whole.lang.ui/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.lang.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.ui/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.ui/target/org.whole.lang.ui-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.lang.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.ui/target/org.whole.lang.ui-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang.ui ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Core Languages 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.core ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.core ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.core ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.core/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.core ---
+[INFO] Compiling 3550 source files to /home/costav/git.repo/whole/org.whole.langs.core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.core ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.core/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.core ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.core/target/org.whole.langs.core-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.core ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.core ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.core/target/org.whole.langs.core-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.core ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.e4.ui 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.lang.e4.ui ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang.e4.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang.e4.ui ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.lang.e4.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.e4.ui/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.lang.e4.ui ---
+[INFO] Compiling 126 source files to /home/costav/git.repo/whole/org.whole.lang.e4.ui/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.lang.e4.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.e4.ui/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang.e4.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.e4.ui/target/org.whole.lang.e4.ui-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang.e4.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.lang.e4.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.e4.ui/target/org.whole.lang.e4.ui-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang.e4.ui ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.e4.ui.compatibility 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.lang.e4.ui.compatibility ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang.e4.ui.compatibility ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang.e4.ui.compatibility ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.lang.e4.ui.compatibility ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.lang.e4.ui.compatibility ---
+[INFO] Compiling 34 source files to /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.lang.e4.ui.compatibility ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang.e4.ui.compatibility ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/target/org.whole.lang.e4.ui.compatibility-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang.e4.ui.compatibility ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.lang.e4.ui.compatibility ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/target/org.whole.lang.e4.ui.compatibility-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang.e4.ui.compatibility ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.ui.notations 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.lang.ui.notations ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang.ui.notations ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang.ui.notations ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.lang.ui.notations ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.ui.notations/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.lang.ui.notations ---
+[INFO] Compiling 129 source files to /home/costav/git.repo/whole/org.whole.lang.ui.notations/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.lang.ui.notations ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.ui.notations/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang.ui.notations ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.ui.notations/target/org.whole.lang.ui.notations-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang.ui.notations ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.lang.ui.notations ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.ui.notations/target/org.whole.lang.ui.notations-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang.ui.notations ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Legacy Languages 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.legacy ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.legacy ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.legacy ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.legacy ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.legacy/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.legacy ---
+[INFO] Compiling 1655 source files to /home/costav/git.repo/whole/org.whole.langs.legacy/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.legacy ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.legacy/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.legacy ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.legacy/target/org.whole.langs.legacy-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.legacy ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.legacy ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.legacy/target/org.whole.langs.legacy-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.legacy ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole DB Languages 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.db ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.db ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.db ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.db ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.db/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.db ---
+[INFO] Compiling 595 source files to /home/costav/git.repo/whole/org.whole.langs.db/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.db ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.db/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.db ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.db/target/org.whole.langs.db-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.db ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.db ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.db/target/org.whole.langs.db-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.db ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Core Languages Operations 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.core.op ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.core.op ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.core.op ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.core.op ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.core.op/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.core.op ---
+[INFO] Compiling 53 source files to /home/costav/git.repo/whole/org.whole.langs.core.op/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.core.op ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.core.op/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.core.op ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.core.op/target/org.whole.langs.core.op-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.core.op ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.core.op ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.core.op/target/org.whole.langs.core.op-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.core.op ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Legacy Languages Operations 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.legacy.op ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.legacy.op ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.legacy.op ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.legacy.op ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.legacy.op/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.legacy.op ---
+[INFO] Compiling 18 source files to /home/costav/git.repo/whole/org.whole.langs.legacy.op/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.legacy.op ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.legacy.op/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.legacy.op ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.legacy.op/target/org.whole.langs.legacy.op-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.legacy.op ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.legacy.op ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.legacy.op/target/org.whole.langs.legacy.op-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.legacy.op ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole DB Languages Operations 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.db.op ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.db.op ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.db.op ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.db.op ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.db.op/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.db.op ---
+[INFO] Compiling 6 source files to /home/costav/git.repo/whole/org.whole.langs.db.op/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.db.op ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.db.op/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.db.op ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.db.op/target/org.whole.langs.db.op-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.db.op ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.db.op ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.db.op/target/org.whole.langs.db.op-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.db.op ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.standalone 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.standalone ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.standalone ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.standalone ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.standalone ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.standalone/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.standalone ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.standalone ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.standalone/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.standalone ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.standalone/target/org.whole.standalone-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.standalone ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.standalone ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.standalone/target/org.whole.standalone-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.standalone ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.standalone.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.standalone.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.standalone.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.standalone.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.standalone.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.standalone.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.standalone.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.standalone.feature/target/org.whole.standalone.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.standalone.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.standalone.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.core.ui 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.core.ui ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.core.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.core.ui ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.core.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.core.ui/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.core.ui ---
+[INFO] Compiling 916 source files to /home/costav/git.repo/whole/org.whole.langs.core.ui/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.core.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.core.ui/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.core.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.core.ui/target/org.whole.langs.core.ui-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.core.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.core.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.core.ui/target/org.whole.langs.core.ui-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.core.ui ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.legacy.ui 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.legacy.ui ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.legacy.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.legacy.ui ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.legacy.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.legacy.ui/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.legacy.ui ---
+[INFO] Compiling 405 source files to /home/costav/git.repo/whole/org.whole.langs.legacy.ui/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.legacy.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.legacy.ui/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.legacy.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.legacy.ui/target/org.whole.langs.legacy.ui-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.legacy.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.legacy.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.legacy.ui/target/org.whole.langs.legacy.ui-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.legacy.ui ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.db.ui 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.db.ui ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.db.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.db.ui ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.db.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.db.ui/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.db.ui ---
+[INFO] Compiling 74 source files to /home/costav/git.repo/whole/org.whole.langs.db.ui/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.db.ui ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.db.ui/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.db.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.db.ui/target/org.whole.langs.db.ui-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.db.ui ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.db.ui ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.db.ui/target/org.whole.langs.db.ui-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.db.ui ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.gen 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.lang.gen ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang.gen ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang.gen ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.lang.gen ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.gen/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.lang.gen ---
+[INFO] Compiling 95 source files to /home/costav/git.repo/whole/org.whole.lang.gen/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.lang.gen ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.gen/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang.gen ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.gen/target/org.whole.lang.gen-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang.gen ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.lang.gen ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.gen/target/org.whole.lang.gen-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang.gen ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.gen.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.lang.gen.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang.gen.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang.gen.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang.gen.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang.gen.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.lang.gen.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.gen.feature/target/org.whole.lang.gen.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang.gen.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.lang.gen.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.rcp 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.rcp ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.rcp ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.rcp ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.rcp ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.rcp/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.rcp ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.rcp ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.rcp/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.rcp ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.rcp/target/org.whole.rcp-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.rcp ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.rcp ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.rcp/target/org.whole.rcp-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.rcp ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.rcp.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.rcp.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.rcp.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.rcp.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.rcp.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.rcp.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.rcp.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.rcp.feature/target/org.whole.rcp.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.rcp.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.rcp.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.misc 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.langs.misc ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.misc ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.misc ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.langs.misc ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.misc/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.langs.misc ---
+[INFO] Compiling 583 source files to /home/costav/git.repo/whole/org.whole.langs.misc/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.langs.misc ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.langs.misc/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.misc ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.misc/target/org.whole.langs.misc-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.misc ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.langs.misc ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.misc/target/org.whole.langs.misc-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.misc ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.misc.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.langs.misc.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.langs.misc.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.langs.misc.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.langs.misc.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.langs.misc.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.langs.misc.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.langs.misc.feature/target/org.whole.langs.misc.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.langs.misc.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.langs.misc.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.ide 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.lang.ide ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.lang.ide ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.lang.ide ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.lang.ide ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.ide/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.lang.ide ---
+[INFO] Compiling 56 source files to /home/costav/git.repo/whole/org.whole.lang.ide/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.lang.ide ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.lang.ide/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.lang.ide ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.ide/target/org.whole.lang.ide-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.lang.ide ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.lang.ide ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.lang.ide/target/org.whole.lang.ide-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.lang.ide ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.ide 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.ide ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.ide ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.ide ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.ide ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.ide/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.ide ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.ide ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.ide/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.ide ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.ide/target/org.whole.ide-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.ide ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.ide ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.ide/target/org.whole.ide-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.ide ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.ide.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.ide.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.ide.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.ide.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.ide.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.ide.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.ide.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.ide.feature/target/org.whole.ide.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.ide.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.ide.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.examples 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.examples ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.examples ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.examples ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.examples ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.examples/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.examples ---
+[INFO] Compiling 323 source files to /home/costav/git.repo/whole/org.whole.examples/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.examples ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.examples/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.examples ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.examples/target/org.whole.examples-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.examples ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.examples ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.examples/target/org.whole.examples-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.examples ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.examples.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.examples.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.examples.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.examples.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.examples.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.examples.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.examples.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.examples.feature/target/org.whole.examples.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.examples.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.examples.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.examples.db 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.examples.db ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.examples.db ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.examples.db ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.examples.db ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.examples.db/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.examples.db ---
+[INFO] Compiling 1 source file to /home/costav/git.repo/whole/org.whole.examples.db/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.examples.db ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.examples.db/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.examples.db ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.examples.db/target/org.whole.examples.db-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.examples.db ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.examples.db ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.examples.db/target/org.whole.examples.db-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.examples.db ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.examples.db.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.examples.db.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.examples.db.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.examples.db.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.examples.db.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.examples.db.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.examples.db.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.examples.db.feature/target/org.whole.examples.db.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.examples.db.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.examples.db.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.extras 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.extras ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.extras ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.extras ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.extras ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.extras/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.extras ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.extras ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.extras/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.extras ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.extras/target/org.whole.extras-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.extras ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.extras ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.extras/target/org.whole.extras-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.extras ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.test 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.test ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.test ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.test ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.test ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.test/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.test ---
+[INFO] Compiling 314 source files to /home/costav/git.repo/whole/org.whole.test/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.test ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.test/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.test ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.test/target/org.whole.test-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.test ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.test ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.test/target/org.whole.test-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.test ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.test.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.test.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.test.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.test.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.test.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.test.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.test.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.test.feature/target/org.whole.test.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.test.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.test.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.extras.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.extras.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.extras.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.extras.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.extras.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.extras.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.extras.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.extras.feature/target/org.whole.extras.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.extras.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.extras.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.sdk 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.sdk ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.sdk ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.sdk ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.sdk ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.sdk/src/main/resources
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.sdk ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.sdk ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.sdk/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.sdk ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.sdk/target/org.whole.sdk-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.sdk ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.sdk ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.sdk/target/org.whole.sdk-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.sdk ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.sdk.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.sdk.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.sdk.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.sdk.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.sdk.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.sdk.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.sdk.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.sdk.feature/target/org.whole.sdk.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.sdk.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.sdk.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier (default-build-qualifier) @ org.whole.product.lw ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.product.lw ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.product.lw ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.product.lw ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- tycho-compiler-plugin:0.23.0:compile (default-compile) @ org.whole.product.lw ---
+[INFO] Compiling 13 source files to /home/costav/git.repo/whole/org.whole.product.lw/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ org.whole.product.lw ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.product.lw/src/test/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.product.lw ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.product.lw/target/org.whole.product.lw-1.0.0.v20150908-1125-sources.jar
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.product.lw ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-plugin (default-package-plugin) @ org.whole.product.lw ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.product.lw/target/org.whole.product.lw-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.product.lw ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw.feature 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.product.lw.feature ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-id (default-validate-id) @ org.whole.product.lw.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:validate-version (default-validate-version) @ org.whole.product.lw.feature ---
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.product.lw.feature ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.product.lw.feature ---
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:package-feature (default-package-feature) @ org.whole.product.lw.feature ---
+[INFO] Building jar: /home/costav/git.repo/whole/org.whole.product.lw.feature/target/org.whole.product.lw.feature-1.0.0.v20150908-1125.jar
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:p2-metadata-default (default-p2-metadata-default) @ org.whole.product.lw.feature ---
+[INFO] 
+[INFO] --- tycho-p2-plugin:0.23.0:feature-p2-metadata (default-feature-p2-metadata) @ org.whole.product.lw.feature ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw.product 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.product.lw.product ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean-1) @ org.whole.product.lw.product ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.product.lw.product ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.product.lw.product/src/main/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.product.lw.product ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.product.lw.product ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.23.0:publish-products (default-publish-products) @ org.whole.product.lw.product ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.23.0:publish-categories (default-publish-categories) @ org.whole.product.lw.product ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.23.0:attach-artifacts (default-attach-artifacts) @ org.whole.product.lw.product ---
+[INFO] 
+[INFO] --- tycho-p2-repository-plugin:0.23.0:assemble-repository (default-assemble-repository) @ org.whole.product.lw.product ---
+[INFO] 
+[INFO] --- tycho-p2-repository-plugin:0.23.0:archive-repository (default-archive-repository) @ org.whole.product.lw.product ---
+[INFO] Building zip: /home/costav/git.repo/whole/org.whole.product.lw.product/target/org.whole.product.lw.product-1.0.0.v20150908-1125.zip
+[INFO] 
+[INFO] --- tycho-p2-director-plugin:0.23.0:materialize-products (materialize-products) @ org.whole.product.lw.product ---
+[INFO] Installing product org.whole.product.lw.product for environment linux/gtk/x86_64 to /home/costav/git.repo/whole/org.whole.product.lw.product/target/products/org.whole.product.lw.product/linux/gtk/x86_64/whole
+Installing org.whole.product.lw.product 1.0.0.v20150908-1125.
+Installing org.eclipse.sdk.feature.group 4.5.0.v20150603-2358.
+Installing org.eclipse.gef.lightweight.feature.group 3.10.200.201509150857.
+Installing org.eclipse.gef.source.feature.group 3.10.200.201509150857.
+Installing org.eclipse.draw2d.source.feature.group 3.10.200.201509150857.
+Installing com.fasterxml.jackson.feature.feature.group 2.3.1.
+Installing net.sourceforge.jodatime.feature.feature.group 1.6.2.
+Installing nu.validator.htmlparser.feature.feature.group 1.4.1.
+Installing org.beanshell.bsh.feature.feature.group 2.0.0.0b5.
+Installing org.gradle.feature.feature.group 2.4.0.
+Installing org.h2.feature.feature.group 1.2.147.
+Installing org.mozilla.rhino.feature.feature.group 1.7.6.
+Installing org.whole.product.lw.feature.feature.group 1.0.0.v20150908-1125.
+Installing org.whole.extras.feature.feature.group 1.0.0.v20150908-1125.
+Operation completed in 11125 ms.
+[INFO] Installing product org.whole.product.lw.product for environment win32/win32/x86_64 to /home/costav/git.repo/whole/org.whole.product.lw.product/target/products/org.whole.product.lw.product/win32/win32/x86_64/whole
+Installing org.whole.product.lw.product 1.0.0.v20150908-1125.
+Installing org.eclipse.sdk.feature.group 4.5.0.v20150603-2358.
+Installing org.eclipse.gef.lightweight.feature.group 3.10.200.201509150857.
+Installing org.eclipse.gef.source.feature.group 3.10.200.201509150857.
+Installing org.eclipse.draw2d.source.feature.group 3.10.200.201509150857.
+Installing com.fasterxml.jackson.feature.feature.group 2.3.1.
+Installing net.sourceforge.jodatime.feature.feature.group 1.6.2.
+Installing nu.validator.htmlparser.feature.feature.group 1.4.1.
+Installing org.beanshell.bsh.feature.feature.group 2.0.0.0b5.
+Installing org.gradle.feature.feature.group 2.4.0.
+Installing org.h2.feature.feature.group 1.2.147.
+Installing org.mozilla.rhino.feature.feature.group 1.7.6.
+Installing org.whole.product.lw.feature.feature.group 1.0.0.v20150908-1125.
+Installing org.whole.extras.feature.feature.group 1.0.0.v20150908-1125.
+Operation completed in 9898 ms.
+[INFO] Installing product org.whole.product.lw.product for environment macosx/cocoa/x86_64 to /home/costav/git.repo/whole/org.whole.product.lw.product/target/products/org.whole.product.lw.product/macosx/cocoa/x86_64/whole-lw.app
+Installing org.whole.product.lw.product 1.0.0.v20150908-1125.
+Installing org.eclipse.sdk.feature.group 4.5.0.v20150603-2358.
+Installing org.eclipse.gef.lightweight.feature.group 3.10.200.201509150857.
+Installing org.eclipse.gef.source.feature.group 3.10.200.201509150857.
+Installing org.eclipse.draw2d.source.feature.group 3.10.200.201509150857.
+Installing com.fasterxml.jackson.feature.feature.group 2.3.1.
+Installing net.sourceforge.jodatime.feature.feature.group 1.6.2.
+Installing nu.validator.htmlparser.feature.feature.group 1.4.1.
+Installing org.beanshell.bsh.feature.feature.group 2.0.0.0b5.
+Installing org.gradle.feature.feature.group 2.4.0.
+Installing org.h2.feature.feature.group 1.2.147.
+Installing org.mozilla.rhino.feature.feature.group 1.7.6.
+Installing org.whole.product.lw.feature.feature.group 1.0.0.v20150908-1125.
+Installing org.whole.extras.feature.feature.group 1.0.0.v20150908-1125.
+Operation completed in 11787 ms.
+[INFO] 
+[INFO] --- tycho-p2-director-plugin:0.23.0:archive-products (archive-products) @ org.whole.product.lw.product ---
+[INFO] Building tar: /home/costav/git.repo/whole/org.whole.product.lw.product/target/products/whole-1.0.0.v20150908-1125-linux.gtk.x86_64.tar.gz
+[INFO] Building zip: /home/costav/git.repo/whole/org.whole.product.lw.product/target/products/whole-1.0.0.v20150908-1125-win32.win32.x86_64.zip
+[INFO] Building tar: /home/costav/git.repo/whole/org.whole.product.lw.product/target/products/whole-1.0.0.v20150908-1125-macosx.cocoa.x86_64.tar.gz
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw.repository 1.0.0.v20150908-1125
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- tycho-packaging-plugin:0.23.0:build-qualifier-aggregator (default-build-qualifier-aggregator) @ org.whole.product.lw.repository ---
+[INFO] The project's OSGi version is 1.0.0.v20150908-1125
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean-1) @ org.whole.product.lw.repository ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ org.whole.product.lw.repository ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/costav/git.repo/whole/org.whole.product.lw.repository/src/main/resources
+[INFO] 
+[INFO] --- tycho-source-plugin:0.23.0:plugin-source (plugin-source) @ org.whole.product.lw.repository ---
+[INFO] 
+[INFO] --- target-platform-configuration:0.23.0:target-platform (default-target-platform) @ org.whole.product.lw.repository ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.23.0:publish-products (default-publish-products) @ org.whole.product.lw.repository ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.23.0:publish-categories (default-publish-categories) @ org.whole.product.lw.repository ---
+[INFO] 
+[INFO] --- tycho-p2-publisher-plugin:0.23.0:attach-artifacts (default-attach-artifacts) @ org.whole.product.lw.repository ---
+[INFO] 
+[INFO] --- tycho-p2-repository-plugin:0.23.0:assemble-repository (default-assemble-repository) @ org.whole.product.lw.repository ---
+[INFO] 
+[INFO] --- tycho-p2-repository-plugin:0.23.0:archive-repository (default-archive-repository) @ org.whole.product.lw.repository ---
+[INFO] Building zip: /home/costav/git.repo/whole/org.whole.product.lw.repository/target/whole-updatesite-1.0.0.v20150908-1125.zip
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Whole Platform .................................... SUCCESS [0.060s]
+[INFO] org.whole.product.lw.target ....................... SUCCESS [0.034s]
+[INFO] Whole Language Frameworks ......................... SUCCESS [4.837s]
+[INFO] org.whole.lang.feature ............................ SUCCESS [0.097s]
+[INFO] org.whole.lang.ui ................................. SUCCESS [1.353s]
+[INFO] Whole Core Languages .............................. SUCCESS [11.188s]
+[INFO] org.whole.lang.e4.ui .............................. SUCCESS [0.954s]
+[INFO] org.whole.lang.e4.ui.compatibility ................ SUCCESS [0.856s]
+[INFO] org.whole.lang.ui.notations ....................... SUCCESS [0.802s]
+[INFO] Whole Legacy Languages ............................ SUCCESS [4.062s]
+[INFO] Whole DB Languages ................................ SUCCESS [1.053s]
+[INFO] Whole Core Languages Operations ................... SUCCESS [0.558s]
+[INFO] Whole Legacy Languages Operations ................. SUCCESS [0.243s]
+[INFO] Whole DB Languages Operations ..................... SUCCESS [0.168s]
+[INFO] org.whole.standalone .............................. SUCCESS [0.071s]
+[INFO] org.whole.standalone.feature ...................... SUCCESS [0.136s]
+[INFO] org.whole.langs.core.ui ........................... SUCCESS [1.505s]
+[INFO] org.whole.langs.legacy.ui ......................... SUCCESS [0.746s]
+[INFO] org.whole.langs.db.ui ............................. SUCCESS [0.239s]
+[INFO] org.whole.lang.gen ................................ SUCCESS [0.700s]
+[INFO] org.whole.lang.gen.feature ........................ SUCCESS [0.079s]
+[INFO] org.whole.rcp ..................................... SUCCESS [0.266s]
+[INFO] org.whole.rcp.feature ............................. SUCCESS [0.183s]
+[INFO] org.whole.langs.misc .............................. SUCCESS [1.091s]
+[INFO] org.whole.langs.misc.feature ...................... SUCCESS [0.080s]
+[INFO] org.whole.lang.ide ................................ SUCCESS [0.626s]
+[INFO] org.whole.ide ..................................... SUCCESS [0.079s]
+[INFO] org.whole.ide.feature ............................. SUCCESS [0.118s]
+[INFO] org.whole.examples ................................ SUCCESS [0.943s]
+[INFO] org.whole.examples.feature ........................ SUCCESS [0.066s]
+[INFO] org.whole.examples.db ............................. SUCCESS [0.286s]
+[INFO] org.whole.examples.db.feature ..................... SUCCESS [0.068s]
+[INFO] org.whole.extras .................................. SUCCESS [0.083s]
+[INFO] org.whole.test .................................... SUCCESS [1.901s]
+[INFO] org.whole.test.feature ............................ SUCCESS [0.069s]
+[INFO] org.whole.extras.feature .......................... SUCCESS [0.094s]
+[INFO] org.whole.sdk ..................................... SUCCESS [0.074s]
+[INFO] org.whole.sdk.feature ............................. SUCCESS [0.110s]
+[INFO] org.whole.product.lw .............................. SUCCESS [0.435s]
+[INFO] org.whole.product.lw.feature ...................... SUCCESS [0.071s]
+[INFO] org.whole.product.lw.product ...................... SUCCESS [1:23.939s]
+[INFO] org.whole.product.lw.repository ................... SUCCESS [6.582s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2:26.100s
+[INFO] Finished at: Wed Sep 16 09:21:24 CEST 2015
+[INFO] Final Memory: 95M/980M
+[INFO] ------------------------------------------------------------------------
+:set_meta_version
+:build_lw
+:clean_lw
+[INFO] Scanning for projects...
+[WARNING] The POM for org.apache.maven:maven-toolchain:jar:2.0.9 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang/pom-lw.xml
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/mars/ (0B at 0B/s)
+[INFO] Adding repository http://download.eclipse.org/releases/mars
+[INFO] Fetching p2.index from http://download.eclipse.org/technology/epp/packages/mars/ (0B at 0B/s)
+[INFO] Fetching p2.index from http://download.eclipse.org/releases/mars/201506241002/ (0B at 0B/s)
+[INFO] Adding repository file:../../whole-java-libs/org.whole.product.ef.releng/whole-ef-updates/
+[INFO] Fetching p2.index from http://download.eclipse.org/eclipse/updates/4.5/ (0B at 0B/s)
+[INFO] Adding repository http://download.eclipse.org/eclipse/updates/4.5
+[INFO] Fetching p2.index from http://download.eclipse.org/eclipse/updates/4.5/R-4.5-201506032000/ (0B at 0B/s)
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.e4.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.e4.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.e4.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.e4.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.e4.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.e4.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.e4.ui.compatibility:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.e4.ui.compatibility:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.e4.ui.compatibility:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.ui.notations:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ui.notations/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.ui.notations:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ui.notations/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.ui.notations:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ui.notations/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.core:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.core:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.core:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.legacy:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.legacy:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.legacy:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.db:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.db:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.db:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.core.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core.op/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.core.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core.op/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.core.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core.op/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.legacy.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy.op/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.legacy.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy.op/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.legacy.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy.op/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.db.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db.op/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.db.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db.op/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.db.op:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db.op/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.standalone:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.standalone/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.standalone:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.standalone/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.standalone:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.standalone/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.standalone.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.standalone.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.standalone.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.standalone.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.standalone.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.standalone.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.core.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.core.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.core.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.core.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.legacy.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.legacy.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.legacy.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.legacy.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.db.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db.ui/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.db.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db.ui/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.db.ui:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.db.ui/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.gen:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.gen/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.gen:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.gen/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.gen:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.gen/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.gen.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.gen.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.gen.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.gen.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.gen.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.gen.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.rcp:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.rcp/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.rcp:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.rcp/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.rcp:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.rcp/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.rcp.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.rcp.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.rcp.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.rcp.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.rcp.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.rcp.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.misc:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.misc/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.misc:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.misc/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.misc:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.misc/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.langs.misc.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.misc.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.langs.misc.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.misc.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.langs.misc.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.langs.misc.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.lang.ide:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ide/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.lang.ide:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ide/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.lang.ide:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.lang.ide/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.ide:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.ide/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.ide:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.ide/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.ide:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.ide/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.ide.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.ide.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.ide.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.ide.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.ide.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.ide.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.examples:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.examples:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.examples:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.examples.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.examples.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.examples.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.examples.db:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.db/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.examples.db:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.db/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.examples.db:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.db/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.examples.db.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.db.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.examples.db.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.db.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.examples.db.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.examples.db.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.extras:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.extras/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.extras:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.extras/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.extras:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.extras/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.extras.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.extras.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.extras.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.extras.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.extras.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.extras.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.test:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.test/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.test:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.test/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.test:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.test/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.test.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.test.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.test.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.test.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.test.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.test.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.sdk:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.sdk/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.sdk:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.sdk/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.sdk:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.sdk/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.sdk.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.sdk.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.sdk.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.sdk.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.sdk.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.sdk.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.product.lw:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.product.lw:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.product.lw:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.product.lw.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.feature/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.product.lw.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.feature/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.product.lw.feature:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.feature/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.product.lw.product:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.product/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.product.lw.product:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.product/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.product.lw.product:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.product/pom-lw.xml
+[INFO] Computing target platform for MavenProject: com.wholeplatform:org.whole.product.lw.repository:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.repository/pom-lw.xml
+[INFO] Resolving dependencies of MavenProject: com.wholeplatform:org.whole.product.lw.repository:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.repository/pom-lw.xml
+[INFO] Resolving class path of MavenProject: com.wholeplatform:org.whole.product.lw.repository:1.0.0-SNAPSHOT @ /home/costav/git.repo/whole/org.whole.product.lw.repository/pom-lw.xml
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Whole Platform
+[INFO] org.whole.product.lw.target
+[INFO] Whole Language Frameworks
+[INFO] org.whole.lang.feature
+[INFO] org.whole.lang.ui
+[INFO] Whole Core Languages
+[INFO] org.whole.lang.e4.ui
+[INFO] org.whole.lang.e4.ui.compatibility
+[INFO] org.whole.lang.ui.notations
+[INFO] Whole Legacy Languages
+[INFO] Whole DB Languages
+[INFO] Whole Core Languages Operations
+[INFO] Whole Legacy Languages Operations
+[INFO] Whole DB Languages Operations
+[INFO] org.whole.standalone
+[INFO] org.whole.standalone.feature
+[INFO] org.whole.langs.core.ui
+[INFO] org.whole.langs.legacy.ui
+[INFO] org.whole.langs.db.ui
+[INFO] org.whole.lang.gen
+[INFO] org.whole.lang.gen.feature
+[INFO] org.whole.rcp
+[INFO] org.whole.rcp.feature
+[INFO] org.whole.langs.misc
+[INFO] org.whole.langs.misc.feature
+[INFO] org.whole.lang.ide
+[INFO] org.whole.ide
+[INFO] org.whole.ide.feature
+[INFO] org.whole.examples
+[INFO] org.whole.examples.feature
+[INFO] org.whole.examples.db
+[INFO] org.whole.examples.db.feature
+[INFO] org.whole.extras
+[INFO] org.whole.test
+[INFO] org.whole.test.feature
+[INFO] org.whole.extras.feature
+[INFO] org.whole.sdk
+[INFO] org.whole.sdk.feature
+[INFO] org.whole.product.lw
+[INFO] org.whole.product.lw.feature
+[INFO] org.whole.product.lw.product
+[INFO] org.whole.product.lw.repository
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Platform 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.products.releng ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw.target 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.product.lw.target ---
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Language Frameworks 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.ui 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang.ui ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang.ui/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Core Languages 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.core ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.core/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.e4.ui 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang.e4.ui ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang.e4.ui/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.e4.ui.compatibility 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang.e4.ui.compatibility ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang.e4.ui.compatibility/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.ui.notations 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang.ui.notations ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang.ui.notations/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Legacy Languages 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.legacy ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.legacy/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole DB Languages 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.db ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.db/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Core Languages Operations 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.core.op ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.core.op/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole Legacy Languages Operations 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.legacy.op ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.legacy.op/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Whole DB Languages Operations 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.db.op ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.db.op/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.standalone 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.standalone ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.standalone/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.standalone.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.standalone.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.standalone.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.core.ui 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.core.ui ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.core.ui/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.legacy.ui 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.legacy.ui ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.legacy.ui/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.db.ui 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.db.ui ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.db.ui/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.gen 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang.gen ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang.gen/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.gen.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang.gen.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang.gen.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.rcp 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.rcp ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.rcp/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.rcp.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.rcp.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.rcp.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.misc 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.misc ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.misc/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.langs.misc.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.langs.misc.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.langs.misc.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.lang.ide 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.lang.ide ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.lang.ide/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.ide 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.ide ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.ide/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.ide.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.ide.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.ide.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.examples 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.examples ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.examples/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.examples.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.examples.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.examples.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.examples.db 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.examples.db ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.examples.db/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.examples.db.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.examples.db.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.examples.db.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.extras 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.extras ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.extras/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.test 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.test ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.test/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.test.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.test.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.test.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.extras.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.extras.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.extras.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.sdk 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.sdk ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.sdk/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.sdk.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.sdk.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.sdk.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.product.lw ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.product.lw/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw.feature 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.product.lw.feature ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.product.lw.feature/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw.product 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.product.lw.product ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.product.lw.product/target
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building org.whole.product.lw.repository 1.0.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.4.1:clean (default-clean) @ org.whole.product.lw.repository ---
+[INFO] Deleting /home/costav/git.repo/whole/org.whole.product.lw.repository/target
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] Whole Platform .................................... SUCCESS [0.098s]
+[INFO] org.whole.product.lw.target ....................... SUCCESS [0.002s]
+[INFO] Whole Language Frameworks ......................... SUCCESS [0.051s]
+[INFO] org.whole.lang.feature ............................ SUCCESS [0.003s]
+[INFO] org.whole.lang.ui ................................. SUCCESS [0.050s]
+[INFO] Whole Core Languages .............................. SUCCESS [0.241s]
+[INFO] org.whole.lang.e4.ui .............................. SUCCESS [0.016s]
+[INFO] org.whole.lang.e4.ui.compatibility ................ SUCCESS [0.014s]
+[INFO] org.whole.lang.ui.notations ....................... SUCCESS [0.019s]
+[INFO] Whole Legacy Languages ............................ SUCCESS [0.073s]
+[INFO] Whole DB Languages ................................ SUCCESS [0.027s]
+[INFO] Whole Core Languages Operations ................... SUCCESS [0.024s]
+[INFO] Whole Legacy Languages Operations ................. SUCCESS [0.012s]
+[INFO] Whole DB Languages Operations ..................... SUCCESS [0.008s]
+[INFO] org.whole.standalone .............................. SUCCESS [0.003s]
+[INFO] org.whole.standalone.feature ...................... SUCCESS [0.002s]
+[INFO] org.whole.langs.core.ui ........................... SUCCESS [0.063s]
+[INFO] org.whole.langs.legacy.ui ......................... SUCCESS [0.029s]
+[INFO] org.whole.langs.db.ui ............................. SUCCESS [0.009s]
+[INFO] org.whole.lang.gen ................................ SUCCESS [0.020s]
+[INFO] org.whole.lang.gen.feature ........................ SUCCESS [0.005s]
+[INFO] org.whole.rcp ..................................... SUCCESS [0.003s]
+[INFO] org.whole.rcp.feature ............................. SUCCESS [0.008s]
+[INFO] org.whole.langs.misc .............................. SUCCESS [0.034s]
+[INFO] org.whole.langs.misc.feature ...................... SUCCESS [0.004s]
+[INFO] org.whole.lang.ide ................................ SUCCESS [0.014s]
+[INFO] org.whole.ide ..................................... SUCCESS [0.003s]
+[INFO] org.whole.ide.feature ............................. SUCCESS [0.005s]
+[INFO] org.whole.examples ................................ SUCCESS [0.056s]
+[INFO] org.whole.examples.feature ........................ SUCCESS [0.004s]
+[INFO] org.whole.examples.db ............................. SUCCESS [0.016s]
+[INFO] org.whole.examples.db.feature ..................... SUCCESS [0.005s]
+[INFO] org.whole.extras .................................. SUCCESS [0.008s]
+[INFO] org.whole.test .................................... SUCCESS [0.072s]
+[INFO] org.whole.test.feature ............................ SUCCESS [0.003s]
+[INFO] org.whole.extras.feature .......................... SUCCESS [0.005s]
+[INFO] org.whole.sdk ..................................... SUCCESS [0.007s]
+[INFO] org.whole.sdk.feature ............................. SUCCESS [0.005s]
+[INFO] org.whole.product.lw .............................. SUCCESS [0.015s]
+[INFO] org.whole.product.lw.feature ...................... SUCCESS [0.007s]
+[INFO] org.whole.product.lw.product ...................... SUCCESS [0.633s]
+[INFO] org.whole.product.lw.repository ................... SUCCESS [0.033s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 24.399s
+[INFO] Finished at: Wed Sep 16 09:21:53 CEST 2015
+[INFO] Final Memory: 96M/579M
+[INFO] ------------------------------------------------------------------------
+
+BUILD SUCCESSFUL
+
+Total time: 3 mins 1.196 secs
+Completed without errors
+
+This build could be faster, please consider using the Gradle Daemon: https://docs.gradle.org/2.6/userguide/gradle_daemon.html

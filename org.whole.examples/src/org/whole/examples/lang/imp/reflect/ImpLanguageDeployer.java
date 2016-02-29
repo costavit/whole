@@ -3,8 +3,6 @@ package org.whole.examples.lang.imp.reflect;
 import org.whole.examples.lang.imp.builders.IImpBuilder;
 import org.whole.examples.lang.imp.builders.ImpGenericBuilderAdapter;
 import org.whole.examples.lang.imp.builders.ImpSpecificBuilderAdapter;
-import org.whole.examples.lang.imp.visitors.BytecodeGeneratorOperation;
-import org.whole.examples.lang.imp.visitors.ImpBytecodeGeneratorVisitor;
 import org.whole.examples.lang.imp.visitors.ImpDefUseValidatorVisitor;
 import org.whole.examples.lang.imp.visitors.ImpInterpreterVisitor;
 import org.whole.examples.lang.imp.visitors.ImpPrettyPrinterVisitor;
@@ -71,12 +69,7 @@ public class ImpLanguageDeployer extends AbstractLanguageDeployer {
 				), false);
 			}
 		});
-		platform.addOperationFactory(ImpLanguageKit.URI, BytecodeGeneratorOperation.ID,
-				new IVisitorFactory() {
-			public IVisitor create(IOperation operation, int stage) {
-				return new ImpBytecodeGeneratorVisitor((BytecodeGeneratorOperation) operation);
-			}
-		});
+		
 	}
 
 	public void undeploy(ReflectionFactory platform) {

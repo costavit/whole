@@ -20,7 +20,7 @@ package org.whole.lang.reusables.model.impl;
 import org.whole.lang.model.AbstractListCompositeEntity;
 import org.whole.lang.reusables.model.*;
 import org.whole.lang.reusables.visitors.IReusablesVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.reusables.reflect.ReusablesEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
 
@@ -34,7 +34,7 @@ public class ReusablesImpl extends AbstractListCompositeEntity<Reusable> impleme
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

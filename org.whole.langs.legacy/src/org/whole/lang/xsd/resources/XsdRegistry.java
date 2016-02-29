@@ -123,7 +123,7 @@ public class XsdRegistry extends ResourceRegistry<IResource> {
 	public boolean removeSchema(Schema schema) {
 		return removeSchema(schema.getTargetNamespace().getValue());
 	}
-	public boolean removeSchema(String targetNamespace) {
+	public boolean removeSchema(final String targetNamespace) {
 //		updateSchemaLocation(targetNamespace, null);
 		//FIXME clear location somewhere
 		boolean removed = removeResource(targetNamespace);

@@ -22,7 +22,7 @@ import org.whole.lang.xml.model.QualifiedName;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.xml.reflect.XmlEntityDescriptorEnum;
 import org.whole.lang.xml.visitors.IXmlVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.xml.model.NameSpace;
 import org.whole.lang.xml.reflect.XmlFeatureDescriptorEnum;
 import org.whole.lang.model.IEntity;
@@ -46,7 +46,7 @@ public class QualifiedNameImpl extends AbstractSimpleEntity implements Qualified
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

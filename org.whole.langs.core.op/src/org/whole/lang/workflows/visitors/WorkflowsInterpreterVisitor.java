@@ -48,7 +48,7 @@ import org.whole.lang.codebase.URLPersistenceProvider;
 import org.whole.lang.commons.parsers.CommonsDataTypePersistenceParser;
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
 import org.whole.lang.commons.visitors.CommonsInterpreterVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.exceptions.WholeIllegalArgumentException;
 import org.whole.lang.factories.GenericEntityFactory;
 import org.whole.lang.factories.IEntityFactory;
@@ -426,7 +426,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 			if (OperationEnum.NORMALIZER == entity.getOperation().getValue())
 				bm.setResult(model);
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 
@@ -536,7 +536,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 	
 			setResult(entity.getModel(), model);
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 	@Override
@@ -568,7 +568,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 			IEntity model = getJavaTemplateFactory(entity).create();
 			setResult(entity.getModel(), model);
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 
@@ -601,7 +601,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 	
 			ArtifactsDeleteVisitor.delete(model, bindings);
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 
@@ -641,7 +641,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 			
 			setResult(result);
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 
@@ -667,7 +667,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 							createArtifactsBindings(resource, resourceKind),
 								defaultPersistenceKit, false);
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 
@@ -703,7 +703,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 						+getResourceString(entity)+", "+getPersistenceId(entity.getPersistence()), e);
 			}
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 	@Override
@@ -724,7 +724,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 						+getResourceString(entity)+", "+getPersistenceId(entity.getPersistence()), e);
 			}
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 	protected String getResourceString(PersistenceActivity entity) {
@@ -846,7 +846,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 		} catch (ParseException e) {
 			throw e;//FIXME ?
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 	@Override
@@ -896,7 +896,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 	
 			setResult(resultEntity);
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 
@@ -921,7 +921,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 	
 			setResult(entity.getResult(), resultValue, constructor.getDeclaringClass());
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 	@Override
@@ -945,7 +945,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 	
 			setResult(entity.getResult(), resultValue, method.getReturnType());
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 
@@ -972,7 +972,7 @@ public class WorkflowsInterpreterVisitor extends WorkflowsTraverseAllVisitor {
 	
 			setResult(entity.getResult(), resultValue, method.getReturnType());
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, entity, getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, entity, getBindings());
 		}
 	}
 

@@ -75,4 +75,7 @@ public class WholeIllegalArgumentException extends IllegalArgumentException impl
 		return sourceCause;
 	}
 //end same code
+	public RuntimeException asException() {
+		return (RuntimeException) this;
+	}
 }

@@ -1,12 +1,15 @@
 package org.whole.lang.actions.model.impl;
 
-import org.whole.lang.model.AbstractSimpleEntity;
-import org.whole.lang.actions.model.*;
-import org.whole.lang.reflect.EntityDescriptor;
+import org.whole.lang.actions.model.ActionCall;
+import org.whole.lang.actions.model.Label;
+import org.whole.lang.actions.model.SelectedEntities;
 import org.whole.lang.actions.reflect.ActionsEntityDescriptorEnum;
-import org.whole.lang.actions.visitors.IActionsVisitor;
 import org.whole.lang.actions.reflect.ActionsFeatureDescriptorEnum;
+import org.whole.lang.actions.visitors.IActionsVisitor;
+import org.whole.lang.exceptions.WholeExceptionUtil;
+import org.whole.lang.model.AbstractSimpleEntity;
 import org.whole.lang.model.IEntity;
+import org.whole.lang.reflect.EntityDescriptor;
 
 /** 
  * @generator Whole
@@ -26,7 +29,7 @@ public class ActionCallImpl extends AbstractSimpleEntity implements ActionCall {
 		try {
 			visitor.visit(this);
 		} catch (Exception e) {
-			throw org.whole.lang.exceptions.IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
 		}
 	}
 

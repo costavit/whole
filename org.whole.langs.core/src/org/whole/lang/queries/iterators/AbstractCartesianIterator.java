@@ -22,7 +22,7 @@ import java.util.NoSuchElementException;
 import org.whole.lang.bindings.BindingManagerFactory;
 import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.bindings.IBindingScope;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.iterators.AbstractDelegatingIterator;
 import org.whole.lang.iterators.IEntityIterator;
 import org.whole.lang.model.IEntity;
@@ -83,7 +83,7 @@ public abstract class AbstractCartesianIterator<E extends IEntity> extends Abstr
 		try {
 			nextEntity = doLookahead(lastToEntity, nextEntity);
 		} catch(Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, getSourceEntity(), getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, getSourceEntity(), getBindings());
 		}
 
 		return nextEntity;
@@ -101,7 +101,7 @@ public abstract class AbstractCartesianIterator<E extends IEntity> extends Abstr
 		try {
 			doNext(lastToEntity, result);
 		} catch(Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, getSourceEntity(), getBindings());
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, getSourceEntity(), getBindings());
 		}
 
 		nextEntity = null;

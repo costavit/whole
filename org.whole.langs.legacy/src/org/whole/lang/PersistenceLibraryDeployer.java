@@ -74,43 +74,49 @@ public class PersistenceLibraryDeployer extends AbstractFunctionLibraryDeployer 
 	}
 
 	public static IEntityIterator<IEntity> stringToModelIterator() {
-		return IteratorFactory.singleValuedRunnableIterator(
-				(IEntity selfEntity, IBindingManager bm, IEntity... arguments) -> {
-					StringPersistenceProvider pp = new StringPersistenceProvider(selfEntity.wStringValue());
-					
-					IPersistenceKit persistenceKit = null;
-					try {
-						persistenceKit = derivePersistenceKit(bm, pp);
-					} catch (Exception e) {
-						throw new IllegalArgumentException("Failed to load the persistence kit", e);
-					}
-					try {
-						bm.setResult(persistenceKit.readModel(pp));
-					} catch (Exception e) {
-						throw new IllegalArgumentException("Failed to load the resource with the given persistence: " + persistenceKit.getId(), e);
-					}
-				});
+		return IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+			
+			@Override
+			public void run(IEntity selfEntity, IBindingManager bm, IEntity... arguments) {
+				StringPersistenceProvider pp = new StringPersistenceProvider(selfEntity.wStringValue());
+				
+				IPersistenceKit persistenceKit = null;
+				try {
+					persistenceKit = derivePersistenceKit(bm, pp);
+				} catch (Exception e) {
+					throw new IllegalArgumentException("Failed to load the persistence kit", e);
+				}
+				try {
+					bm.setResult(persistenceKit.readModel(pp));
+				} catch (Exception e) {
+					throw new IllegalArgumentException("Failed to load the resource with the given persistence: " + persistenceKit.getId(), e);
+				}
+			}
+		});
 	}
 	public static IEntityIterator<IEntity> modelToStringIterator() {
-		return IteratorFactory.singleValuedRunnableIterator(
-				(IEntity selfEntity, IBindingManager bm, IEntity... arguments) -> {
-					StringPersistenceProvider pp = new StringPersistenceProvider();
-					pp.getBindings().wDefValue("entityURI", selfEntity.wGetEntityDescriptor().getURI());
+		return IteratorFactory.singleValuedRunnableIterator(new IRunnable() {
+			
+			@Override
+			public void run(IEntity selfEntity, IBindingManager bm, IEntity... arguments) {
+				StringPersistenceProvider pp = new StringPersistenceProvider();
+				pp.getBindings().wDefValue("entityURI", selfEntity.wGetEntityDescriptor().getURI());
 
-					IPersistenceKit persistenceKit = null;
-					try {
-						persistenceKit = derivePersistenceKit(bm, pp);
-					} catch (Exception e) {
-						throw new IllegalArgumentException("Failed to load the persistence kit", e);
-					}
-					try {
-						persistenceKit.writeModel(selfEntity, pp);
-					} catch (Exception e) {
-						throw new IllegalArgumentException("Failed to load the resource with the given persistence: " + persistenceKit.getId(), e);
-					}
+				IPersistenceKit persistenceKit = null;
+				try {
+					persistenceKit = derivePersistenceKit(bm, pp);
+				} catch (Exception e) {
+					throw new IllegalArgumentException("Failed to load the persistence kit", e);
+				}
+				try {
+					persistenceKit.writeModel(selfEntity, pp);
+				} catch (Exception e) {
+					throw new IllegalArgumentException("Failed to load the resource with the given persistence: " + persistenceKit.getId(), e);
+				}
 
-					bm.setResult(BindingManagerFactory.instance.createValue(pp.getStore()));
-				});
+				bm.setResult(BindingManagerFactory.instance.createValue(pp.getStore()));
+			}
+		});
 	}
 	protected static IPersistenceKit derivePersistenceKit(IBindingManager bm, StringPersistenceProvider pp) {
 		String persistenceKitId = null;

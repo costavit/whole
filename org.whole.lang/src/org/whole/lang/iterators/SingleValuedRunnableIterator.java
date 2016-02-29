@@ -18,7 +18,7 @@
 package org.whole.lang.iterators;
 
 import org.whole.lang.bindings.IBindingManager;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.util.IRunnable;
 
@@ -37,7 +37,7 @@ public class SingleValuedRunnableIterator<E extends IEntity> extends AbstractSin
 		try {
 			runnable.run(selfEntity, bm, arguments);
 		} catch (Exception e) {
-			throw IWholeRuntimeException.asWholeException(e, getSourceEntity(), bm);
+			throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(e, getSourceEntity(), bm);
 		}
 	}
 

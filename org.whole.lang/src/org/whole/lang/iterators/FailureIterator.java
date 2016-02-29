@@ -20,7 +20,7 @@ package org.whole.lang.iterators;
 import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.bindings.IBindingScope;
 import org.whole.lang.bindings.NullScope;
-import org.whole.lang.exceptions.IWholeRuntimeException;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.model.IEntity;
 
 /**
@@ -46,10 +46,10 @@ public class FailureIterator<E extends IEntity> extends AbstractCloneableIterato
 		return true;
 	}
 	public E lookahead() {
-		throw IWholeRuntimeException.asWholeException(failure, getSourceEntity(), null);
+		throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(failure, getSourceEntity(), null);
 	}
 	public E next() {
-		throw IWholeRuntimeException.asWholeException(failure, getSourceEntity(), null);
+		throw org.whole.lang.exceptions.WholeExceptionUtil.asWholeException(failure, getSourceEntity(), null);
 	}
 
 	public void prune() {
