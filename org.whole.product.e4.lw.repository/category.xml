@@ -3,7 +3,7 @@
    <feature id="org.whole.product.e4.lw.feature">
       <category name="whole-e4-lw"/>
    </feature>
-   <category-def name="whole-e4-lw" label="Whole E4 Language Workbench 1.0.0.qualifier">
+   <category-def name="whole-e4-lw" label="Whole E4 Language Workbench 1.0.7.qualifier">
       <description>
          Whole E4 Language Workbench features with sources.
       </description>

@@ -5,7 +5,7 @@
 			uid="org.whole.product.e4.lw.product"
 			id="org.whole.product.e4.lw.product"
 			application="org.eclipse.e4.ui.workbench.swt.E4Application"
-			version="1.0.0.qualifier" useFeatures="true" includeLaunchers="true">
+			version="1.0.7.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>

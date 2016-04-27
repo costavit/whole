@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-Vendor: %providerName
 Bundle-SymbolicName: org.whole.product.e4.lw;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.7.qualifier
 Require-Bundle: javax.inject,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,

@@ -2,7 +2,7 @@
 <feature
       id="org.whole.langs.misc.feature"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="1.0.7.qualifier"
       provider-name="%providerName"
       plugin="org.whole.langs.misc">
 
@@ -25,21 +25,21 @@
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
-      <import feature="org.whole.rcp.feature" version="1.0.0.qualifier"/>
+      <import feature="org.whole.rcp.feature" version="1.0.7.qualifier"/>
    </requires>
 
    <plugin
          id="org.whole.lang.e4.ui.compatibility"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="1.0.7.qualifier"
          unpack="false"/>
 
    <plugin
          id="org.whole.langs.misc"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="1.0.7.qualifier"
          unpack="false"/>
 
 </feature>

@@ -18,7 +18,7 @@ public class WholeExceptionUtil {
 		else if (e instanceof IllegalStateException)
 			return new WholeIllegalStateException(e).withSourceEntity(sourceEntity).withBindings(bm);
 		else if (e instanceof IWholeFrameworkException)
-			return ((IWholeFrameworkException) e).asException();
+			return new RuntimeException(e);
 		else
 			return new WholeRuntimeException(e).withSourceEntity(sourceEntity).withBindings(bm);
 	}

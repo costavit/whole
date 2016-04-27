@@ -2,7 +2,7 @@
 <feature
       id="org.whole.examples.db.feature"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="1.0.7.qualifier"
       provider-name="%providerName"
       plugin="org.whole.examples.db">
 
@@ -25,7 +25,7 @@
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
-      <import feature="org.whole.ide.feature" version="1.0.0.qualifier"/>
+      <import feature="org.whole.ide.feature" version="1.0.7.qualifier"/>
       <import feature="org.h2.feature" version="1.0.78" match="compatible"/>
    </requires>
 
@@ -33,7 +33,7 @@
          id="org.whole.examples.db"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="1.0.7.qualifier"
          unpack="false"/>
 
 </feature>

@@ -6,7 +6,7 @@
 
 	<groupId>com.wholeplatform</groupId>
 	<artifactId>org.whole.products.releng</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.7-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Whole Platform Application</name>
@@ -154,7 +154,7 @@
 						<artifact>
 							<groupId>com.wholeplatform</groupId>
 							<artifactId>org.whole.product.e4.lw.target</artifactId>
-							<version>1.0.0-SNAPSHOT</version>
+							<version>1.0.7-SNAPSHOT</version>
 							<classifier>MARS_4_5_x</classifier>
 						</artifact>
 					</target>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: org.whole.lang.e4.ui.compatibility;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.0.7.qualifier
 Bundle-Activator: org.whole.lang.e4.ui.E4CompatibilityPlugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName

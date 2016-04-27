@@ -2,7 +2,7 @@
 <feature
       id="org.whole.examples.feature"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="1.0.7.qualifier"
       provider-name="%providerName"
       plugin="org.whole.examples">
 
@@ -25,14 +25,14 @@
 
    <requires>
       <import plugin="org.eclipse.core.runtime"/>
-      <import feature="org.whole.ide.feature" version="1.0.0.qualifier"/>
+      <import feature="org.whole.ide.feature" version="1.0.7.qualifier"/>
    </requires>
 
    <plugin
          id="org.whole.examples"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="1.0.7.qualifier"
          unpack="false"/>
 
 </feature>

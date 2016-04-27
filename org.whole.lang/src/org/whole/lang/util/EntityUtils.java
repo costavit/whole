@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
 import org.whole.lang.comparators.IEntityComparator;
@@ -503,9 +502,12 @@ public class EntityUtils {
 		return getEntity(toModel, getLocation(entity));
 	}
 	public static List<IEntity> mapEntities(List<IEntity> entities, IEntity toModel) {
-		return entities.stream()
-				.map((entity) -> mapEntity(entity, toModel))
-				.filter((entity) -> entity != null)
-				.collect(Collectors.toCollection(ArrayList::new));
+		List<IEntity> result = new ArrayList<>();
+		for (IEntity iEntity : entities) {
+			IEntity r = mapEntity(iEntity, toModel);
+			if (r != null)
+				result.add(r);
+		}
+		return result;
 	}
 }

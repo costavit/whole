@@ -19,12 +19,15 @@ package org.whole.lang.util;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.function.Supplier;
 
 /**
  * @author Riccardo Solmi
  */
 public class CompositeUtils {
+	public static interface Supplier<T> {
+	    T get();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static <T> T[] resize(T[] array, int length, Supplier<T> fillElementSupplier) {
 		if (array.length == length)
@@ -58,13 +61,28 @@ public class CompositeUtils {
 		return newArray;
 	}
 
-	public static <T> T[] grow(T[] array, int length, T fillElement) {
-		return array.length >= length ? array : resize(array, length, () -> fillElement);
+	public static <T> T[] grow(T[] array, int length, final T fillElement) {
+    	return array.length >= length ? array : resize(array, length, new Supplier<T>() {
+    		@Override
+    		public T get() {
+    			return fillElement;
+    		}
+		});
 	}
-	public static int[] grow(int[] array, int length, int fillElement) {
-		return array.length >= length ? array : resize(array, length, () -> fillElement);
+	public static int[] grow(int[] array, int length, final int fillElement) {
+		return array.length >= length ? array : resize(array, length, new Supplier<Integer>() {
+    		@Override
+    		public Integer get() {
+    			return fillElement;
+    		}
+		});
 	}
-	public static boolean[] grow(boolean[] array, int length, boolean fillElement) {
-		return array.length >= length ? array : resize(array, length, () -> fillElement);
+	public static boolean[] grow(boolean[] array, int length, final boolean fillElement) {
+		return array.length >= length ? array : resize(array, length, new Supplier<Boolean>() {
+    		@Override
+    		public Boolean get() {
+    			return fillElement;
+    		}
+		});
 	}
 }

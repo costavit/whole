@@ -2,7 +2,7 @@
 <feature
       id="org.whole.test.feature"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="1.0.7.qualifier"
       provider-name="%providerName"
       plugin="org.whole.test">
 
@@ -24,14 +24,14 @@
    </url>
 
    <requires>
-      <import feature="org.whole.lang.gen.feature" version="1.0.0.qualifier"/>
+      <import feature="org.whole.lang.gen.feature" version="1.0.7.qualifier"/>
    </requires>
 
    <plugin
          id="org.whole.test"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"
+         version="1.0.7.qualifier"
          unpack="false"/>
 
 </feature>

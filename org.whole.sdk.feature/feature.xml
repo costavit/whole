@@ -2,7 +2,7 @@
 <feature
       id="org.whole.sdk.feature"
       label="%featureName"
-      version="1.0.0.qualifier"
+      version="1.0.7.qualifier"
       provider-name="%providerName"
       plugin="org.whole.sdk">
 
@@ -129,6 +129,6 @@
          id="org.whole.sdk"
          download-size="0"
          install-size="0"
-         version="1.0.0.qualifier"/>
+         version="1.0.7.qualifier"/>
 
 </feature>
