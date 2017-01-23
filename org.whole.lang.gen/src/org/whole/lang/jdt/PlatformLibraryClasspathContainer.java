@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -61,6 +61,10 @@ public class PlatformLibraryClasspathContainer implements IClasspathContainer {
 		bundles.add("org.h2");
 		bundles.add("org.mozilla.rhino");
 		bundles.add("org.objectweb.asm");
+		bundles.add("org.antlr.antlr4");
+		bundles.add("net.java.dev.jna");
+		bundles.add("ca.weblite.java-objc-bridge");
+		bundles.add("com.github.jai.imageio.core");
 
 		BUNDLE_IDS = Collections.unmodifiableSet(bundles);
 	};

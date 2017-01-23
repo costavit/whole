@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.operation.IRunnableWithProgress;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.operations.OperationCanceledException;
 import org.whole.lang.ui.viewers.EntityEditDomain;
 
@@ -41,10 +41,13 @@ public class EntityEditDomainJob extends Job {
 	public IStatus run(IProgressMonitor monitor) {
 		try {
 			runnable.run(monitor);
-		} catch (OperationCanceledException | InterruptedException e) {
+		} catch (OperationCanceledException e) {
 			// do nothing
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
 		} catch (Exception e) {
-			return new Status(Status.ERROR, IUIConstants.BUNDLE_ID, 0, "An exception occurred while executing the job "+getName(), e);
+			return new Status(Status.ERROR, IE4UIConstants.BUNDLE_ID, 0, "An exception occurred while executing the job "+getName(), e);
 		} finally {
 			monitor.done();
 		}
@@ -58,5 +61,20 @@ public class EntityEditDomainJob extends Job {
 		job.setUser(false);
 		job.setPriority(Job.INTERACTIVE);
 		job.schedule();
+	}
+	
+	public static void syncExec(String name, EntityEditDomain editDomain, IRunnableWithProgress runnable) {
+		EntityEditDomainJob job = new EntityEditDomainJob(name, runnable);
+		job.setRule(editDomain);
+		job.setUser(false);
+		job.setPriority(Job.INTERACTIVE);
+		job.schedule();
+		try {
+			job.join(3000, null);
+		} catch (OperationCanceledException e) {
+			// terminate gracefully
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
 	}
 }

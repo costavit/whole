@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@ import org.whole.lang.ui.figures.ArrowFactory;
 import org.whole.lang.ui.figures.ArrowFigure;
 import org.whole.lang.ui.figures.ContentPaneFigure;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.ArrowFactory.ArrowKind;
 import org.whole.lang.ui.figures.ArrowFactory.Direction;
 import org.whole.lang.ui.layout.OverLayout;
@@ -50,9 +50,9 @@ public class RepeatFigure extends ContentPaneFigure {
 		row.addContentLight("..");
 		row.add(createContentPane(1));
 		row.addContentLight("]");
-	    row.add(new ArrowFigure(1f, ArrowKind.NONE, ArrowKind.NONE, PreferenceConstants.RELATIONS_COLOR, true));
+	    row.add(new ArrowFigure(1f, ArrowKind.NONE, ArrowKind.NONE, PreferenceConstants.RELATIONS_CATEGORY, true));
 		row.add(createContentPane(2));
-	    row.add(new ArrowFigure(0f, ArrowKind.TRIANGLE, ArrowKind.NONE, PreferenceConstants.RELATIONS_COLOR, true));
+	    row.add(new ArrowFigure(0f, ArrowKind.TRIANGLE, ArrowKind.NONE, PreferenceConstants.RELATIONS_CATEGORY, true));
 
 		add(createContentPane(3));
 		add(row);
@@ -87,7 +87,7 @@ public class RepeatFigure extends ContentPaneFigure {
 			}
 
 			protected Color getDelimiterColor() {
-				return FigurePrefs.relationsColor;
+				return FigureConstants.relationsColor;
 			}
 		});
 	}
@@ -106,6 +106,6 @@ public class RepeatFigure extends ContentPaneFigure {
 	}
 
 	public Color getLocalForegroundColor() {
-		return FigurePrefs.relationsColor;
+		return FigureConstants.relationsColor;
 	}
 }

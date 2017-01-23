@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -25,7 +25,7 @@ import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.reflect.FeatureDescriptor;
 import org.whole.lang.ui.figures.AnchorFactory;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.NodeFigure;
 import org.whole.lang.ui.figures.TableFigure;
 import org.whole.lang.ui.figures.TableRowFigure;
@@ -44,9 +44,7 @@ public class CompositeEntityTreeTableFigure extends NodeFigure {
 	public CompositeEntityTreeTableFigure(EntityDescriptor<?> ed, boolean isRightToLeft) {
 		this.isRightToLeft = isRightToLeft;
 
-		setLayoutManager(new ColumnLayout().withAutoresizeWeight(1f)
-				//.setMarginLeft(4)
-				);
+		setLayoutManager(new ColumnLayout().withAutoresizeWeight(1f));
 		initContentPanes(1);
 
 		titleFigure = TreeNotationUtils.createTitleFigure(ed.getName(), createFoldingToggle(0));
@@ -94,6 +92,7 @@ public class CompositeEntityTreeTableFigure extends NodeFigure {
 		case LONG:
 		case SHORT:
 			tableLayout.withColumnAlignment(i, Alignment.TRAILING);
+		default:
 			break;
 		}
 	}
@@ -135,7 +134,7 @@ public class CompositeEntityTreeTableFigure extends NodeFigure {
 		super.paintFigure(g);
 		
 		Rectangle b = getBounds();
-		g.setForegroundColor(FigurePrefs.blueColor);
+		g.setForegroundColor(FigureConstants.blueColor);
 		g.drawRoundRectangle(b.getResized(-1, -1), 8, 8);
 
 		int oldAlpha = g.getAlpha();
@@ -143,7 +142,7 @@ public class CompositeEntityTreeTableFigure extends NodeFigure {
 
 		b = b.getCopy();
 		b.height = titleFigure.getBounds().height;
-		g.setBackgroundColor(FigurePrefs.blueColor);
+		g.setBackgroundColor(FigureConstants.blueColor);
 		if (tableFigure.isVisible()) {
 			g.setClip(b);
 			g.fillRoundRectangle(b.getResized(0, 4), 8, 8);

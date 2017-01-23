@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -25,15 +25,15 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
-import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.ui.figures.AnchorFactory;
 import org.whole.lang.ui.figures.CompositeFigure;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.IEntityFigure;
 import org.whole.lang.ui.figures.INodeFigure;
 import org.whole.lang.ui.figures.NodeFigure;
 import org.whole.lang.ui.layout.ColumnLayout;
+import org.whole.lang.ui.layout.MonoLayout;
 import org.whole.lang.ui.notations.figures.DrawUtils;
 
 /**
@@ -41,26 +41,31 @@ import org.whole.lang.ui.notations.figures.DrawUtils;
  */
 public class CompositeEntityTreeTableNoEmbeddingFigure extends NodeFigure {
 	protected boolean isRightToLeft;
-	protected final EntityFigure titleFigure;
+	protected EntityFigure titleFigure;
 
-	public CompositeEntityTreeTableNoEmbeddingFigure(EntityDescriptor<?> ed, boolean isRightToLeft) {
+	public CompositeEntityTreeTableNoEmbeddingFigure(boolean isRightToLeft) {
 		this.isRightToLeft = isRightToLeft;
 
-		setLayoutManager(new ColumnLayout()//.setStretchingWidthFactor(1)
-				//.setMarginLeft(4)
-				);
+		setLayoutManager(new MonoLayout());
 		initContentPanes(1);
 
-		titleFigure = TreeNotationUtils.createTitleFigure(ed.getName(), createFoldingToggle(0));
+		add(createContentPane(0, createCompositeFigure()));
+	}
+	public CompositeEntityTreeTableNoEmbeddingFigure(boolean isRightToLeft, String tabLabel) {
+		this.isRightToLeft = isRightToLeft;
 
+		setLayoutManager(new ColumnLayout());
+		initContentPanes(1);
+
+		titleFigure = TreeNotationUtils.createTitleFigureWithAlpha(tabLabel, null);
 		add(titleFigure);
 		add(createContentPane(0, createCompositeFigure()));
 	}
 
 	protected IEntityFigure createCompositeFigure() {
 		CompositeFigure figure = new CompositeFigure(false);
-		figure.getLayoutManager().withSpacing(2)
-				.withMarginLeft(DrawUtils.SPACING*2).withMarginRight(4);
+		figure.getLayoutManager().withSpacing(4)
+				.withMarginLeft(DrawUtils.SPACING*2).withMarginRight(2);
 		figure.setBorder(null);
 		return figure;
 	}
@@ -70,59 +75,84 @@ public class CompositeEntityTreeTableNoEmbeddingFigure extends NodeFigure {
 	}
 
 	@Override
+	protected ConnectionAnchor[] createSourceAnchors() {
+		// TODO
+		return super.createSourceAnchors();
+	}
+
+	@Override
 	protected ConnectionAnchor[] createTargetAnchors() {
 		return new ConnectionAnchor[] {
-			AnchorFactory.createFixedAnchor(this, isRightToLeft() ? 1.0 : 0, 0.5)
+			AnchorFactory.createFixedAnchor(getContentPane(0), isRightToLeft() ? 1.0 : 0, 0.5)
 		};
 	}
 
+	@Override
+	public void paintClientArea(Graphics graphics) {
+		super.paintClientArea(graphics);
+		paintConnections(graphics);
+		graphics.restoreState();
+	}
 	@SuppressWarnings("unchecked")
+	protected void paintConnections(Graphics g) {
+		List<IFigure> children = getContentPane(0).getChildren();
+		int childrenSize = children.size();
+		if (childrenSize > 0) {
+			Point start = getTargetAnchor(0).getLocation(null);
+			translateToRelative(start);
+
+			Point[] end = new Point[childrenSize];
+			for (int i=0; i<childrenSize; i++) {
+				IFigure child = children.get(i);
+				if (child instanceof INodeFigure) {
+					end[i] = ((INodeFigure) child).getTargetAnchor(0).getLocation(null);
+					translateToRelative(end[i]);
+				} else
+					end[i] = child.getBounds().getLeft();
+			}
+
+			g.setForegroundColor(FigureConstants.relationsColor);
+			DrawUtils.drawHorizontalTree(g, start, DrawUtils.SPACING, end);			
+		}
+	}
+
 	protected void paintFigure(Graphics g) {
 		super.paintFigure(g);
 
-		Rectangle tb = titleFigure.getBounds();
-
-		if (getContentPane(0).isVisible()) {
-			List<IFigure> children = getContentPane(0).getChildren();
-			int childrenSize = children.size();
-			if (childrenSize > 0) {
-				Point start = getTargetAnchor(0).getLocation(null);
-				translateToRelative(start);
-	
-				Point[] end = new Point[childrenSize];
-				for (int i=0; i<childrenSize; i++) {
-					IFigure child = children.get(i);
-					if (child instanceof INodeFigure) {
-						end[i] = ((INodeFigure) child).getTargetAnchor(0).getLocation(null);
-						translateToRelative(end[i]);
-					} else
-						end[i] = child.getBounds().getLeft();
-				}
-	
-				g.setForegroundColor(FigurePrefs.relationsColor);
-				DrawUtils.drawHorizontalTree(g, start, DrawUtils.SPACING, end);			
-			}
-	
-			Rectangle b = getBounds();
-			Rectangle titleBounds = titleFigure.getBounds();
-			g.setForegroundColor(FigurePrefs.blueColor);
-			g.setLineStyle(SWT.LINE_CUSTOM);
-			g.setLineDash(new int[] {4,2});
-			g.drawRoundRectangle(b.getResized(-1, -titleBounds.height).translate(0, titleBounds.height-1), 8, 8);
-			g.setLineStyle(SWT.LINE_SOLID);
-			g.setLineDash((int[]) null);
-
-			g.setClip(tb);
-			tb = tb.getResized(0, 4);
-		}
-
-		g.setForegroundColor(FigurePrefs.blueColor);
-		g.drawRoundRectangle(tb.getResized(-1, -1), 8, 8);
+		Rectangle b = getBounds();
+		Rectangle tb = null;
 
 		int oldAlpha = g.getAlpha();
-		g.setAlpha(60);
-		g.setBackgroundColor(FigurePrefs.blueColor);
-		g.fillRoundRectangle(tb, 8, 8);
-		g.setAlpha(oldAlpha);
+		if (titleFigure != null) {
+			g.setAlpha(60);
+
+			tb = titleFigure.getBounds();
+			b = b.getResized(-1, -tb.height).translate(0, tb.height-1);
+		} else
+			b = b.getResized(-1, -1);
+
+		if (titleFigure != null || getContentPane(0).getChildren().isEmpty()) {
+			g.setForegroundColor(FigureConstants.blueColor);
+			g.setLineStyle(SWT.LINE_CUSTOM);
+			g.setLineDash(new int[] {4,2});
+			g.drawRoundRectangle(b, 8, 8);
+			g.setLineStyle(SWT.LINE_SOLID);
+			g.setLineDash((int[]) null);
+		}
+
+		if (titleFigure != null) {
+			g.setClip(tb);
+			tb = tb.getResized(0, 4);
+
+			g.drawRoundRectangle(tb.getResized(-1, -1), 8, 8);
+
+//			int oldAlpha = g.getAlpha();
+//			g.setAlpha(60);
+			g.setBackgroundColor(FigureConstants.blueColor);
+			g.fillRoundRectangle(tb, 8, 8);
+//			g.setAlpha(oldAlpha);
+
+			g.setAlpha(oldAlpha);
+		}
 	}
 }

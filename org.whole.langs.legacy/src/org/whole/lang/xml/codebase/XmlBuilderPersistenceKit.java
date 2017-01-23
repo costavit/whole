@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -43,7 +43,7 @@ public class XmlBuilderPersistenceKit extends AbstractGenericPersistenceKit {
 		return SingletonHolder.instance;
 	}
 	private XmlBuilderPersistenceKit() {
-		super("XML (Whole Template Builder)", "xwl");
+		super("XML (Whole Builder Persistence)", "xwl");
 	}
 
 	protected void doInitDefaultEncoding(IEntity model, IPersistenceProvider pp) throws Exception {

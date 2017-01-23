@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -32,7 +32,7 @@ import org.whole.lang.reflect.FeatureDescriptor;
  */
 public class PropertyChangeEventHandler extends IdentityDefaultChangeEventHandler {
 	private static final long serialVersionUID = 1L;
-    transient private Set<PropertyChangeListener> eventListeners = new HashSet<PropertyChangeListener>();
+    transient private Set<IPropertyChangeObserver> eventListeners = new HashSet<>();
     public Object readResolve() throws ObjectStreamException {
     	return new PropertyChangeEventHandler();
     }
@@ -41,30 +41,39 @@ public class PropertyChangeEventHandler extends IdentityDefaultChangeEventHandle
 	    return !eventListeners.isEmpty();
 	}
 
-	public synchronized Set<PropertyChangeListener> getEventListeners() {
+	public synchronized Set<IPropertyChangeObserver> getEventListeners() {
 		return eventListeners;
 	}
-	public synchronized void setEventListeners(Set<PropertyChangeListener> eventListeners) {
+	public synchronized void setEventListeners(Set<IPropertyChangeObserver> eventListeners) {
 	    this.eventListeners = eventListeners;
 	}
-	public synchronized void addAllEventListeners(Collection<? extends PropertyChangeListener> eventListeners) {
+	public synchronized void addAllEventListeners(Collection<? extends IPropertyChangeObserver> eventListeners) {
 	    getEventListeners().addAll(eventListeners);
 	}
-	public synchronized void addEventListener(PropertyChangeListener eventListener) {
+	public synchronized void addEventListener(IPropertyChangeObserver eventListener) {
 		getEventListeners().add(eventListener);
     }
-    public synchronized void removeEventListener(PropertyChangeListener eventListener) {
+    public synchronized void removeEventListener(IPropertyChangeObserver eventListener) {
     	getEventListeners().remove(eventListener);
     }
 
-    public void notifyChanged(IEntity source, FeatureDescriptor featureDesc, Object oldValue, Object newValue) {
-        PropertyChangeEvent event = new PropertyChangeEvent(source, featureDesc.getName(), oldValue, newValue);
+    public void notifyEvent(IEntity source, String name, Object data) {
+    	notifyChanged(source, name, null, data);
+    }
+    public void notifyChanged(IEntity source, FeatureDescriptor fd, Object oldValue, Object newValue) {
+    	notifyChanged(source, fd.getName(), oldValue, newValue);
+    }
+    public void notifyChanged(IEntity source, String featureName, Object oldValue, Object newValue) {
+        if (eventListeners.isEmpty())
+        	return;
+
+    	PropertyChangeEvent event = new PropertyChangeEvent(source, featureName, oldValue, newValue);
 
 		Object[] targets;
     	synchronized (this) {
    	        targets = eventListeners.toArray();
     	}
 	    for (int i = 0; i < targets.length; i++)
-	        ((PropertyChangeListener)targets[i]).propertyChange(event);
+	        ((PropertyChangeListener) targets[i]).propertyChange(event);
     }
 }

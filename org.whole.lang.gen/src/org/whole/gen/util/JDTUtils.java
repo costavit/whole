@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -113,11 +113,6 @@ public class JDTUtils {
 		return !(astNode instanceof CompilationUnit && ((CompilationUnit) astNode).types().isEmpty()) &&
 			!(astNode instanceof Block && ((Block) astNode).statements().isEmpty());
 	}
-
-    public static ClassLoader getIDEClassLoader(IBindingManager bm, boolean override) {
-    	IJavaProject javaProject = (IJavaProject) bm.wGetValue("javaProject");
-    	return javaProject != null ? JDTUtils.createClassLoader(javaProject, override) : ReflectionFactory.getClassLoader(bm);
-    }
 
 	public static String asString(ASTNode astNode) {
 		return astNode.toString();

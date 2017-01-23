@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -56,7 +56,7 @@ public class JavaReflectUtils {
 		return new JavaSignature(constructor.getDeclaringClass().getSimpleName(),
 				constructor.getParameterTypes(), constructor.isVarArgs());
 	}
-	public static Constructor<?> toConstructor(Class<?> declaringClass,
+	public static <T> Constructor<T> toConstructor(Class<T> declaringClass,
 			JavaSignature signature) throws SecurityException, NoSuchMethodException {
 		assert declaringClass.getSimpleName().equals(signature.name);
 		return declaringClass.getConstructor(signature.types);
@@ -120,10 +120,10 @@ public class JavaReflectUtils {
 	public static Constructor<?> getConstructor(String className, String signature, ClassLoader loader) {
 		return getConstructor(forName(className, loader), signature, loader);
 	}
-	public static Constructor<?> getConstructor(Class<?> declaringClass, String signature, ClassLoader loader) {
+	public static <T> Constructor<T> getConstructor(Class<T> declaringClass, String signature, ClassLoader loader) {
 		return getConstructor(declaringClass, parse(signature, loader));
 	}
-	public static Constructor<?> getConstructor(Class<?> declaringClass, JavaSignature signature) {
+	public static <T> Constructor<T> getConstructor(Class<T> declaringClass, JavaSignature signature) {
 		try {
 			return toConstructor(declaringClass, signature);
 		} catch (Exception e) {
@@ -143,7 +143,7 @@ public class JavaReflectUtils {
 			throw new IllegalStateException("method invocation error", e);
 		}
 	}
-	public static Object invokeConstructor(Constructor<?> constructor, Object... arguments) {
+	public static <T> T invokeConstructor(Constructor<T> constructor, Object... arguments) {
 		try {
 			return constructor.newInstance(arguments);
 		} catch (Exception e) {

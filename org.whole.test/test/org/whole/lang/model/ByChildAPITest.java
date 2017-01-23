@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -18,13 +18,13 @@
 package org.whole.lang.model;
 
 import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.whole.lang.commons.reflect.CommonsFeatureDescriptorEnum;
+import org.whole.lang.events.IPropertyChangeObserver;
 import org.whole.lang.factories.GenericEntityFactory;
 import org.whole.lang.factories.RegistryConfigurations;
 import org.whole.lang.iterators.IEntityIterator;
@@ -49,9 +49,9 @@ import org.whole.lang.xsd.mapping.model.Mapping;
 import org.whole.lang.xsd.mapping.model.Mappings;
 import org.whole.lang.xsd.mapping.model.StructuralMapping;
 import org.whole.lang.xsd.model.Annotation;
+import org.whole.lang.xsd.model.Bounded;
 import org.whole.lang.xsd.model.ElementRef;
 import org.whole.lang.xsd.model.NamespaceDecls;
-import org.whole.lang.xsd.model.Bounded;
 import org.whole.lang.xsd.model.QName;
 import org.whole.lang.xsd.model.StringData;
 import org.whole.test.KnownFailingTests;
@@ -61,7 +61,7 @@ import org.whole.test.KnownFailingTests;
  */
 public class ByChildAPITest {
 
-	private static class TestPropertyChangeListener implements PropertyChangeListener {
+	private static class TestPropertyChangeListener implements IPropertyChangeObserver {
 		private IEntity source;
 		private FeatureDescriptor fd;
 		private Object oldValue;
@@ -86,6 +86,10 @@ public class ByChildAPITest {
 			Assert.assertTrue(fd.getName().equals(evt.getPropertyName()));
 			Assert.assertTrue(newValue == evt.getNewValue());
 			Assert.assertTrue(oldValue == evt.getOldValue());
+		}
+
+		public boolean isObserving(IEntity entity) {
+			return source == entity;
 		}
 	}
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,19 +22,16 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.whole.lang.ui.figures.ContentPaneFigure;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.EntityLabel;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.layout.Alignment;
 import org.whole.lang.ui.layout.ColumnLayout;
 import org.whole.lang.ui.layout.RowLayout;
 import org.whole.lang.ui.layout.TableRowLayout;
 import org.whole.lang.ui.layout.UnderColumnLayout;
 import org.whole.lang.ui.notations.figures.DrawUtils;
-import org.whole.lang.ui.util.UIUtils;
 
 /**
  * @author Riccardo Solmi
@@ -48,14 +45,7 @@ public class SelectRowFigure extends ContentPaneFigure {
 
 		EntityFigure col0 = new EntityFigure(new RowLayout().withSpacing(1));
 		col0.add(createContentPane(1));
-		col0.add(new EntityLabel("/") {
-			public Color getLocalForegroundColor() {
-				return ColorConstants.gray;
-			}	
-			public Font getLocalFont() {
-				return UIUtils.getOpenSymbolLargeFont();
-			}
-		});
+		col0.add(LabelFactory.createSymbolLarge("/", ColorConstants.gray));
 		add(col0);
 
 		EntityFigure col1 = new EntityFigure(new UnderColumnLayout().withMinorAlignment(Alignment.LEADING).withSpacing(12));
@@ -90,7 +80,7 @@ public class SelectRowFigure extends ContentPaneFigure {
 	}
 
 	protected void paintConnections(Graphics graphics) {
-		graphics.setForegroundColor(FigurePrefs.contentLighterColor);
+		graphics.setForegroundColor(FigureConstants.contentLighterColor);
 		
 		Point fromPoint = fig[0].getBounds().getBottom();
 		Point[] childrenPoints = new Point[] {

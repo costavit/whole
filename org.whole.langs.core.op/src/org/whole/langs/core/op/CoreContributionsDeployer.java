@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -18,7 +18,6 @@
 package org.whole.langs.core.op;
 
 import org.whole.lang.codebase.ClasspathPersistenceProvider;
-import org.whole.lang.grammars.GrammarsActions;
 import org.whole.lang.operations.InterpreterOperation;
 import org.whole.lang.queries.GenericQueriesActions;
 import org.whole.lang.reflect.AbstractContributionDeployer;
@@ -30,7 +29,6 @@ import org.whole.lang.xml.codebase.XmlBuilderPersistenceKit;
  */
 public class CoreContributionsDeployer extends AbstractContributionDeployer {
 	public void deploy(ReflectionFactory platform) {
-		InterpreterOperation.interpret(new GrammarsActions().create());
 		InterpreterOperation.interpret(new GenericQueriesActions().create());
 
 		try {
@@ -39,6 +37,9 @@ public class CoreContributionsDeployer extends AbstractContributionDeployer {
 
 			InterpreterOperation.interpret(XmlBuilderPersistenceKit.instance().readModel(
 					new ClasspathPersistenceProvider("org/whole/lang/artifacts/ArtifactsActions.xwl")));
+
+			InterpreterOperation.interpret(XmlBuilderPersistenceKit.instance().readModel(
+					new ClasspathPersistenceProvider("org/whole/lang/grammars/GrammarsActions.xwl")));
 
 			InterpreterOperation.interpret(XmlBuilderPersistenceKit.instance().readModel(
 					new ClasspathPersistenceProvider("org/whole/lang/models/ModelsActions.xwl")));

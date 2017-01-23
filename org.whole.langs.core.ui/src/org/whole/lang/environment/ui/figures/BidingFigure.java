@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -33,22 +33,23 @@ import org.whole.lang.ui.layout.ViewportTracking;
 public class BidingFigure extends ContentPaneFigure {
 
 	public BidingFigure() {
-		initContentPanes(4);
 		setLayoutManager(new TableRowLayout().withMargin(4,4,4,4));
+		initContentPanes(4);
 
 		add(createContentPane(0));
 		add(createContentPane(1));
 		add(createContentPane(2, ViewportTracking.BOTH));
+
 		IEntityFigure toggleFigure = new EntityFigure(new MonoLayout().withAutoresizeWeight(1.0f))
 				.withViewportTracking(ViewportTracking.BOTH);
-
 		EyeFigure eye = new EyeFigure();
 		EntityToggle entityToggle = new EntityToggle(eye, null);
 		entityToggle.addChangeListener((ChangeEvent event) -> eye.setClosed(entityToggle.isSelected()));
 		toggleFigure.add(createFoldingToggle(entityToggle, 3));
-
 		add(toggleFigure);
-		add(createContentPane(3));
+	
+		addWithPlaceHolder(createContentPane(3));
+
 		clickFoldingToggle(0);
 	}
 }

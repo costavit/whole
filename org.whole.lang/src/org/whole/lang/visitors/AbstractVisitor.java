@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -81,7 +81,7 @@ public abstract class AbstractVisitor implements IVisitor {
 	public boolean isResultIterator() {
 		return getBindings().hasResultIterator();
 	}
-	public IEntityIterator<?> getResultIterator() {
+	public <E extends IEntity> IEntityIterator<E> getResultIterator() {
 		return getBindings().getResultIterator();
 	}
 	public void setResultIterator(IEntityIterator<?> entityIterator) {

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -51,7 +51,7 @@ public class AncestorIterator<E extends IEntity> extends AbstractCloneableIterat
     	entity = result;
     	return lastEntity = result;
 	}
-   
+
     @SuppressWarnings("unchecked")
 	public E lookahead() {
     	if (entity == null)

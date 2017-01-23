@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.whole.lang.ui.editparts.AbstractDataEntityPart;
 import org.whole.lang.ui.figures.EntityLabel;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 
 /**
  * @author Riccardo Solmi
@@ -35,7 +35,7 @@ public class ValuePart extends AbstractDataEntityPart {
 				return ColorConstants.white;
 			}	
 			public Font getLocalFont() {
-				return FigurePrefs.contentFont;
+				return FigureConstants.contentFont;
 			}
 		};
 	}

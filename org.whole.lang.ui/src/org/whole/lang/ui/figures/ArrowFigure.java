@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -25,6 +25,7 @@ import org.whole.lang.ui.PreferenceConstants;
 import org.whole.lang.ui.figures.ArrowFactory.ArrowKind;
 import org.whole.lang.ui.figures.ArrowFactory.Direction;
 import org.whole.lang.ui.layout.AbstractEntityLayout;
+import org.whole.lang.ui.util.IUIConstants;
 import org.whole.lang.ui.util.UIUtils;
 
 /**
@@ -35,7 +36,7 @@ public class ArrowFigure extends EntityFigure {
 	protected final String colorName;
 
 	public ArrowFigure(float autoresizeWeight, ArrowKind arrowLeft, ArrowKind arrowRight) {
-		this(autoresizeWeight, arrowLeft, arrowRight, PreferenceConstants.CONTENT_COLOR, true);
+		this(autoresizeWeight, arrowLeft, arrowRight, PreferenceConstants.CONTENT_CATEGORY, true);
 	}
 
 	public ArrowFigure(float autoresizeWeight, ArrowKind arrowLeft, ArrowKind arrowRight, String color, boolean filled) {
@@ -53,10 +54,10 @@ public class ArrowFigure extends EntityFigure {
 	}
 
 	public Color getLocalForegroundColor() {
-		return UIUtils.getColorRegistry().get(colorName);
+		return UIUtils.createColor(IUIConstants.BUNDLE_ID, colorName);
 	}
 	public Color getLocalBackgroundColor() {
-		return UIUtils.getColorRegistry().get(colorName);
+		return UIUtils.createColor(IUIConstants.BUNDLE_ID, colorName);
 	}
 
 	protected void paintFigure(Graphics g) {

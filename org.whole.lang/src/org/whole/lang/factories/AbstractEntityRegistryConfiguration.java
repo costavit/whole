@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -102,14 +102,19 @@ public abstract class AbstractEntityRegistryConfiguration implements IEntityRegi
 				child = EntityUtils.clone(child);
 				prototype.wSet(i, child);
 
-				if (fed.getEntityKind().isComposite())
-					try {
-						child.wAdd(CommonsEntityAdapterFactory.createResolver(
-								fed.getEntityDescriptor(0)));//TODO enforceRec
-					} catch (UnsupportedOperationException e) {
-						//FIXME workaround for Map entity
-					}
+//				if (fed.getEntityKind().isComposite() && !fed.getEntityFeatureDescriptor(0).isOptional())
+//					try {
+//						child.wAdd(CommonsEntityAdapterFactory.createResolver(fed.getEntityDescriptor(0)));
+//					} catch (UnsupportedOperationException e) {
+//						//FIXME workaround for Map entity
+//					}
 			}
+//		} else if (ed.getEntityKind().isComposite() && !ed.getEntityFeatureDescriptor(0).isOptional()) {
+//			try {
+//				prototype.wAdd(CommonsEntityAdapterFactory.createResolver(ed.getEntityDescriptor(0)));
+//			} catch (UnsupportedOperationException e) {
+//				//FIXME workaround for Map entity
+//			}
 		}
 	}
 }

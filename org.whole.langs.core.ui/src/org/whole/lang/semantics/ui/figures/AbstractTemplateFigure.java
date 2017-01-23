@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,7 +22,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
 import org.whole.lang.ui.figures.ContentPaneFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.layout.RowLayout;
 
 /**
@@ -53,7 +53,7 @@ public abstract class AbstractTemplateFigure extends ContentPaneFigure {
 		super.paintFigure(g);
 
 		if (asStageDown) {
-			g.setBackgroundColor(FigurePrefs.hostLanguageColor);
+			g.setBackgroundColor(FigureConstants.hostLanguageColor);
 			Rectangle b = getBounds();
 			Rectangle b0 = getContentPane(0).getBounds();
 			g.fillRectangle(b0.right()+SP, b.y, b.width-b0.width-1-SP, b.height);

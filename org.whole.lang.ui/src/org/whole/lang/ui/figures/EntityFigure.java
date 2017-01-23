@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -169,11 +169,7 @@ public class EntityFigure extends Figure implements IEntityFigure {
 	//TODO end
 
 
-		public IEntityFigure add(IEntityFigure child) {
-			super.add(child);
-			return child;
-		}
-		public EntityLabel add(EntityLabel child) {
+		public <F extends IEntityFigure> F add(F child) {
 			super.add(child);
 			return child;
 		}
@@ -207,18 +203,7 @@ public class EntityFigure extends Figure implements IEntityFigure {
 		public EntityLabel addContentLighter(String text) {
 			return add(LabelFactory.createContentLighter(text));
 		}
-		public EntityLabel addSmallMath(String text) {
-			return add(LabelFactory.createContentSmallMath(text));
-		}
-		public EntityLabel addMath(String text) {
-			return add(LabelFactory.createContentMath(text));
-		}
-		public EntityLabel addMediumMath(String text) {
-			return add(LabelFactory.createContentMediumMath(text));
-		}
-		public EntityLabel addLargeMath(String text) {
-			return add(LabelFactory.createContentLargeMath(text));
-		}
+
 		public EntityLabel addLabel(String text) {
 			return add(LabelFactory.createContentLabel(text));
 		}
@@ -227,6 +212,9 @@ public class EntityFigure extends Figure implements IEntityFigure {
 		}
 		public EntityLabel addLabel(Image image) {
 			return add(new EntityLabel(image));
+		}
+		public EntityLabel addEmptyLabel() {
+			return add(LabelFactory.createEmptyLabel());
 		}
 
 		public ITabularLayoutServer getTabularLayoutServer() {

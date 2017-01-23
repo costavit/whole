@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -20,6 +20,7 @@ package org.whole.lang.patterns.ui.figures;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.whole.lang.ui.figures.CompositePlaceHolderBorder;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.TableFigure;
 import org.whole.lang.ui.layout.TableLayout;
 
@@ -40,10 +41,9 @@ public class ArgumentsFigure extends TableFigure {
 		if (l.rows() == 0)
 			return;
 
-		g.setBackgroundColor(ColorConstants.lightGray);
-		drawAlternateColumnsBackground(g, 0);
+		g.setBackgroundColor(FigureConstants.modulesColor);
+		drawColumnBackground(g, 0);
 		g.setForegroundColor(ColorConstants.lightGray);
 		drawHeadersRowSeparator(g);
-		drawColumnSeparators(g);
 	}
 }

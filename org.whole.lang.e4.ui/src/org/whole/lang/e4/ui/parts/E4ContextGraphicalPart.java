@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ import org.eclipse.e4.core.services.events.IEventBroker;
 import org.whole.lang.bindings.BindingManagerFactory;
 import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.e4.ui.actions.ILinkableSelectionListener;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.e4.ui.actions.LinkViewerAdapter;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.ui.viewers.IEntityPartViewer;
@@ -52,12 +52,13 @@ public class E4ContextGraphicalPart extends AbstractE4DerivedGraphicalPart {
 					IEntity primarySelectedEntity = selection.wGet("primarySelectedEntity");
 					IEntity model = EntityUtils.getCompoundRoot(primarySelectedEntity);
 					IEntity selfModel = EntityUtils.mapEntity(primarySelectedEntity, EntityUtils.clone(model));
-					IEntity sampleContext = BindingManagerFactory.instance.createTuple(result, selfModel);
+					IEntity selfBindings = BindingManagerFactory.instance.createValue(selection.clone());
+					IEntity sampleContext = BindingManagerFactory.instance.createTuple(result, selfModel, selfBindings);
 					//TODO test
 //					if (Matcher.matchImpl(EnvironmentEntityDescriptorEnum.Bindings, result))
 //						result.wAdd(BindingManagerFactory.instance.createBinding("self", selfModel));
 					
-					eventBroker.post(IUIConstants.TOPIC_UPDATE_SAMPLE_CONTEXT, sampleContext);
+					eventBroker.post(IE4UIConstants.TOPIC_UPDATE_SAMPLE_CONTEXT, sampleContext);
 				} else
 					getViewer().setContents(null, createDefaultContents());
 			}

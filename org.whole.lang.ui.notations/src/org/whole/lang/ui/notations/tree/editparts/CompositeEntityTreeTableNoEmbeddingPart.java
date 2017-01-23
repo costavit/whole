@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -29,6 +29,6 @@ public class CompositeEntityTreeTableNoEmbeddingPart extends CompositeEntityTree
 	}
 
 	protected IFigure createFigure() {
-		return new CompositeEntityTreeTableNoEmbeddingFigure(getModelEntity().wGetEntityDescriptor(), isReversed());
+		return new CompositeEntityTreeTableNoEmbeddingFigure(isReversed());//, getModelEntity().wGetEntityDescriptor().getName());
 	}
 }

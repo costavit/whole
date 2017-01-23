@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,28 +17,27 @@
  */
 package org.whole.lang.commons.reflect;
 
-import org.whole.lang.factories.GenericEntityFactory;
-import org.whole.lang.model.IEntity;
-import org.whole.lang.templates.AbstractTemplateFactory;
 import org.whole.lang.templates.AbstractTemplateManager;
+import org.whole.lang.templates.AbstractTemplateFactory;
+import org.whole.lang.commons.model.Resolver;
+import org.whole.lang.factories.GenericEntityFactory;
 
-/**
- * @author Riccardo Solmi
+/** 
+ * @generator Whole
  */
 public class CommonsTemplateManager extends AbstractTemplateManager {
 	private static class SingletonHolder {
 		private static final CommonsTemplateManager instance = new CommonsTemplateManager();
 	}
+
 	public static CommonsTemplateManager instance() {
 		return SingletonHolder.instance;
 	}
 
 	private CommonsTemplateManager() {
-		put("empty", new AbstractTemplateFactory<IEntity>() {
-			public IEntity create() {
-				return GenericEntityFactory.instance.create(
-						CommonsEntityDescriptorEnum.Resolver);
-//FIXME					CommonEntityDescriptorEnum.RootFragment);
+		put("empty", new AbstractTemplateFactory<Resolver>() {
+			public Resolver create() {
+				return GenericEntityFactory.instance.create(CommonsEntityDescriptorEnum.Resolver);
 			}
 		});
 	}

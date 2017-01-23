@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -23,6 +23,8 @@ import org.eclipse.gef.dnd.SimpleObjectTransfer;
  * @author Enrico Persiani
  */
 public class EditPartsTransfer extends SimpleObjectTransfer {
+	public static final String PROPERTY_FORCE_DND_COPY = "forceDNDCopy";
+
 	private static class SingletonHolder {
 		private static final EditPartsTransfer instance = new EditPartsTransfer();
 	}

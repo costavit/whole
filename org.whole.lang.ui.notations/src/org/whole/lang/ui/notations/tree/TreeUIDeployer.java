@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -19,17 +19,20 @@ package org.whole.lang.ui.notations.tree;
 
 import org.whole.lang.reflect.AbstractLanguageExtensionDeployer;
 import org.whole.lang.reflect.ReflectionFactory;
+import org.whole.lang.ui.notations.styledtree.StyledTreeEditorKit;
 
 public class TreeUIDeployer extends AbstractLanguageExtensionDeployer {
 	public void deploy(ReflectionFactory platform) {
 		platform.addEditorKit(TreeLeftEditorKit.ID);
 		platform.addEditorKit(TreeRightEditorKit.ID);
 		platform.addEditorKit(TreeTableEditorKit.ID);
+		platform.addEditorKit(StyledTreeEditorKit.ID);
 	}
 
 	public void undeploy(ReflectionFactory platform) {
 		platform.removeEditorKit(TreeLeftEditorKit.ID);
 		platform.removeEditorKit(TreeRightEditorKit.ID);
 		platform.removeEditorKit(TreeTableEditorKit.ID);
+		platform.removeEditorKit(StyledTreeEditorKit.ID);
 	}
 }

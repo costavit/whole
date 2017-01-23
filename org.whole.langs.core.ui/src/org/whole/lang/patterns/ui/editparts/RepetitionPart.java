@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -23,15 +23,28 @@ import java.util.List;
 import org.eclipse.draw2d.IFigure;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.patterns.model.Repetition;
-import org.whole.lang.patterns.ui.figures.RepetitionFigure;
 import org.whole.lang.ui.editparts.AbstractContentPanePart;
+import org.whole.lang.ui.figures.EntityFigure;
+import org.whole.lang.ui.figures.IEntityFigure;
+import org.whole.lang.ui.figures.LabelFactory;
+import org.whole.lang.ui.figures.TypeNameValueTableRowFigure;
+import org.whole.lang.ui.layout.RowLayout;
 
 /**
  * @author Riccardo Solmi
  */
 public class RepetitionPart extends AbstractContentPanePart {
     protected IFigure createFigure() {
-    	return new RepetitionFigure();
+    	return new TypeNameValueTableRowFigure() {
+    		@Override
+    		protected IEntityFigure createValueFigure(int paneIndex) {
+    			EntityFigure row = new EntityFigure(new RowLayout());
+    			row.add(createContentPane(paneIndex));
+    			row.add(LabelFactory.createSymbolMediumContentLighter("\u2026"));
+    			row.addContentLight(" ordered");
+    			return row;
+			}
+    	};
     }
 
 	protected List<IEntity> getModelSpecificChildren() {

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -24,7 +24,7 @@ import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.whole.lang.ui.figures.ContentPaneFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.layout.UnderLeftLayout;
 
 /**
@@ -63,13 +63,13 @@ public class AsFigure extends ContentPaneFigure {
 
         r.setLocation(nameBounds.x-3, nameBounds.y);
         r.setSize(bounds.width-4, nameBounds.height);
-    	g.setBackgroundColor(FigurePrefs.lightBlueColor);
+    	g.setBackgroundColor(FigureConstants.lightBlueColor);
     	g.fillRectangle(r);
 
         int baseline = getLayoutManager().getBaseline(0)+1;
         Rectangle ruleBounds = getContentPane(0).getClientArea();
 
-    	g.setForegroundColor(FigurePrefs.relationsColor);
+    	g.setForegroundColor(FigureConstants.relationsColor);
     	g.drawLine(bounds.x, baseline, ruleBounds.x, baseline);
     	g.drawLine(ruleBounds.right()-1, baseline, bounds.right(), baseline);
 	}

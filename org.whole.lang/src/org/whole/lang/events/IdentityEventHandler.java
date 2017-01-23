@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ import org.whole.lang.reflect.FeatureDescriptor;
 /**
  * @author Riccardo Solmi
  */
-public class IdentityEventHandler implements IRequestEventHandler, IChangeEventHandler {
+public class IdentityEventHandler implements IEventHandler {
 	private static final long serialVersionUID = 1L;
 
 	public IRequestEventHandler cloneRequestEventHandler(IRequestEventHandler parentEventHandler) {

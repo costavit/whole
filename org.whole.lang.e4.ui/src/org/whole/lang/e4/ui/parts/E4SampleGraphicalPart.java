@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -21,6 +21,7 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.UIEventTopic;
@@ -28,10 +29,11 @@ import org.whole.lang.bindings.BindingManagerFactory;
 import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.bindings.ITransactionScope;
 import org.whole.lang.e4.ui.actions.ILinkableSelectionListener;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.e4.ui.actions.LinkViewerAdapter;
 import org.whole.lang.e4.ui.jobs.ExecuteSampleModelRunnable;
 import org.whole.lang.e4.ui.jobs.ISynchronizableRunnable;
+import org.whole.lang.e4.ui.jobs.ShowingPolicy;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.ui.viewers.IEntityPartViewer;
 import org.whole.lang.util.BehaviorUtils;
@@ -46,6 +48,7 @@ public class E4SampleGraphicalPart extends AbstractE4DerivedGraphicalPart {
 
 	protected IEntity contextModel;
 	protected IEntity selfModel;
+	protected IBindingManager selfBindings;
 
 	@PostConstruct
 	void init() {
@@ -55,12 +58,20 @@ public class E4SampleGraphicalPart extends AbstractE4DerivedGraphicalPart {
 
 	@Inject
 	@Optional
-	private void getNotified(@UIEventTopic(IUIConstants.TOPIC_UPDATE_SAMPLE_CONTEXT) IEntity sampleContext) {
+	private void getNotified(@UIEventTopic(IE4UIConstants.TOPIC_UPDATE_SAMPLE_CONTEXT) IEntity sampleContext) {
 		if (sampleContext != null) {
 			contextModel = sampleContext.wGet(0);
 			selfModel = sampleContext.wGet(1);
+			selfBindings = (IBindingManager) sampleContext.wGet(2).wGetValue();
 			execute();
 		}
+	}
+
+	@Override
+	protected IEclipseContext configureSelectionLinkable(IEclipseContext params) {
+		params = super.configureSelectionLinkable(params);
+		params.set(ILinkableSelectionListener.RESULTS_SHOWING_POLICY, ShowingPolicy.IGNORABLE);
+		return params;
 	}
 
 	protected String getDerivationFunction() {
@@ -110,10 +121,10 @@ public class E4SampleGraphicalPart extends AbstractE4DerivedGraphicalPart {
 	}
 
 	protected void execute() {
-		if (behaviorModel == null)
+		if (behaviorModel == null || selfBindings == null)
 			return;
 		else {
-			ISynchronizableRunnable runnable = new ExecuteSampleModelRunnable(context, bm, behaviorLabel, contextModel, selfModel, behaviorModel);
+			ISynchronizableRunnable runnable = new ExecuteSampleModelRunnable(context, behaviorLabel, contextModel, selfBindings, selfModel, bm, behaviorModel);
 			runnable.asyncExec("Executing "+behaviorLabel+" operation...");
 		}
 	}

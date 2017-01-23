@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -59,7 +59,6 @@ import org.whole.lang.model.IEntity;
 import org.whole.lang.reflect.FeatureDescriptorEnum;
 import org.whole.lang.reflect.ILanguageKit;
 import org.whole.lang.reflect.ReflectionFactory;
-import org.whole.lang.status.codebase.ErrorStatusTemplate;
 import org.whole.lang.ui.editparts.EntityPartListener;
 import org.whole.lang.ui.editparts.IEntityPart;
 import org.whole.lang.ui.editparts.IPartFocusListener;
@@ -237,14 +236,9 @@ public class E4TreeViewer extends TreeViewer implements IEntityPartViewer {
 				setEntityContents(this.modelInput.readModel());
 				fireModelInputChanged(oldModelInput, this.modelInput);
 			} catch (Exception e) {
-				ILanguageKit languageKit = ReflectionFactory.getLanguageKit(CoreMetaModelsDeployer.STATUS_URI, false, null);
-				FeatureDescriptorEnum fdEnum = languageKit.getFeatureDescriptorEnum();
-				IEntity statusModel = new ErrorStatusTemplate().create();
 				String errorMessage = String.format("Unable to open \"%s\" using \"%s\" persistence kit",
 						modelInput.getName(), modelInput.getPersistenceKit().getDescription());
-				statusModel.wGet(fdEnum.valueOf("error")).wSetValue(errorMessage);
-				statusModel.wGet(fdEnum.valueOf("cause")).wSetValue(e.getLocalizedMessage());
-				setEntityContents(statusModel);
+				setEntityContents(E4Utils.createErrorStatusContents(errorMessage, e.getLocalizedMessage()));
 			}
 		} else
 			setEntityContents(defaultContents);
@@ -361,6 +355,7 @@ public class E4TreeViewer extends TreeViewer implements IEntityPartViewer {
 
 	public void rebuildNotation() {
 		RootFragment rootFragment = (RootFragment) getContents().getModel();
+		//FIXME should be rebuildNotation(rootFragment)
 		rebuildNotation(rootFragment.getRootEntity().wGetAdaptee(true));
 	}
 

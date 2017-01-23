@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  */
 package org.whole.lang.e4.ui.parts;
 
-import static org.whole.lang.e4.ui.actions.IUIConstants.*;
+import static org.whole.lang.e4.ui.actions.IE4UIConstants.*;
 
 import java.util.ArrayList;
 import java.util.EventObject;
@@ -69,14 +69,13 @@ import org.whole.lang.e4.ui.actions.E4KeyHandler;
 import org.whole.lang.e4.ui.actions.E4NavigationKeyHandler;
 import org.whole.lang.e4.ui.actions.ILinkViewerListener;
 import org.whole.lang.e4.ui.actions.ILinkableSelectionListener;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.e4.ui.handler.HandlersBehavior;
 import org.whole.lang.e4.ui.input.ModelInput;
 import org.whole.lang.e4.ui.menu.JFaceMenuBuilder;
 import org.whole.lang.e4.ui.menu.PopupMenuProvider;
 import org.whole.lang.e4.ui.util.E4Utils;
 import org.whole.lang.model.IEntity;
-import org.whole.lang.status.codebase.EmptyStatusTemplate;
 import org.whole.lang.ui.IUIProvider;
 import org.whole.lang.ui.dialogs.LazyConfirmationDialogReloader;
 import org.whole.lang.ui.editparts.IEntityPart;
@@ -109,9 +108,8 @@ public abstract class AbstractE4Part {
 	@PostConstruct
 	public void createPartControl(Composite parent) {
 		restoreState();
-		
-		if (E4Utils.isLegacyApplication())
-			HandlersBehavior.registerHandlers(handlerService);
+
+		registerHandlers();
 
 		parent.setLayout(new FillLayout());
 		viewer = createEntityViewer(parent);
@@ -152,20 +150,7 @@ public abstract class AbstractE4Part {
 		actionRegistry.registerKeyActions(viewer.getKeyHandler());
 		context.set(ActionRegistry.class, actionRegistry);
 
-		JFaceMenuBuilder uiBuilder = ContextInjectionFactory.make(JFaceMenuBuilder.class, context);
-		contextMenuProvider = new PopupMenuProvider<IContributionItem, IMenuManager>(uiBuilder);
-
-		viewer.setContextMenu(new ContextMenuProvider(viewer) {
-			@Override
-			public void buildContextMenu(IMenuManager menuManager) {
-				try {
-					if (!getViewer().getEditDomain().isDisabled())
-						contextMenuProvider.populate(menuManager);
-				} catch (Exception e) {
-					getMenu().setVisible(false);
-				}
-			}
-		});
+		configureContextMenu();
 
 		if (!E4Utils.isLegacyApplication())
 			viewer.getCommandStack().addCommandStackListener(new CommandStackListener() {
@@ -182,6 +167,11 @@ public abstract class AbstractE4Part {
 		});
 	}
 
+	protected void registerHandlers() {
+		if (E4Utils.isLegacyApplication())
+			HandlersBehavior.registerHandlers(handlerService);
+	}
+
 	protected abstract IEntityPartViewer createEntityViewer(Composite parent);
 
 	protected void updateSelection(IBindingManager bm) {
@@ -190,6 +180,23 @@ public abstract class AbstractE4Part {
 		selectionService.setSelection(bm);
 		//FIXME workaround selectionService.setSelection(bm); doesn't update the ACTIVE_SELECTION in the active context
 		context.set(IServiceConstants.ACTIVE_SELECTION, bm);
+	}
+	
+	protected void configureContextMenu() {
+		JFaceMenuBuilder uiBuilder = ContextInjectionFactory.make(JFaceMenuBuilder.class, context);
+		contextMenuProvider = new PopupMenuProvider<IContributionItem, IMenuManager>(uiBuilder);
+
+		viewer.setContextMenu(new ContextMenuProvider(viewer) {
+			@Override
+			public void buildContextMenu(IMenuManager menuManager) {
+				try {
+					if (!getViewer().getEditDomain().isDisabled())
+						contextMenuProvider.populate(menuManager);
+				} catch (Exception e) {
+					getMenu().setVisible(false);
+				}
+			}
+		});
 	}
 
 	@Optional @Inject
@@ -209,7 +216,7 @@ public abstract class AbstractE4Part {
 	}
 
 	protected IEntity createDefaultContents() {
-		return new EmptyStatusTemplate().create();
+		return E4Utils.createEmptyStatusContents();
 	}
 
 	@PersistState
@@ -261,7 +268,7 @@ public abstract class AbstractE4Part {
 	
 	@Inject
 	@Optional
-	protected void refreshViewer(@UIEventTopic(IUIConstants.TOPIC_REFRESH_VIEWER) IEntity source) {
+	protected void refreshViewer(@UIEventTopic(IE4UIConstants.TOPIC_REFRESH_VIEWER) IEntity source) {
 		if (source == null)
 			getViewer().refreshNotation();
 		else if (source.wGetModel() == getViewer().getEntityContents().wGetModel())
@@ -270,7 +277,7 @@ public abstract class AbstractE4Part {
 
 	@Inject
 	@Optional
-	protected void rebuildViewer(@UIEventTopic(IUIConstants.TOPIC_REBUILD_VIEWER) IEntity source) {
+	protected void rebuildViewer(@UIEventTopic(IE4UIConstants.TOPIC_REBUILD_VIEWER) IEntity source) {
 		if (source == null)
 			getViewer().rebuildNotation();
 		else if (source.wGetModel() == getViewer().getEntityContents().wGetModel())
@@ -279,7 +286,7 @@ public abstract class AbstractE4Part {
 
 	@Inject
 	@Optional
-	protected void rebuildViewerConditional(@UIEventTopic(IUIConstants.TOPIC_REBUILD_VIEWER_CONDITIONAL) String resourceUri) {
+	protected void rebuildViewerConditional(@UIEventTopic(IE4UIConstants.TOPIC_REBUILD_VIEWER_CONDITIONAL) String resourceUri) {
 		if (getViewer().getReferencedResources().contains(resourceUri))
 			getViewer().rebuildNotation();
 	}
@@ -287,7 +294,7 @@ public abstract class AbstractE4Part {
 
 	@Inject
 	@Optional
-	protected void syncOutlineSelection(@UIEventTopic(IUIConstants.TOPIC_SYNC_OUTLINE_SELECTION) IEntity selectedEntities) {
+	protected void syncOutlineSelection(@UIEventTopic(IE4UIConstants.TOPIC_SYNC_OUTLINE_SELECTION) IEntity selectedEntities) {
 		if (selectedEntities.wSize()>0 && getViewer().getEditPartRegistry().containsKey(selectedEntities.wGet(0))) {
 			List<IEntity> selection = new ArrayList<>();
 			for (int i=0, size=selectedEntities.wSize(); i<size; i++)

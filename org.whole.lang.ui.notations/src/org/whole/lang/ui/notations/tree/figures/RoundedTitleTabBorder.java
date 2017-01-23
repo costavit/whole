@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 
 public class RoundedTitleTabBorder extends AbstractLabeledBorder {
 	private static final int LINE_WIDTH = 1;
@@ -37,7 +37,7 @@ public class RoundedTitleTabBorder extends AbstractLabeledBorder {
 	protected Style style;
 	protected Color borderColor;
 	public static Color TAB_TEXT_COLOR = ColorConstants.black;
-	public static Color BORDER_COLOR = FigurePrefs.blueColor;
+	public static Color BORDER_COLOR = FigureConstants.blueColor;
 
 	public RoundedTitleTabBorder(String s) {
 		this(s, NO_SHRINK, Style.SOLID);
@@ -50,7 +50,7 @@ public class RoundedTitleTabBorder extends AbstractLabeledBorder {
 		setShrink(shrink);
 		setTextColor(labelColor);
 		setBorderColor(borderColor);
-		setFont(FigurePrefs.declarationsFont);
+		setFont(FigureConstants.declarationsFont);
 		this.style = style;
 	}
 
@@ -79,6 +79,10 @@ public class RoundedTitleTabBorder extends AbstractLabeledBorder {
 		if (getBorderColor() != null)
 			graphics.setForegroundColor(getBorderColor());
 		graphics.setBackgroundColor(ColorConstants.lightGray);
+
+		int oldAlpha = graphics.getAlpha();
+		if (Style.DASHED.equals(style))
+			graphics.setAlpha(60);
 
 		// part of the round border outside the tab
 		int titleWidth = textExtents.width + labelHeight +1;
@@ -110,15 +114,18 @@ public class RoundedTitleTabBorder extends AbstractLabeledBorder {
 		graphics.setBackgroundColor(borderColor);
 		graphics.setClip(tempRect);
 		graphics.drawRoundRectangle(tempRect.getResized(-1,+4), 8, 8);
-		int oldAlpha = graphics.getAlpha();
+		int oldAlpha1 = graphics.getAlpha();
 		graphics.setAlpha(60);
 		graphics.fillRoundRectangle(tempRect.getResized(0,+4), 8, 8);
-		graphics.setAlpha(oldAlpha);
+		graphics.setAlpha(oldAlpha1);
 
 		// draw label
 		graphics.setFont(getFont(figure));
 		graphics.setForegroundColor(getTextColor());
 		graphics.drawString(getLabel(), tempRect.x + labelHalfHeight, tempRect.y);
+
+		if (Style.DASHED.equals(style))
+			graphics.setAlpha(oldAlpha);
 	}
 
 	public Color getBorderColor() {

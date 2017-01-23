@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -172,10 +172,14 @@ public class ReflectionFactory {
 		return platformClassLoader;
 	}
 	public static void setUserClassLoader(ClassLoader classLoader) {
-		if (platformClassLoader instanceof OrderedClassLoader)
-			((OrderedClassLoader) platformClassLoader).setUserClassLoader(classLoader);
-		else
-			platformClassLoader = new OrderedClassLoader(getPlatformClassLoader(), classLoader);
+    	try {
+    		Class<?> rfClass = Class.forName(ReflectionFactory.instance.getClass().getName(), true, classLoader);
+    		if (rfClass != ReflectionFactory.instance.getClass()) 
+        		throw new IllegalArgumentException("Inconsistent class loaders hierarchy");
+    		platformClassLoader = classLoader;
+    	} catch (ClassNotFoundException e) {
+    		platformClassLoader = new OrderedClassLoader(getPlatformClassLoader(), classLoader);
+		}
 	}
 	public static class OrderedClassLoader extends ClassLoader {
 		private ClassLoader userClassLoader;
@@ -336,38 +340,37 @@ public class ReflectionFactory {
     		languageRequestHandler = languageRequestHandler.removeLanguageRequestHandler(handler);
     }
 
-    public void addLanguageAdapter(String languageURI, IChangeEventHandler languageAdapter) {
-    	ILanguageKit languageKit = getLanguageKit(languageURI);
-    	languageKit.addLanguageAdapter(languageAdapter);
+    public void addReactionsHandler(String languageURI, IChangeEventHandler reactionsHandler) {
+    	ILanguageKit languageKit = getLanguageKit(languageURI, false, null);
+    	languageKit.addReactionsHandler(reactionsHandler);
     }
     public void addOperationFactory(String languageURI, String operationId, IVisitorFactory visitorFactory) {
-    	ILanguageKit languageKit = getLanguageKit(languageURI);
+    	ILanguageKit languageKit = getLanguageKit(languageURI, false, null);
     	languageKit.addVisitorFactory(operationId, visitorFactory);
     }
     public void addOperationFactory(String languageURI, String operationId, IBuilderFactory builderFactory) {
-    	ILanguageKit languageKit = getLanguageKit(languageURI);
+    	ILanguageKit languageKit = getLanguageKit(languageURI, false, null);
     	languageKit.addBuilderFactory(operationId, builderFactory);
     }
 
     public void addEditorKit(String editorId) {
-		if (!editorKitsMap.containsKey(editorId)) {
 			IEditorKit editorKit = instantiateClass(editorId);
 			addEditorKit(editorKit);
-		}
 	}
 	public void addEditorKit(IEditorKit editorKit) {
-		if (!editorKitsMap.containsKey(editorKit.getId())) {
-			editorKitsMap.put(editorKit.getId(), editorKit);
-			editorKitsSet.add(editorKit);
-			// update language kits
-			for (ILanguageKit languageKit : getLanguageKits(true))
-				if (editorKit.canApply(languageKit))
-					((InternalILanguageKit) languageKit).addEditorKit(editorKit);
-		}
+    	if (editorKitsMap.containsKey(editorKit.getId()))
+    		removeEditorKit(editorKit.getId());
+		
+		editorKitsMap.put(editorKit.getId(), editorKit);
+		editorKitsSet.add(editorKit);
+		// update language kits
+		for (ILanguageKit languageKit : getLanguageKits(true))
+			if (editorKit.canApply(languageKit))
+				((InternalILanguageKit) languageKit).addEditorKit(editorKit);
 	}
 
 	public synchronized void removeEditorKit(String id) {
-        IEditorKit old = (IEditorKit) editorKitsMap.remove(id);
+        IEditorKit old = editorKitsMap.remove(id);
         if (old != null) {
 //            fileExtensionEditorKitMap.remove(old.getFileExtension());
             editorKitsSet.remove(old);

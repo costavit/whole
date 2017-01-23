@@ -12,14 +12,12 @@ Simply, unpack and run the application.
 
 To add the Whole Platform to an existing Eclipse installation
 use the Update site or the Update site Archive.
+(http://whole.sourceforge.net/updates points to the last version)
 
 The Whole Platform sources are distributed with several bundled examples.
 Additional examples are available as a separate archive.
 Import the zip files into the Eclipse's workspace using the
 "Existing Projects into Workspace" import wizard.
-
-See http://sourceforge.net/apps/mediawiki/whole/index.php?title=Whole_Platform_Installation
-for additional details.
 
 Outline of the SourceForge Whole Platform Files hierarchy
 
@@ -38,7 +36,7 @@ updates/<version>                  Eclipse Update site
 Legal Notes
 -----------
 
-The Whole Platform is Copyright 2004-2015 Riccardo Solmi.
+The Whole Platform is Copyright 2004-2016 Riccardo Solmi.
 All rights reserved.
 The Whole Platform is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published

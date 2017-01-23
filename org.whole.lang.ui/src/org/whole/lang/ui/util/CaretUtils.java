@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -23,6 +23,7 @@ import java.util.regex.Pattern;
 import org.eclipse.draw2d.FigureCanvas;
 import org.eclipse.draw2d.FigureUtilities;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.Viewport;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
@@ -35,6 +36,7 @@ import org.eclipse.swt.widgets.Caret;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.ui.editparts.IEntityPart;
 import org.whole.lang.ui.editparts.ITextualEntityPart;
+import org.whole.lang.ui.figures.ITextualFigure;
 import org.whole.lang.ui.viewers.IEntityPartViewer;
 
 /** 
@@ -164,7 +166,7 @@ public class CaretUtils {
 			return text;//FIXME workaround
 		}
 	}
-	
+
 	public static int getLineFromPosition(String text, int position) {
 		int lines = getCaretLines(text);
 		int index = -1;
@@ -176,4 +178,26 @@ public class CaretUtils {
 		return -1;
 	}
 	// end of multiline positioning methods
+
+	//FIXME alternative methods  added for backward compatibility
+	public static org.eclipse.draw2d.geometry.Rectangle getAbsoluteCaretBounds(IEntityPartViewer viewer, ITextualEntityPart targetPart) {
+		ITextualFigure textualFigure = targetPart.getTextualFigure();
+		Viewport viewport = ((FigureCanvas) viewer.getControl()).getViewport();
+		org.eclipse.draw2d.geometry.Rectangle caretBounds = textualFigure.getCaretBounds().getCopy();
+		viewport.getContents().translateToRelative(caretBounds);
+		return caretBounds;
+	}
+
+	public static int calculateCaretPosition(ITextualEntityPart targetPart, int horizontalLocation) {
+		ITextualFigure textualFigure = targetPart.getTextualFigure();
+		Point.SINGLETON.x = horizontalLocation;
+		textualFigure.translateToRelative(Point.SINGLETON);
+		horizontalLocation = Point.SINGLETON.x;
+		Label label = textualFigure.getEmbeddedLabel();
+		String text = textualFigure.getText();
+		Font font = textualFigure.getEmbeddedLabelFont();
+		int availableWidth = horizontalLocation - textualFigure.getTextBounds().x;
+		int length = label.getTextUtilities().getLargestSubstringConfinedTo(text, font, availableWidth+3);
+		return CaretUtils.getStartingLinePosition(text, getCaretLines(text)-1)+length;
+	}
 }

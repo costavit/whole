@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -19,7 +19,7 @@ package org.whole.lang.ui.editparts;
 
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.RoundBracketsBorder;
 
 /**
@@ -31,7 +31,7 @@ public class ContentLighterDataEntityPartWithRoundBrackets extends ContentLighte
 		f.setBorder(new RoundBracketsBorder() {
 			@Override
 			protected void setBracketsStyle(Graphics g) {
-				g.setForegroundColor(FigurePrefs.contentLighterColor);
+				g.setForegroundColor(FigureConstants.contentLighterColor);
 			}
 		});
 		return f;

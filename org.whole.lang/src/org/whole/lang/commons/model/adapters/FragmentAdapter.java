@@ -31,8 +31,7 @@ public class FragmentAdapter extends AbstractEntityAdapter implements Fragment {
 	}
 
 	public Any getRootEntity() {
-		return wGet(CommonsFeatureDescriptorEnum.rootEntity).wGetAdapter(
-				CommonsEntityDescriptorEnum.Any);
+		return wGet(CommonsFeatureDescriptorEnum.rootEntity).wGetAdapter(CommonsEntityDescriptorEnum.Any);
 	}
 
 	public void setRootEntity(Any rootEntity) {

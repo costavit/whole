@@ -1,5 +1,5 @@
 /**
- *  Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ *  Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  *  This file is part of the Whole Platform.
  *  The Whole Platform is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -16,11 +16,12 @@ package org.whole.lang.patterns.ui.editparts;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.draw2d.IFigure;
-import org.whole.lang.patterns.model.PointcutDeclaration;
 import org.whole.lang.model.IEntity;
+import org.whole.lang.patterns.model.PointcutDeclaration;
 import org.whole.lang.ui.editparts.AbstractContentPanePart;
-import org.whole.lang.patterns.ui.figures.PointcutDeclarationFigure;
+import org.whole.lang.ui.figures.NoTypeNameValueTableRowFigure;
 
 /**
  *  @author  Riccardo Solmi
@@ -28,7 +29,7 @@ import org.whole.lang.patterns.ui.figures.PointcutDeclarationFigure;
 public class PointcutDeclarationPart extends AbstractContentPanePart {
 
     protected IFigure createFigure() {
-        return new PointcutDeclarationFigure();
+        return new NoTypeNameValueTableRowFigure();
     }
 
     protected List<IEntity> getModelSpecificChildren() {

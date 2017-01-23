@@ -177,7 +177,7 @@
 							<groupId>com.wholeplatform</groupId>
 							<artifactId>org.whole.product.lw.target</artifactId>
 							<version>1.0.7-SNAPSHOT</version>
-							<classifier>MARS_4_5_x</classifier>
+							<classifier>NEON_4_6_x</classifier>
 						</artifact>
 					</target>
 					<environments>
@@ -215,19 +215,19 @@
 
 		<compiler-version>2.4</compiler-version>
 		<wagon-ssh-version>2.2</wagon-ssh-version>
-		<tycho-version>0.23.1</tycho-version>
+		<tycho-version>0.25.0</tycho-version>
 		<assembly-version>2.3</assembly-version>
 		<source-version>2.1.2</source-version>
 		<resources-version>2.5</resources-version>
 		<jar-version>2.4</jar-version>
 	</properties>
 
-	<!-- update according to org.whole.product.lw.target/MARS_4_5_x.target -->
+	<!-- update according to org.whole.product.lw.target/NEON_4_6_x.target -->
 	<repositories>
 		<repository>
-			<id>eclipse-mars-updates</id>
+			<id>eclipse-neon-updates</id>
 			<layout>p2</layout>
-			<url>http://download.eclipse.org/eclipse/updates/4.5</url>
+			<url>http://download.eclipse.org/eclipse/updates/4.6</url>
 		</repository>
 	</repositories>
 </project>

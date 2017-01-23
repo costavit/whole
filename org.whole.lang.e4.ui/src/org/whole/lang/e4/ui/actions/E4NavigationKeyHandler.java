@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -43,6 +43,7 @@ import org.whole.lang.ui.figures.ITextualFigure;
 import org.whole.lang.ui.keys.IKeyHandler;
 import org.whole.lang.ui.tools.EditPoint;
 import org.whole.lang.ui.tools.IEditPointProvider;
+import org.whole.lang.ui.tools.Tools;
 import org.whole.lang.ui.util.CaretUpdater;
 import org.whole.lang.ui.util.CaretUtils;
 
@@ -445,16 +446,18 @@ public class E4NavigationKeyHandler extends E4KeyHandler implements IEditPointPr
 	}
 
 	public boolean keyPressed(KeyEvent event) {
+		//FIXME workaround (whent textual tool is enabled
+		// inhibit navigation actions that use printable chars)
 		if (event.keyCode == SWT.INSERT) {
 			toggleInsertMode();
 			return true;
-		} else if (event.character == ' ') {
+		} else if (event.character == ' ' && !Tools.TEXTUAL.isActive(getViewer())) {
 			processSelect(event);
 			return true;
-		} else if (acceptConnection(event)) {
+		} else if (acceptConnection(event) && !Tools.TEXTUAL.isActive(getViewer())) {
 			navigateConnections(event);
 			return true;
-		} else if (acceptLeaveConnection(event)) {
+		} else if (acceptLeaveConnection(event) && !Tools.TEXTUAL.isActive(getViewer())) {
 			navigateOutOfConnection(event);
 			return true;
 		}

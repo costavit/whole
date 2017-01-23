@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -272,7 +272,8 @@ public class EntityDescriptorEnum extends EnumType<EntityDescriptor<?>> implemen
 	protected <E extends IEntity> EntityDescriptor<E> putCompositeEntity(
 			int ordinal, String name, Class<E> type,
 			boolean isRelationship, int elementEdOrdinal,
-			boolean isOrdered, boolean isUnique, boolean isReference, boolean isDerived, boolean isShared) {
+			boolean isOrdered, boolean isUnique, boolean isReference,
+			boolean isDerived, boolean isShared) {
 		return putCompositeEntity(ordinal, name, name, type,
 				isRelationship, elementEdOrdinal, isOrdered, isUnique,
 				isReference, isDerived, isShared);
@@ -280,11 +281,12 @@ public class EntityDescriptorEnum extends EnumType<EntityDescriptor<?>> implemen
 	protected <E extends IEntity> EntityDescriptor<E> putCompositeEntity(
 			int ordinal, String name, String implName, Class<E> type,
 			boolean isRelationship, int elementEdOrdinal,
-			boolean isOrdered, boolean isUnique, boolean isReference, boolean isDerived, boolean isShared) {
+			boolean isOrdered, boolean isUnique, boolean isReference,
+			boolean isDerived, boolean isShared) {
 		assert (valueOf(name) == null);
 		EntityDescriptor<E> ed = new CompositeEntityDescriptor<E>(ordinal, name, implName, type,
 				isRelationship, isOrdered, isUnique,
-				elementEdOrdinal, isReference, isDerived, isShared);
+				elementEdOrdinal, true, isReference, isDerived, isShared);
 		putEnumValue(ed);
 		return ed;
 	}

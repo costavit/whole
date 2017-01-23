@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,7 +22,9 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.lang.reflect.Method;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
@@ -31,6 +33,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.UISynchronize;
@@ -46,6 +49,10 @@ import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
+import org.eclipse.jface.bindings.keys.IKeyLookup;
+import org.eclipse.jface.bindings.keys.KeyLookupFactory;
+import org.eclipse.jface.bindings.keys.KeySequence;
+import org.eclipse.jface.bindings.keys.KeyStroke;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -57,7 +64,16 @@ import org.whole.lang.codebase.IFilePersistenceProvider;
 import org.whole.lang.codebase.IPersistenceKit;
 import org.whole.lang.codebase.IPersistenceProvider;
 import org.whole.lang.commons.parsers.CommonsDataTypePersistenceParser;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.ActivatePanningToolAction;
+import org.whole.lang.e4.ui.actions.ArrowDownAction;
+import org.whole.lang.e4.ui.actions.ArrowLeftAction;
+import org.whole.lang.e4.ui.actions.ArrowRightAction;
+import org.whole.lang.e4.ui.actions.ArrowUpAction;
+import org.whole.lang.e4.ui.actions.BackspaceAction;
+import org.whole.lang.e4.ui.actions.DeleteAction;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
+import org.whole.lang.e4.ui.actions.NewlineAction;
+import org.whole.lang.e4.ui.actions.SplitOnCaretAction;
 import org.whole.lang.e4.ui.jobs.ExecutionState;
 import org.whole.lang.events.IdentityRequestEventHandler;
 import org.whole.lang.exceptions.IWholeRuntimeException;
@@ -69,11 +85,17 @@ import org.whole.lang.operations.InterpreterOperation;
 import org.whole.lang.operations.PrettyPrinterOperation;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.reflect.FeatureDescriptor;
+import org.whole.lang.reflect.FeatureDescriptorEnum;
+import org.whole.lang.reflect.ILanguageKit;
 import org.whole.lang.reflect.ReflectionFactory;
+import org.whole.lang.status.codebase.EmptyStatusTemplate;
+import org.whole.lang.status.codebase.ErrorStatusTemplate;
 import org.whole.lang.ui.editparts.IEntityPart;
 import org.whole.lang.ui.editparts.ITextualEntityPart;
+import org.whole.lang.ui.editparts.ModelObserver;
 import org.whole.lang.ui.editpolicies.IHilightable;
 import org.whole.lang.ui.input.IModelInput;
+import org.whole.lang.ui.util.CaretUtils;
 import org.whole.lang.ui.util.SuspensionKind;
 import org.whole.lang.ui.viewers.IEntityPartViewer;
 import org.whole.lang.util.BehaviorUtils;
@@ -84,11 +106,31 @@ import org.whole.lang.util.EntityUtils;
 import org.whole.lang.util.IEntityTransformer;
 import org.whole.lang.util.NullInputStream;
 import org.whole.lang.util.NullOutputStream;
+import org.whole.langs.core.CoreMetaModelsDeployer;
 
 /**
  * @author Enrico Persiani
  */
 public class E4Utils {
+	public static boolean isStatusEntity(IEntity entity) {
+		return "whole:org.whole.lang.status:Status".equals(entity.wGetLanguageKit().getURI());
+	}
+
+	public static IEntity createEmptyStatusContents() {
+		return new EmptyStatusTemplate().create();
+	}
+
+	public static IEntity createErrorStatusContents() {
+		return new ErrorStatusTemplate().create();
+	}
+	public static IEntity createErrorStatusContents(String error, String cause) {
+		ILanguageKit languageKit = ReflectionFactory.getLanguageKit(CoreMetaModelsDeployer.STATUS_URI, false, null);
+		FeatureDescriptorEnum fdEnum = languageKit.getFeatureDescriptorEnum();
+		IEntity statusModel = createErrorStatusContents();
+		statusModel.wGet(fdEnum.valueOf("error")).wSetValue(error);
+		statusModel.wGet(fdEnum.valueOf("cause")).wSetValue(cause);
+		return statusModel;
+	}
 
 	public static MCommand findCommand(String commandId, MApplication application) {
 		for (MCommand command : application.getCommands())
@@ -165,7 +207,8 @@ public class E4Utils {
 		if (viewer != null) {
 			bm.wDef("self", EntityUtils.getCompoundRoot(viewer.getEntityContents()));
 			bm.wDefValue("viewer", viewer);
-			bm.wDef("focusEntity", viewer.getFocusEntityPart().getModelEntity());
+			IEntityPart focusEntityPart = viewer.getFocusEntityPart();
+			bm.wDef("focusEntity", focusEntityPart.getModelEntity());
 		}
 		bm.wDef("selectedEntities", selectedEntities);
 		IEntityIterator<IEntity> iterator = IteratorFactory.childIterator();
@@ -199,11 +242,39 @@ public class E4Utils {
 			}
 		}
 	}
+	public static void defineCaretBindings(IBindingManager bm) {
+		IEntity text = bm.wGet("focusEntity");
+		IEntityPartViewer viewer = (IEntityPartViewer) bm.wGetValue("viewer");
+		ITextualEntityPart targetPart = (ITextualEntityPart) ModelObserver.getObserver(text, viewer.getEditPartRegistry());
+		String textToSplit = DataTypeUtils.getAsPresentationString(targetPart.getModelTextEntity());
+		
+		int start = targetPart.getSelectionStart();
+		int end = targetPart.getSelectionEnd();
+		if (start == -1 || end == -1)
+			start = end = targetPart.getCaretPosition();
+		
+		String leftText = textToSplit.substring(0, start);
+		String selectedText = textToSplit.substring(start, end);
+		String rightText = textToSplit.substring(end);
+		
+		bm.wDefValue("leftText", leftText);
+		bm.wDefValue("selectedText", selectedText);
+		bm.wDefValue("rightText", rightText);
+		bm.wDefValue("caretPositions", targetPart.getCaretPositions());
+		bm.wDefValue("caretPosition", targetPart.getCaretPosition());
+		bm.wDefValue("caretPositionStart", start);
+		bm.wDefValue("caretPositionEnd", end);
+		Rectangle caretBounds = CaretUtils.getAbsoluteCaretBounds(viewer, targetPart);
+		bm.wDefValue("caretBounds", caretBounds);
+		bm.wDefValue("caretVerticalLocation", caretBounds.y);
+		bm.wDefValue("caretHorizontalLocation", caretBounds.x);
+	}
 
 	public static void defineResourceBindings(IBindingManager bm, IModelInput modelInput) {
 		modelInput.getPersistenceProvider().defineBindings(bm);
 		bm.wDefValue("modelInput", modelInput);
 	}
+
 	public static IEntity wrapToBehavior(EntityDescriptor<?> ed, IEntityTransformer entityTransformer) {
 		return wrapToBehavior(ed, null, entityTransformer);
 	}
@@ -350,7 +421,7 @@ public class E4Utils {
 		if (kind.isBreak() && bindings.wIsSet("debug#breakpointsEnabled") && !bindings.wBooleanValue("debug#breakpointsEnabled"))
 			return;
 
-		if (((IEntityPartViewer) bindings.wGetValue("viewer")).getControl().getDisplay().getThread() == Thread.currentThread()) {
+		if (bindings.wIsSet("viewer") && ((IEntityPartViewer) bindings.wGetValue("viewer")).getControl().getDisplay().getThread() == Thread.currentThread()) {
 			E4Utils.reportError((IEclipseContext) bindings.wGetValue("eclipseContext"),
 						"Domain behavior error", "Attempted suspension in UI thread", throwable);
 
@@ -369,8 +440,8 @@ public class E4Utils {
 					throw new IllegalStateException(e);
 				}
 
-				E4Utils.revealPart(context, IUIConstants.DEBUG_PART_ID);
-				E4Utils.revealPart(context, IUIConstants.VARIABLES_PART_ID);
+				E4Utils.revealPart(context, IE4UIConstants.DEBUG_PART_ID);
+				E4Utils.revealPart(context, IE4UIConstants.VARIABLES_PART_ID);
 				if (bindings.wIsSet("self") && bindings.wIsSet("viewer")) {
 					IEntity selfEntity = bindings.wGet("self");
 					((IEntityPartViewer) bindings.wGetValue("viewer")).selectAndReveal(selfEntity);
@@ -380,7 +451,7 @@ public class E4Utils {
 		
 		IEventBroker eventBroker = context.get(IEventBroker.class);
 		ExecutionState execution = new ExecutionState(kind, throwable, sourceEntity, bindings, includeNames);
-		eventBroker.post(IUIConstants.TOPIC_UPDATE_DEBUG, execution);
+		eventBroker.post(IE4UIConstants.TOPIC_UPDATE_DEBUG, execution);
 		execution.pause();
 	}
 
@@ -433,5 +504,64 @@ public class E4Utils {
 		} catch (ClassNotFoundException e) {
 			return false;
 		}
+	}
+
+	public static KeySequence lookupKeySequence(int modifiers, String keyName) {
+		int key = KeyLookupFactory.getDefault().formalKeyLookup(keyName);
+		return KeySequence.getInstance(KeyStroke.getInstance(modifiers, key));
+	}
+	public static KeySequence lookupKeySequence(String keyName) {
+		int key = KeyLookupFactory.getDefault().formalKeyLookup(keyName);
+		return KeySequence.getInstance(KeyStroke.getInstance(key));
+	}
+	public static KeySequence lookupEsc() {
+		return lookupKeySequence(IKeyLookup.ESC_NAME);
+	}
+	public static KeySequence lookupCtrlSpace() {
+		return lookupKeySequence(KeyLookupFactory.getDefault().getCtrl(), IKeyLookup.SPACE_NAME);
+	}
+	public static KeySequence lookupSpace() {
+		return lookupKeySequence(IKeyLookup.SPACE_NAME);
+	}
+	public static KeySequence lookupReturn() {
+		return lookupKeySequence(IKeyLookup.RETURN_NAME);
+	}
+	public static KeySequence lookupBackspace() {
+		return lookupKeySequence(IKeyLookup.BACKSPACE_NAME);
+	}
+	public static KeySequence lookupDelete() {
+		return lookupKeySequence(IKeyLookup.DELETE_NAME);
+	}
+	public static KeySequence lookupArrowLeft() {
+		return lookupKeySequence(IKeyLookup.ARROW_LEFT_NAME);
+	}
+	public static KeySequence lookupArrowRight() {
+		return lookupKeySequence(IKeyLookup.ARROW_RIGHT_NAME);
+	}
+	public static KeySequence lookupArrowUp() {
+		return lookupKeySequence(IKeyLookup.ARROW_UP_NAME);
+	}
+	public static KeySequence lookupArrowDown() {
+		return lookupKeySequence(IKeyLookup.ARROW_DOWN_NAME);
+	}
+	public static Object[][] textActionsFor(ILanguageKit languageKit, Object[][] customTextActions) {
+		List<Object[]> textActions = new LinkedList<>();
+		
+		for (EntityDescriptor<?> ed : languageKit.getEntityDescriptorEnum()) {
+			if (ed.getDataKind().isString()) {
+				textActions.add(new Object[] { E4Utils.lookupEsc(), ed, ActivatePanningToolAction.class });
+				textActions.add(new Object[] { E4Utils.lookupCtrlSpace(), ed, SplitOnCaretAction.class });
+				textActions.add(new Object[] { E4Utils.lookupReturn(), ed, NewlineAction.class });
+				textActions.add(new Object[] { E4Utils.lookupBackspace(), ed, BackspaceAction.class });
+				textActions.add(new Object[] { E4Utils.lookupDelete(), ed, DeleteAction.class });
+
+				textActions.add(new Object[] { E4Utils.lookupArrowLeft(), ed, ArrowLeftAction.class });
+				textActions.add(new Object[] { E4Utils.lookupArrowRight(), ed, ArrowRightAction.class });
+				textActions.add(new Object[] { E4Utils.lookupArrowUp(), ed, ArrowUpAction.class });
+				textActions.add(new Object[] { E4Utils.lookupArrowDown(), ed, ArrowDownAction.class });
+			}
+		}
+		textActions.addAll(Arrays.asList(customTextActions));
+		return textActions.toArray(new Object[0][]);
 	}
 }

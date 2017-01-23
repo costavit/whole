@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -21,11 +21,10 @@ import javax.inject.Inject;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.services.events.IEventBroker;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.reflect.ILanguageKit;
 import org.whole.lang.reflect.ReflectionFactory;
 import org.whole.lang.resources.IResourceRegistryListener;
-import org.whole.lang.ui.figures.FigurePrefs;
 
 /**
  * @author Enrico Persiani
@@ -37,12 +36,6 @@ public class ViewerRebuildProcessor {
 	@Execute
 	public void execute() {
 		ReflectionFactory.getLanguageKitRegistry().addResourceRegistryListener(createResourceRegistryListener());
-		FigurePrefs.setRebuildAllViewerRunnable(new Runnable() {
-			@Override
-			public void run() {
-				eventBroker.post(IUIConstants.TOPIC_REFRESH_VIEWER, null);
-			}
-		});
 	}
 
 	protected IResourceRegistryListener<ILanguageKit> createResourceRegistryListener() {
@@ -57,7 +50,7 @@ public class ViewerRebuildProcessor {
 				rebuildNotationIfNeeded(newResource);
 			}
 			protected void rebuildNotationIfNeeded(final ILanguageKit resource) {
-				eventBroker.post(IUIConstants.TOPIC_REBUILD_VIEWER_CONDITIONAL, resource.getURI());
+				eventBroker.post(IE4UIConstants.TOPIC_REBUILD_VIEWER_CONDITIONAL, resource.getURI());
 			}
 		};
 	}

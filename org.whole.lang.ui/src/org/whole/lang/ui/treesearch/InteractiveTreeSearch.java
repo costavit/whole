@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -50,7 +50,8 @@ public class InteractiveTreeSearch implements ITreeSearch {
 
 	public boolean accept(IFigure figure) {
 		boolean value = peekInheritedInteractiveEdit(figure);
-		inheritedInteractiveStack.clear(inheritedInteractiveStack.length()-1);
+		if (inheritedInteractiveStack.length() > 0)
+			inheritedInteractiveStack.clear(inheritedInteractiveStack.length()-1);
 		return value;
 	}
 

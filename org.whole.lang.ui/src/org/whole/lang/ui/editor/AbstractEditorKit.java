@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -72,5 +72,19 @@ public abstract class AbstractEditorKit implements IGEFEditorKit, Serializable {
 
 	public boolean isGeneric() {
 		return false;
+	}
+
+	protected boolean isStaticAndCurrent(ILanguageKit languageKit) {
+		if (languageKit.isDynamic() || !languageKit.isCurrent())
+			return false;
+
+    	try {
+    		Class<?> lkClass = Class.forName(languageKit.getClass().getName(), true, getClass().getClassLoader());
+    		if (lkClass != languageKit.getClass()) 
+        		return false;
+    	} catch (ClassNotFoundException e) {
+ 		}
+
+		return true;
 	}
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -53,6 +53,6 @@ public class XmlTextualEditorKit extends AbstractEditorKit {
 	}
 
 	public boolean canApply(ILanguageKit languageKit) {
-		return languageKit.getURI().equals(XmlLanguageKit.URI) && !languageKit.isDynamic();
+		return languageKit.getURI().equals(XmlLanguageKit.URI) && isStaticAndCurrent(languageKit);
 	}
 }

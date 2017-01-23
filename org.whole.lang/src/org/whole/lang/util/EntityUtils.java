@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -80,6 +80,13 @@ public class EntityUtils {
 //		EntityKinds kind = ed.getEntityKind();
 //		return (kind.isSimple() || kind.isComposite() || kind.isData()) && !ed.isAbstract();
 //	}
+
+	public static final boolean isIncompleteClone(IEntity entity) {
+		for (int i=0; i<entity.wSize(); i++)
+			if (entity.wGet(i).wGetParent() != entity)
+				return true;
+		return false;
+	}
 
 	public static final boolean isNull(IEntity entity) {
 		return NullEntity.instance.equals(entity);

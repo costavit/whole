@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -50,7 +50,7 @@ public class E4CompatibilityPlugin extends AbstractUIPlugin {
 	private static final int INTERNAL_ERROR = 120;
 
 	private static E4CompatibilityPlugin plugin;
-	
+
 	public E4CompatibilityPlugin() {
 		super();
 		plugin = this;
@@ -63,7 +63,6 @@ public class E4CompatibilityPlugin extends AbstractUIPlugin {
 		super.start(context);
 		Platform.getExtensionRegistry().addRegistryChangeListener(ResourceBindingsContributorExtensions.instance());
 		GEFResources.getInstance().setImageRegistry(getImageRegistry());
-		GEFResources.getInstance().setPreferenceStore(getPreferenceStore());
 		IImageDescriptorFactory factory = new IImageDescriptorFactory() {
 			public ImageDescriptor createFolder() {
 				ISharedImages sharedImages = PlatformUI.getWorkbench().getSharedImages();

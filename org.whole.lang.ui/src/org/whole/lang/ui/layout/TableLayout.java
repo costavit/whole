@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -281,7 +281,7 @@ public class TableLayout extends AbstractCompositeEntityLayout implements ITabul
 
 	public Rectangle getCellBounds(int columnIndex, int rowIndex) {
 		Rectangle bounds = getRow(rowIndex).getTabularLayoutClient().getCellBounds(columnIndex);
-		return bounds == IEntityFigure.PLACE_HOLDER_BOUNDS ? bounds : bounds.getTranslated(-getColumnSpacingBefore(columnIndex)/2, -getRowSpacingBefore(rowIndex)/2).resize(getColumnSpacingBefore(columnIndex+1), (getRowSpacingBefore(rowIndex)+getRowSpacingBefore(rowIndex+1))/2);
+		return bounds == IEntityFigure.PLACE_HOLDER_BOUNDS ? bounds : bounds.getTranslated(-getColumnSpacingBefore(columnIndex)/2, -getRowSpacingBefore(rowIndex)/2).resize((getColumnSpacingBefore(columnIndex)+getColumnSpacingBefore(columnIndex+1))/2, (getRowSpacingBefore(rowIndex)+getRowSpacingBefore(rowIndex+1))/2);
 	}
 	public Rectangle getColumnBounds(int columnIndex) {
 		Rectangle columnBounds = new Rectangle();

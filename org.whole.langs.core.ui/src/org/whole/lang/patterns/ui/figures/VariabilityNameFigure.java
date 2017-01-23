@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.MarginBorder;
 import org.whole.lang.ui.figures.ContentPaneFigure;
 import org.whole.lang.ui.figures.EntityLabel;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.layout.MonoLayout;
 
@@ -43,8 +44,10 @@ public class VariabilityNameFigure extends ContentPaneFigure {
 
     	int oldAlpha = g.getAlpha();
 		g.setAlpha(100);
+		g.setForegroundColor(FigureConstants.relationsColor);
     	g.setBackgroundColor(ColorConstants.orange);
         g.fillRoundRectangle(getContentPane(0).getBounds(), 8, 6);
+        g.drawRoundRectangle(getContentPane(0).getBounds().getResized(-1, -1), 8, 6);
         g.setAlpha(oldAlpha);
 	}
 }

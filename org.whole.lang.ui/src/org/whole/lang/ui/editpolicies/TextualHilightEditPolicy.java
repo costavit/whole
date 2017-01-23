@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,13 +17,22 @@
  */
 package org.whole.lang.ui.editpolicies;
 
+import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPartViewer;
+import org.whole.lang.bindings.IBindingManager;
+import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
+import org.whole.lang.matchers.Matcher;
+import org.whole.lang.model.IEntity;
+import org.whole.lang.ui.editparts.IGraphicalEntityPart;
 import org.whole.lang.ui.editparts.ITextualEntityPart;
+import org.whole.lang.ui.editparts.ModelObserver;
 import org.whole.lang.ui.figures.ITextualFigure;
 import org.whole.lang.ui.tools.Tools;
 import org.whole.lang.ui.util.CaretUpdater;
+import org.whole.lang.ui.util.FigureUtils;
+import org.whole.lang.ui.viewers.IEntityPartViewer;
 
 /** 
  * @author Enrico Persiani
@@ -53,12 +62,24 @@ public class TextualHilightEditPolicy extends WholeHilightEditPolicy {
 	}
 
 	private void showCaret() {
-		if (isTextToolActive())
-			getTextualHost().setCaretVisible(true);
+		if (isTextToolActive()) {
+			IBindingManager bm = getCurrentViewer().getContextBindings();
+			IEntity focusEntity = bm.wGet("focusEntity");
+			ITextualEntityPart textualHost = getTextualHost();
+			if (focusEntity != null && textualHost.getModelEntity() != focusEntity
+					&& !Matcher.match(CommonsEntityDescriptorEnum.RootFragment, focusEntity)) { //FIXME workaround for focusEntity == RootFragment after a focus lost
+				IGraphicalEntityPart focusPart = (IGraphicalEntityPart) ModelObserver.getObserver(focusEntity, getCurrentViewer().getEditPartRegistry());
+				if (focusPart != null) {
+					int position = FigureUtils.getPositionOf(textualHost.getFigure(), focusPart.getFigure());
+					textualHost.setCaretPosition(position == PositionConstants.EAST ? 0 : textualHost.getCaretPositions());
+				}
+			}
+			textualHost.setCaretVisible(true);
+		}
 	}
 
-	private EditPartViewer getCurrentViewer() {
-		return getHost().getViewer();
+	private IEntityPartViewer getCurrentViewer() {
+		return (IEntityPartViewer) getHost().getViewer();
 	}
 
 	private boolean isTextToolActive() {

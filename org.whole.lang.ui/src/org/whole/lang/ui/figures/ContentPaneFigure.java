@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -32,6 +32,7 @@ import org.eclipse.draw2d.Toggle;
 import org.whole.lang.ui.layout.ITabularLayoutClient;
 import org.whole.lang.ui.layout.ITabularLayoutServer;
 import org.whole.lang.ui.layout.MonoLayout;
+import org.whole.lang.ui.layout.StackLayout;
 import org.whole.lang.ui.layout.ViewportTracking;
 import org.whole.lang.ui.util.AnimableRunnable;
 import org.whole.lang.util.CompositeUtils;
@@ -181,9 +182,9 @@ public class ContentPaneFigure extends EntityFigure implements IFoldableFigure {
 	public IEntityFigure createContentPane(int paneIndex, ViewportTracking viewportTracking) {
 		MonoLayout monoLayout = new MonoLayout().withInheritedAlignment();
 		if (viewportTracking.isHorizontal())
-			monoLayout.withMinorAutoresizeWeight(1.0f);
-		if (viewportTracking.isVertical())
 			monoLayout.withMajorAutoresizeWeight(1.0f);
+		if (viewportTracking.isVertical())
+			monoLayout.withMinorAutoresizeWeight(1.0f);
 
 		return createContentPane(paneIndex, new EntityFigure(monoLayout) {
 			public ITabularLayoutServer getTabularLayoutServer() {
@@ -214,5 +215,14 @@ public class ContentPaneFigure extends EntityFigure implements IFoldableFigure {
 	}
 	public IEntityFigure getContentPane(int paneIndex) {
 		return contentPanes != null ? contentPanes[paneIndex] : this;
+	}
+
+	public <F extends IEntityFigure> F addWithPlaceHolder(F child) {
+		IEntityFigure stackedFigure = new EntityFigure(new StackLayout());
+        stackedFigure.add(LabelFactory.createEmptyLabel());
+        stackedFigure.add(child);
+        add(stackedFigure);
+
+        return child;
 	}
 }

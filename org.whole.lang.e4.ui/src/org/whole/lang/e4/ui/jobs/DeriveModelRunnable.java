@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@ import java.lang.reflect.InvocationTargetException;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.ui.di.UISynchronize;
 import org.whole.lang.bindings.IBindingManager;
+import org.whole.lang.e4.ui.util.E4Utils;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.operations.IOperationProgressMonitor;
 import org.whole.lang.operations.OperationCanceledException;
@@ -34,12 +35,14 @@ import org.whole.lang.util.BehaviorUtils;
 public class DeriveModelRunnable extends AbstractRunnableWithProgress {
 	protected String functionUri;
 	protected boolean functionIsTransactional;
+	protected ShowingPolicy resultShowingPolicy;
 
 	public DeriveModelRunnable(IEclipseContext context, IBindingManager bm, String label,
-			String functionUri, boolean functionIsTransactional) {
+			String functionUri, boolean functionIsTransactional, ShowingPolicy resultShowingPolicy) {
 		super(context, bm, label);
 		this.functionUri = functionUri;
 		this.functionIsTransactional = functionIsTransactional;
+		this.resultShowingPolicy = resultShowingPolicy;
 	}
 
 	@Override
@@ -54,13 +57,15 @@ public class DeriveModelRunnable extends AbstractRunnableWithProgress {
 			bm.wEnterScope();
 			bm.wDefValue("debug#reportModeEnabled", false);
 			final IEntity result = BehaviorUtils.apply(functionUri, bm.wGet("self"), bm);
-			if (result != null) {
-				context.get(UISynchronize.class).asyncExec(new Runnable() {
-					public void run() {
-						updateUI(result);
-					}
-				});
-			}
+			UISynchronize synchronize = context.get(UISynchronize.class);
+			if (synchronize == null)
+				return;
+
+			synchronize.asyncExec(new Runnable() {
+				public void run() {
+					updateUI(result);
+				}
+			});
 		} catch (OperationCanceledException e) {
 			// gracefully terminate execution
 		} finally {
@@ -70,6 +75,29 @@ public class DeriveModelRunnable extends AbstractRunnableWithProgress {
 	}
 	
 	protected void updateUI(IEntity result) {
-		context.get(IEntityPartViewer.class).setContents(result);
+		IEntityPartViewer viewer = context.get(IEntityPartViewer.class);
+		if (viewer == null)
+			return;
+
+		switch (resultShowingPolicy) {
+		case MANDATORY:
+			if (result != null)
+				viewer.setContents(result);
+			else
+				viewer.setContents(null, E4Utils.createErrorStatusContents("missing mandatory results", "review derivation code"));
+			break;
+
+		case OPTIONAL:
+			if (result != null)
+				viewer.setContents(result);
+			else
+				viewer.setContents(null, E4Utils.createEmptyStatusContents());
+			break;
+
+		default:
+		case IGNORABLE:
+			viewer.setContents(null, E4Utils.createEmptyStatusContents());
+			break;
+		}
 	}
 }

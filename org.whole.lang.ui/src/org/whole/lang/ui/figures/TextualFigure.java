@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -28,6 +28,7 @@ import org.eclipse.draw2d.UpdateListener;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Caret;
 import org.whole.lang.ui.layout.Alignment;
 import org.whole.lang.ui.layout.MonoLayout;
@@ -72,6 +73,9 @@ public class TextualFigure extends EntityFigure implements ITextualFigure {
 	public Rectangle getTextBounds() {
 		return label.getTextBounds();
 	}
+	public Font getEmbeddedLabelFont() {
+		return label.getFont();
+	}
 
 	public int getCaretPosition() {
 		return caretPosition;
@@ -112,7 +116,7 @@ public class TextualFigure extends EntityFigure implements ITextualFigure {
 	}
 
 	protected int getTextWidth(String text) {
-		return FigureUtilities.getTextWidth(text, label.getFont());
+		return FigureUtilities.getTextExtents(text, getEmbeddedLabelFont()).width;
 	}
 
 	protected boolean updateCaretLocation(Point location) {
@@ -126,64 +130,45 @@ public class TextualFigure extends EntityFigure implements ITextualFigure {
 			lastProximityPoint = proximityPoint;
 		
 		String text = label.getText();
-		Dimension caretSize = CaretUtils.getCaretSize(label.getFont());
+		Dimension caretSize = CaretUtils.getCaretSize(getEmbeddedLabelFont());
 		int line = CaretUtils.getCaretLine(proximityPoint, labelBounds, caretSize);
 		int verticalCaretLocation = labelBounds.y+(caretSize.height*line);
+		String textLine = CaretUtils.getLine(text, line);
 
 		if (proximityPoint.x <= labelBounds.x) {
 			caretPosition = CaretUtils.getStartingLinePosition(text, line);
 			caretBounds = new Rectangle(labelBounds.x, verticalCaretLocation, caretSize.width, caretSize.height);
 			return true;
 		}
-		if (proximityPoint.x > labelBounds.x + labelBounds.width) {
+		if (proximityPoint.x > labelBounds.right()) {
 			caretPosition = CaretUtils.getEndingLinePosition(text, line);
-			int xOffset = getTextWidth(CaretUtils.getLine(text, line));
+			int xOffset = getTextWidth(textLine);
 			caretBounds = new Rectangle(labelBounds.x + xOffset, verticalCaretLocation, caretSize.width, caretSize.height);
 			return true;
 		}
 
 		// calculate intermediate positions
-		String textLine = CaretUtils.getLine(text, line);
-		int left = labelBounds.x;
-		int right = left;
-		int width = 0;
-		int index = 1;
-		while (index <= textLine.length()) {
-			width = getTextWidth(textLine.substring(index-1, index));
-			right = left + width;
-			if (left <= proximityPoint.x && proximityPoint.x < right)
-				break;
-			left = right;
-			index++;
-		}
-		assert left <= right;
-		int newPosition = CaretUtils.getStartingLinePosition(text, line)+index;
-		if ((proximityPoint.x - left) <= width/2) {
-			caretPosition = newPosition-1;
-			caretBounds = new Rectangle(left, verticalCaretLocation, caretSize.width, caretSize.height);
-		} else {
-			caretPosition = index > textLine.length() ? newPosition-1 : newPosition;
-			caretBounds = new Rectangle(right, verticalCaretLocation, caretSize.width, caretSize.height);
-		}
+		int length = label.getTextUtilities().getLargestSubstringConfinedTo(textLine, getEmbeddedLabelFont(), proximityPoint.x - labelBounds.x);
+		caretPosition = CaretUtils.getStartingLinePosition(text, line)+length;
+		String substringtmp = text.substring(CaretUtils.getStartingLinePosition(text, line), caretPosition);
+		Dimension stringExtents = label.getTextUtilities().getStringExtents(substringtmp, getEmbeddedLabelFont());
+		caretBounds = new Rectangle(labelBounds.x + stringExtents.width, verticalCaretLocation, caretSize.width, caretSize.height);
+		
 		return true;
 	}
 
 	protected void updateCaretPosition() {
 		String text = label.getText();
-		if (text.length() < caretPosition) {
+		if (text.length() < caretPosition)
 			caretPosition = text.length();
-		}
-		updateCaretPosition(caretPosition);
-	}
 
-	protected void updateCaretPosition(int position) {
-		String text = label.getText();
 		Rectangle labelBounds = getTextBounds();
-		Dimension caretSize = CaretUtils.getCaretSize(label.getFont());
-		int line = getLineFromPosition(position);
+		Dimension caretSize = CaretUtils.getCaretSize(getEmbeddedLabelFont());
+		int line = getLineFromPosition(caretPosition);
 		int verticalCaretLocation = labelBounds.y+(caretSize.height*line);
-		int xOffset = getTextWidth(text.substring(CaretUtils.getStartingLinePosition(text, line), position));
-		caretBounds = new Rectangle(labelBounds.x + xOffset, verticalCaretLocation, caretSize.width, caretSize.height);
+		String substringtmp = text.substring(CaretUtils.getStartingLinePosition(text, line), caretPosition);
+		Dimension stringExtents = label.getTextUtilities().getStringExtents(substringtmp, getEmbeddedLabelFont());
+		caretBounds = new Rectangle(labelBounds.x + stringExtents.width, verticalCaretLocation, caretSize.width, caretSize.height);
 	}
 
 	public Label getEmbeddedLabel() {
@@ -277,12 +262,27 @@ public class TextualFigure extends EntityFigure implements ITextualFigure {
 
 	@Override
 	protected void paintFigure(Graphics graphics) {
+//FIXME workaround to show mouse pointer location
+//		(remove when caret behavior have been rewritten)
+//		
+//		Point lastProximityPoint = this.lastProximityPoint;
+//		if (lastProximityPoint != null) {
+//			Color fgColor = graphics.getForegroundColor();
+//			try {
+//				graphics.setForegroundColor(ColorConstants.red);
+//				graphics.drawLine(lastProximityPoint.x, getBounds().y,
+//						lastProximityPoint.x, getBounds().bottom());
+//			} finally {
+//				graphics.setForegroundColor(fgColor);
+//			}
+//		}
+
 		if (hasSelectionRange()) {
-			graphics.setBackgroundColor(FigurePrefs.lightBlueColor);
+			graphics.setBackgroundColor(FigureConstants.lightBlueColor);
 			String text = label.getText();
 			int startLine = CaretUtils.getLineFromPosition(text, rangeStart);
 			int endLine = CaretUtils.getLineFromPosition(text, rangeEnd);
-			int fontHeight = FigureUtilities.getFontMetrics(label.getFont()).getHeight();
+			int fontHeight = FigureUtilities.getFontMetrics(getEmbeddedLabelFont()).getHeight();
 			Rectangle bounds = getTextBounds();
 
 			if (startLine == endLine) {

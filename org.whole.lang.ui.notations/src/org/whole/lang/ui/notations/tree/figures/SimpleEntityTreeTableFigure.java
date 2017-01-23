@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -31,15 +31,17 @@ import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.ui.figures.AnchorFactory;
 import org.whole.lang.ui.figures.EntityButton;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.INodeFigure;
 import org.whole.lang.ui.figures.NodeFigure;
 import org.whole.lang.ui.figures.TableFigure;
 import org.whole.lang.ui.figures.TableRowFigure;
 import org.whole.lang.ui.layout.Alignment;
 import org.whole.lang.ui.layout.ColumnLayout;
+import org.whole.lang.ui.layout.MonoLayout;
 import org.whole.lang.ui.layout.RowLayout;
 import org.whole.lang.ui.layout.TableLayout;
+import org.whole.lang.ui.layout.ViewportTracking;
 import org.whole.lang.ui.notations.figures.DrawUtils;
 import org.whole.lang.ui.notations.tree.editparts.IEmbeddingStrategy;
 
@@ -63,16 +65,15 @@ public class SimpleEntityTreeTableFigure extends NodeFigure {
 				ed.getName(), createFoldingToggle(255));
 
 		tableFigure = createTableFigure(2);
-		tableFigure.getLayoutManager().withColumnAlignment(0, Alignment.TRAILING);
+		tableFigure.getLayoutManager().withColumnAlignment(0, Alignment.TRAILING)
+		.withMarginTop(2).withMarginBottom(2).withMajorAutoresizeWeight(1);
 
-		nodeFigure = new EntityFigure(new ColumnLayout().withAutoresizeWeight(1)
-				//.setMarginBottom(8)
-				) {
+		nodeFigure = new EntityFigure(new ColumnLayout()) {
 			protected void paintFigure(Graphics g) {
 				super.paintFigure(g);
 				
 				Rectangle b = nodeFigure.getBounds();
-				g.setForegroundColor(FigurePrefs.blueColor);
+				g.setForegroundColor(FigureConstants.blueColor);
 				g.drawRoundRectangle(b.getResized(-1, -1), 8, 8);
 
 				int oldAlpha = g.getAlpha();
@@ -80,7 +81,7 @@ public class SimpleEntityTreeTableFigure extends NodeFigure {
 
 				b = b.getCopy();
 				b.height = titleFigure.getBounds().height;
-				g.setBackgroundColor(FigurePrefs.blueColor);
+				g.setBackgroundColor(FigureConstants.blueColor);
 				if (tableFigure.isVisible()) {
 					g.setClip(b);
 					g.fillRoundRectangle(b.getResized(0, 4), 8, 8);
@@ -93,7 +94,7 @@ public class SimpleEntityTreeTableFigure extends NodeFigure {
 		nodeFigure.add(titleFigure);
 		nodeFigure.add(tableFigure);
 
-		contentsFigure = new EntityFigure(new ColumnLayout().withSpacing(8));
+		contentsFigure = new EntityFigure(new ColumnLayout().withSpacing(8).withMarginLeft(2));
 
 		for (int i=0; i<childSize; i++) {
 			TableRowFigure row = new TableRowFigure();
@@ -117,7 +118,9 @@ public class SimpleEntityTreeTableFigure extends NodeFigure {
 			tableFigure.add(row);
 		}
 
-		add(nodeFigure);
+		EntityFigure trackingFigure = new EntityFigure(new MonoLayout().withAutoresizeWeight(1f)).withViewportTracking(ViewportTracking.VERTICAL);
+		trackingFigure.add(nodeFigure);
+		add(trackingFigure);
 		add(contentsFigure);
 
 		setLayoutManager(new RowLayout().withMargin(2, 4, 2, 0).withSpacing(
@@ -133,7 +136,7 @@ public class SimpleEntityTreeTableFigure extends NodeFigure {
 				g.setBackgroundColor(ColorConstants.lightGray);
 				drawAlternateColumnsBackground(g, 0);
 
-				g.setForegroundColor(FigurePrefs.blueColor);
+				g.setForegroundColor(FigureConstants.blueColor);
 				drawHeadersRowSeparator(g);
 
 				g.setForegroundColor(ColorConstants.lightGray);
@@ -168,17 +171,28 @@ public class SimpleEntityTreeTableFigure extends NodeFigure {
 	}
 
 	@Override
+	protected ConnectionAnchor[] createSourceAnchors() {
+		// TODO
+		return super.createSourceAnchors();
+	}
+
+	@Override
 	protected ConnectionAnchor[] createTargetAnchors() {
 		return new ConnectionAnchor[] {
 			AnchorFactory.createFixedAnchor(nodeFigure, isRightToLeft() ? 1.0 : 0, 0.5)
 		};
 	}
 
-	@SuppressWarnings("unchecked")
-	protected void paintFigure(Graphics g) {
-		super.paintFigure(g);
+	@Override
+	public void paintClientArea(Graphics graphics) {
+		super.paintClientArea(graphics);
+		paintConnections(graphics);
+		graphics.restoreState();
+	}
 
-		g.setForegroundColor(FigurePrefs.relationsColor);
+	@SuppressWarnings("unchecked")
+	protected void paintConnections(Graphics g) {
+		g.setForegroundColor(FigureConstants.relationsColor);
 
 		List<IFigure> contentPanes = contentsFigure.getChildren();
 		int contentPanesSize = contentPanes.size();
@@ -191,12 +205,13 @@ public class SimpleEntityTreeTableFigure extends NodeFigure {
 			if (contentPane.isVisible()) {
 				start[size] = getFoldingToggle(i+1).getBounds().getRight();
 				start[size].x = nodeRight;
-				IFigure targetFigure = (IFigure) contentPane.getChildren().get(0);
+				List<IFigure> children = contentPane.getChildren();
+				IFigure targetFigure = children.isEmpty() ? null : (IFigure) children.get(0);
 				if (targetFigure instanceof INodeFigure) {
 					end[size] = ((INodeFigure) targetFigure).getTargetAnchor(0).getLocation(null);
 					translateToRelative(end[size]);
 				} else
-					end[size] = targetFigure.getBounds().getLeft();
+					end[size] = targetFigure == null ? start[size] : targetFigure.getBounds().getLeft();
 				size++;
 			}
 		}

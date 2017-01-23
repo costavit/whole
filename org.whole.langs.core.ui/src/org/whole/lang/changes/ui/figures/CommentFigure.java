@@ -1,5 +1,5 @@
 /**
- *  Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ *  Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  *  This file is part of the Whole Platform.
  *  The Whole Platform is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -17,7 +17,7 @@ package org.whole.lang.changes.ui.figures;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.whole.lang.ui.figures.ContentPaneFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.layout.OverColumnLayout;
 
 /**
@@ -41,11 +41,11 @@ public class CommentFigure extends ContentPaneFigure {
 		Rectangle commentBounds = getContentPane(0).getBounds();
 		Rectangle contentBounds = getContentPane(1).getBounds();
 
-		g.setBackgroundColor(FigurePrefs.reviewCommentBackgroundColor);
+		g.setBackgroundColor(FigureConstants.reviewCommentBackgroundColor);
 		g.fillRectangle(bounds.x, bounds.y, bounds.width, commentBounds.height);
-		g.setBackgroundColor(FigurePrefs.reviewCommentBackgroundColor);
+		g.setBackgroundColor(FigureConstants.reviewCommentBackgroundColor);
 //		g.fillRectangle(bounds.x, contentBounds.y, bounds.width, contentBounds.height);
-		g.setForegroundColor(FigurePrefs.reviewCommentColor);
+		g.setForegroundColor(FigureConstants.reviewCommentColor);
 		g.drawRectangle(bounds.x, bounds.y, bounds.width-1, bounds.height-1);
 	}
 }

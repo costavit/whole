@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -57,6 +57,10 @@ public class WholeExtendedExposeHelper implements ExtendedExposeHelper {
 		List<IFoldableFigure> result = new ArrayList<IFoldableFigure>(1);
 		IFigure foldableFigure = figure;
 		do {
+			//FIXME ? workaround
+			if (foldableFigure == null)
+				break;
+
 			foldableFigure = foldableFigure.getParent();
 			if (foldableFigure instanceof IFoldableFigure)
 				result.add((IFoldableFigure) foldableFigure);

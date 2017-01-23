@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -42,6 +42,7 @@ import org.whole.lang.reflect.ReflectionFactory;
 import org.whole.lang.reusables.ui.ReusablesUIDeployer;
 import org.whole.lang.semantics.ui.SemanticsUIDeployer;
 import org.whole.lang.status.ui.StatusUIDeployer;
+import org.whole.lang.syntaxtrees.ui.SyntaxTreesEditorKit;
 import org.whole.lang.templates.ui.TemplatesUIDeployer;
 import org.whole.lang.tests.ui.TestsEditorDeployer;
 import org.whole.lang.types.ui.TypesUIDeployer;
@@ -90,6 +91,8 @@ public class CoreUIDeployer extends AbstractSuiteDeployer {
 	@Override
 	public void deploy(ReflectionFactory platform) {
 		super.deploy(platform);
+
+		new SyntaxTreesEditorKit().getDeployer().deploy(platform);
 
 		if (!ReflectionFactory.getLanguageKit(WorkflowsLanguageKit.URI).hasVisitor(ContentAssistOperation.ID))
 			ReflectionFactory.deploy(WorkflowsUIContentAssistDeployer.class);

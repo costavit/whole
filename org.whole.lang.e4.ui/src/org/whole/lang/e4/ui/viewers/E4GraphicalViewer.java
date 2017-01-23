@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -43,7 +43,6 @@ import org.eclipse.gef.LightweightEditDomain;
 import org.eclipse.gef.commands.CommandStack;
 import org.eclipse.gef.editparts.ZoomManager;
 import org.eclipse.gef.ui.parts.ScrollingGraphicalViewer;
-import org.eclipse.jface.resource.ResourceManager;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.FocusEvent;
@@ -62,10 +61,7 @@ import org.whole.lang.e4.ui.handler.SelectAllHandler;
 import org.whole.lang.e4.ui.util.E4Utils;
 import org.whole.lang.model.ICompoundModel;
 import org.whole.lang.model.IEntity;
-import org.whole.lang.reflect.FeatureDescriptorEnum;
-import org.whole.lang.reflect.ILanguageKit;
 import org.whole.lang.reflect.ReflectionFactory;
-import org.whole.lang.status.codebase.ErrorStatusTemplate;
 import org.whole.lang.ui.dialogs.IImportAsModelDialogFactory;
 import org.whole.lang.ui.dnd.EditPartTransferDragSourceListener;
 import org.whole.lang.ui.dnd.EditPartTransferDropTargetListener;
@@ -230,14 +226,9 @@ public class E4GraphicalViewer extends ScrollingGraphicalViewer implements IReso
 				setEntityContents(this.modelInput.readModel());
 				fireModelInputChanged(oldModelInput, this.modelInput);
 			} catch (Exception e) {
-				ILanguageKit languageKit = ReflectionFactory.getLanguageKit(CoreMetaModelsDeployer.STATUS_URI, false, null);
-				FeatureDescriptorEnum fdEnum = languageKit.getFeatureDescriptorEnum();
-				IEntity statusModel = new ErrorStatusTemplate().create();
 				String errorMessage = String.format("Unable to open \"%s\" using \"%s\" persistence kit",
 						modelInput.getName(), modelInput.getPersistenceKit().getDescription());
-				statusModel.wGet(fdEnum.valueOf("error")).wSetValue(errorMessage);
-				statusModel.wGet(fdEnum.valueOf("cause")).wSetValue(e.getLocalizedMessage());
-				setEntityContents(statusModel);
+				setEntityContents(E4Utils.createErrorStatusContents(errorMessage, e.getLocalizedMessage()));
 			}
 		} else
 			setEntityContents(defaultContents);
@@ -361,7 +352,7 @@ public class E4GraphicalViewer extends ScrollingGraphicalViewer implements IReso
 	}
 	public void rebuildNotation() {
 		RootFragment rootFragment = (RootFragment) getContents().getModel();
-		rebuildNotation(rootFragment.getRootEntity().wGetAdaptee(true));
+		rebuildNotation(rootFragment);
 	}
 
 	// End Block Shared With E4TreeViewer
@@ -520,27 +511,6 @@ public class E4GraphicalViewer extends ScrollingGraphicalViewer implements IReso
 			firePartFocusChanged(oldPart, (IEntityPart) part);
 	}
 
-	//	private ResourceManager resourceManager;
-	@Override
-	public ResourceManager getResourceManager() {
-		//		return resourceManager;
-		return super.getResourceManager();
-	}
-	//	@Override
-	//	protected void hookControl() {
-	//		super.hookControl();
-	//
-	//		if (resourceManager == null)
-	//			resourceManager = new LocalResourceManager(JFaceResources.getResources());
-	//	}
-	//	@Override
-	//	protected void unhookControl() {
-	//		super.unhookControl();
-	//
-	//		if (resourceManager != null)
-	//			resourceManager.dispose();
-	//	}
-
 	@Override
 	protected void handleDispose(DisposeEvent e) {
 		colorRegistry = null;
@@ -551,13 +521,13 @@ public class E4GraphicalViewer extends ScrollingGraphicalViewer implements IReso
 	private IColorRegistry colorRegistry;
 	public IColorRegistry getColorRegistry() {
 		if (colorRegistry == null)
-			colorRegistry = new ColorRegistry(getResourceManager());
+			colorRegistry = new ColorRegistry(this);
 		return colorRegistry;
 	}
 	private IFontRegistry fontRegistry;
 	public IFontRegistry getFontRegistry() {
 		if (fontRegistry == null)
-			fontRegistry = new FontRegistry(getResourceManager());
+			fontRegistry = new FontRegistry(this);
 		return fontRegistry;
 	}
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 package org.whole.lang.grammars.ui.figures;
 
 import org.eclipse.swt.graphics.Color;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.FractionFigure;
 import org.whole.lang.ui.layout.FractionLayout;
 
@@ -39,6 +39,6 @@ public class RuleFractionFigure extends FractionFigure {
 
 	@Override
 	public Color getLocalForegroundColor() {
-		return FigurePrefs.relationsColor;
+		return FigureConstants.relationsColor;
 	}
 }

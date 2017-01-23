@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -76,11 +76,12 @@ public class DerivedLinkableSelectionListener extends AbstractLinkableSelectionL
 			return;
 
 		if (functionUri != null) {
-			ISynchronizableRunnable runnable = new DeriveModelRunnable(context, lastSelection, LABEL, functionUri, functionIsTransactional) {
+			ISynchronizableRunnable runnable = new DeriveModelRunnable(context, lastSelection, LABEL, functionUri, functionIsTransactional, resultShowingPolicy) {
 				@Override
 				protected void updateUI(IEntity result) {
 					super.updateUI(result);
-					fireContentsDerived(result);
+					if (result != null)
+						fireContentsDerived(result);
 				}
 			};
 			runnable.asyncExec("Executing "+LABEL+" operation...");
