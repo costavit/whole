@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 package org.whole.lang.xsi.ui.figures;
 
 import org.whole.lang.ui.figures.EntityLabel;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.notations.NotationImages;
 
 /**
@@ -27,7 +27,7 @@ import org.whole.lang.ui.notations.NotationImages;
 public class UnknownLabel extends EntityLabel {
 	public UnknownLabel() {
 		super("???", NotationImages.XML_TAG16);
-		setForegroundColor(FigurePrefs.errorsColor);
-		setFont(FigurePrefs.errorsFont);
+		setForegroundColor(FigureConstants.errorsColor);
+		setFont(FigureConstants.errorsFont);
 	}
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -28,20 +28,18 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.whole.lang.ui.figures.AnchorFactory;
 import org.whole.lang.ui.figures.CompositeFigure;
 import org.whole.lang.ui.figures.EntityFigure;
 import org.whole.lang.ui.figures.EntityLabel;
 import org.whole.lang.ui.figures.EntityToggle;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.figures.NodeFigure;
 import org.whole.lang.ui.layout.Alignment;
 import org.whole.lang.ui.layout.ColumnLayout;
 import org.whole.lang.ui.layout.RowLayout;
 import org.whole.lang.ui.notations.NotationImages;
-import org.whole.lang.ui.util.UIUtils;
 
 /**
  * @author Riccardo Solmi
@@ -70,14 +68,7 @@ public class SwitchControlFigure extends NodeFigure {
 		bodyFigure = new EntityFigure(new ColumnLayout().withMinorAlignment(Alignment.CENTER).withSpacing(2));
 		bodyFigure.add(createActionableFoldingToggle(new EntityToggle("\u00d7", "+", a1) {
 			protected EntityLabel createLabel(String text) {
-				return new EntityLabel(text) {
-					public Color getLocalForegroundColor() {
-						return FigurePrefs.contentLightColor;
-					}	
-					public Font getLocalFont() {
-						return UIUtils.getOpenSymbolMediumFont();
-					}
-				};
+				return LabelFactory.createSymbolMedium(text, FigureConstants.contentLightColor);
 			}
 		}));
 		bodyFigure.add(casesFigure);
@@ -169,7 +160,7 @@ public class SwitchControlFigure extends NodeFigure {
             
             int JOIN_SIZE = 16;
             g.setForegroundColor(ColorConstants.darkGray);
-			g.setBackgroundColor(FigurePrefs.lightGray);
+			g.setBackgroundColor(FigureConstants.lightGray);
             g.fillOval(xm-JOIN_SIZE/2, y0-JOIN_SIZE/2, JOIN_SIZE, JOIN_SIZE);
             g.drawOval(xm-JOIN_SIZE/2, y0-JOIN_SIZE/2, JOIN_SIZE, JOIN_SIZE);
         }

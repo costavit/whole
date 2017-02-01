@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  */
 package org.whole.lang.e4.ui.handler;
 
-import static org.whole.lang.e4.ui.actions.IUIConstants.*;
+import static org.whole.lang.e4.ui.actions.IE4UIConstants.*;
 
 import javax.inject.Named;
 
@@ -31,6 +31,7 @@ import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.bindings.ITransactionScope;
 import org.whole.lang.commons.parsers.CommonsDataTypePersistenceParser;
 import org.whole.lang.e4.ui.jobs.EntityEditDomainJob;
+import org.whole.lang.lifecycle.RollbackException;
 import org.whole.lang.ui.commands.ModelTransactionCommand;
 import org.whole.lang.ui.viewers.IEntityPartViewer;
 
@@ -62,22 +63,23 @@ public abstract class TypedModelTransactionHandler {
 			@Optional @Named(IServiceConstants.ACTIVE_SELECTION) IBindingManager bm,
 			IEntityPartViewer viewer) throws Exception {
 
-		defineBindings(edUri, fdUri, bm);
-
-		EntityEditDomainJob.asyncExec(getLabel(bm), viewer.getEditDomain(), (monitor) -> {
+		EntityEditDomainJob.asyncExec("replacing entity...", viewer.getEditDomain(), (monitor) -> {
 			CommandStack commandStack = viewer.getEditDomain().getCommandStack();
 			ModelTransactionCommand mtc = new ModelTransactionCommand(bm.wGet("focusEntity"));
 			ITransactionScope ts = BindingManagerFactory.instance.createTransactionScope();
 			try {
 				bm.wEnterScope(ts);
+				defineBindings(edUri, fdUri, bm);
 				mtc.setLabel(getLabel(bm));
 				mtc.begin();
 				TypedModelTransactionHandler.this.run(bm);
 				mtc.commit();
 				if (mtc.canUndo())
 					commandStack.execute(mtc);
+			} catch (RollbackException e) {
+				//rollback done
 			} catch (RuntimeException e) {
-				mtc.rollback();
+				mtc.rollbackIfNeeded();
 				throw e;
 			} finally {
 				ts.rollback();

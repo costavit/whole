@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.ui.WholeImages;
 import org.whole.lang.ui.figures.AnchorFactory;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.INodeFigure;
 import org.whole.lang.ui.figures.CompositeFigure;
 import org.whole.lang.ui.figures.NodeFigure;
@@ -116,7 +116,7 @@ public class CompositeEntityTreeFigure extends NodeFigure {
 
 	protected void paintConnections(Graphics graphics) {
 		// paint composite connections
-		graphics.setForegroundColor(FigurePrefs.relationsColor);
+		graphics.setForegroundColor(FigureConstants.relationsColor);
 		IFigure compositeFigure = getContentPane(0);
 		if (compositeFigure.isVisible()) {
 			int compositeChildrenNumber = compositeFigure.getChildren().size();

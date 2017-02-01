@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -51,9 +51,9 @@ public class NormalizeModelRunnable extends AbstractRunnableWithProgress {
 			if (mtc.canUndo())
 				commandStack.execute(mtc);
 		} catch (OperationCanceledException e) {
-			mtc.rollback();
+			mtc.rollbackIfNeeded();
 		} catch (RuntimeException e) {
-			mtc.rollback();
+			mtc.rollbackIfNeeded();
 			throw e;
 		} finally {
 			pm.endTask();

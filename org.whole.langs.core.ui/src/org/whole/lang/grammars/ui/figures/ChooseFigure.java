@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.whole.lang.ui.figures.CompositeFigure;
 import org.whole.lang.ui.figures.CompositePlaceHolderBorder;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 
 /**
  * @author Riccardo Solmi
@@ -43,7 +43,7 @@ public class ChooseFigure extends CompositeFigure {
 				r.width--;
 				r.height--;
 	
-				g.setForegroundColor(FigurePrefs.relationsColor);
+				g.setForegroundColor(FigureConstants.relationsColor);
 	
 				int ya = r.y + getAscent();
 				g.drawLine(r.x-1, ya, r.x+3, ya);

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -47,7 +47,7 @@ public class EyeFigure extends AbstractEntityShapeFigure {
 
 	@Override
 	protected void fillShape(Graphics graphics) {
-		setForegroundColor(closed ? ColorConstants.lightGray : FigurePrefs.contentLighterColor);
+		setForegroundColor(closed ? ColorConstants.lightGray : FigureConstants.contentLighterColor);
 		Rectangle bounds = getBounds().getCopy().translate(1, 1);
 		graphics.fillArc(bounds.setSize(18, 18), 30, 120);
 		graphics.fillArc(bounds.translate(0, -8), 205, 130);
@@ -55,7 +55,7 @@ public class EyeFigure extends AbstractEntityShapeFigure {
 
 	@Override
 	protected void outlineShape(Graphics graphics) {
-		setBackgroundColor(closed ? ColorConstants.lightGray : FigurePrefs.contentLighterColor);
+		setBackgroundColor(closed ? ColorConstants.lightGray : FigureConstants.contentLighterColor);
 		Rectangle bounds = getBounds().getCopy().translate(1, 1);
 		graphics.drawArc(bounds.setSize(17, 17), 30, 120);
 		graphics.drawArc(bounds.translate(0, -8), 205, 130);

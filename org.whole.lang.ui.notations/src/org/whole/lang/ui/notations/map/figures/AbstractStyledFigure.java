@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.NodeFigure;
 import org.whole.lang.ui.layout.IEntityLayout;
 import org.whole.lang.ui.layout.RowLayout;
@@ -96,7 +96,7 @@ public abstract class AbstractStyledFigure extends NodeFigure implements IStyled
 	}
 
 	public Color getLineColor() {
-		return lineColor != null ? lineColor : FigurePrefs.relationsColor;
+		return lineColor != null ? lineColor : FigureConstants.relationsColor;
 	}
 	public void setLineColor(Color lineColor) {
 		this.lineColor = lineColor;

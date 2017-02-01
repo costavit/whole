@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -29,7 +29,7 @@ import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.bindings.ITransactionScope;
 import org.whole.lang.commons.factories.CommonsEntityAdapterFactory;
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.environment.factories.EnvironmentEntityFactory;
 import org.whole.lang.environment.model.Name;
 import org.whole.lang.environment.reflect.EnvironmentEntityDescriptorEnum;
@@ -55,11 +55,14 @@ public class ExecuteSampleModelRunnable extends AbstractRunnableWithProgress {
 	protected IEntity contextModel;
 	protected IEntity selfModel;
 	protected IEntity behaviorModel;
+	protected IBindingManager selfBindings;
 
-	public ExecuteSampleModelRunnable(IEclipseContext context, IBindingManager bm, String label,
-			IEntity contextModel, IEntity selfModel, IEntity behaviorModel) {
-		super(context, bm, label);
+	public ExecuteSampleModelRunnable(IEclipseContext context, String label,
+			IEntity contextModel, IBindingManager selfBindings, IEntity selfModel,
+			IBindingManager behaviorBindings, IEntity behaviorModel) {
+		super(context, behaviorBindings, label);
 		this.contextModel = contextModel;
+		this.selfBindings = selfBindings;
 		this.selfModel = selfModel;
 		this.behaviorModel = behaviorModel;
 	}
@@ -83,12 +86,8 @@ public class ExecuteSampleModelRunnable extends AbstractRunnableWithProgress {
 
 		IEntity derivedModel = null;
 		try {
-			//TODO investigate this workaround
-			if (bm.wGet("self") != selfEntity)
-				bm.wDef("self", selfEntity);
 			IEntityIterator<?> iterator = BehaviorUtils.lazyEvaluate(behaviorModel, 0, bm);
-			if (bm.wGet("self") != selfEntity)
-				bm.wDef("self", selfEntity);
+			iterator.setBindings(selfBindings);
 			iterator.reset(selfEntity);
 
 			if (iterator.getClass().equals(ConstantIterator.class)) {
@@ -142,7 +141,7 @@ public class ExecuteSampleModelRunnable extends AbstractRunnableWithProgress {
 			context.get(UISynchronize.class).asyncExec(new Runnable() {
 				public void run() {
 					context.get(IEntityPartViewer.class).setContents(null, contents);
-					context.get(IEventBroker.class).post(IUIConstants.TOPIC_UPDATE_VARIABLES, variables);
+					context.get(IEventBroker.class).post(IE4UIConstants.TOPIC_UPDATE_VARIABLES, variables);
 				}
 			});
 		}

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,11 +17,13 @@
  */
 package org.whole.lang.e4.ui.actions;
 
-import static org.whole.lang.e4.ui.actions.IUIConstants.*;
+import static org.whole.lang.e4.ui.actions.IE4UIConstants.*;
 
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -45,6 +47,7 @@ import org.whole.lang.e4.ui.util.E4Utils;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.reflect.FeatureDescriptor;
 import org.whole.lang.reflect.IEditorKit;
+import org.whole.lang.reflect.ILanguageKit;
 import org.whole.lang.reflect.ReflectionFactory;
 import org.whole.lang.ui.actions.IUpdatableAction;
 import org.whole.lang.ui.editor.IGEFEditorKit;
@@ -108,21 +111,21 @@ public class ActionRegistry {
 	public void registerKeyActions(AbstractKeyHandler keyHandler) {
 		keyHandler.put(KeySequence.getInstance(KeyStroke.getInstance(SWT.F2)), true, actionFactory.createDirectEditAction());
 
-		IUpdatableAction activatePanningToolAction = actionFactory.createActivateToolAction(Tools.PANNING);
-		keyHandler.put(KeySequence.getInstance(KeyStroke.getInstance(SWT.CR)), true, activatePanningToolAction);
-		keyHandler.put(KeySequence.getInstance(KeyStroke.getInstance(SWT.LF)), true, activatePanningToolAction);
-		keyHandler.put(KeySequence.getInstance(KeyStroke.getInstance(SWT.ESC)), true, activatePanningToolAction);
-
 		for (IEditorKit editorKit : ReflectionFactory.getEditorKits()) {
-			for (Object[] textAction : ((IGEFEditorKit) editorKit).getActionFactory().textActions()) {
-				KeySequence keySequence = (KeySequence) textAction[0];
-				Class<IUpdatableAction> actionClass = (Class<IUpdatableAction>) textAction[2];
-				try {
-					IUpdatableAction action = actionClass
-							.getConstructor(IEclipseContext.class)
-							.newInstance(context);
-					keyHandler.put(editorKit, keySequence, true, action);
-				} catch (Exception e) {
+			for (ILanguageKit lk : ReflectionFactory.getLanguageKits(false)) {
+				if (!editorKit.canApply(lk))
+					continue;
+
+				for (Object[] textAction : E4Utils.textActionsFor(lk, ((IGEFEditorKit) editorKit).getActionFactory().textActions())) {
+					KeySequence keySequence = (KeySequence) textAction[0];
+					Class<IUpdatableAction> actionClass = (Class<IUpdatableAction>) textAction[2];
+					try {
+						IUpdatableAction action = actionClass
+								.getConstructor(IEclipseContext.class)
+								.newInstance(context);
+						keyHandler.put(editorKit, keySequence, true, action);
+					} catch (Exception e) {
+					}
 				}
 			}
 		}

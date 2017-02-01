@@ -95,20 +95,15 @@
 		</consoleFactory>
 	</extension>
 
-	<extension point="org.eclipse.core.runtime.preferences">
-		<initializer
-			class="org.whole.lang.ui.preferences.WholePreferenceInitializer"/>
-	</extension>
-		
 	<extension point="org.eclipse.ui.preferencePages">
 		<page name="Whole"
-			class="org.whole.lang.ui.preferences.WholePreferencePage"
-			id="org.whole.lang.ui.preferences.WholePreferencePage">
+			class="org.whole.lang.ui.preferences.WholeWorkbenchPreferencePage"
+			id="org.whole.lang.ui.preferences.WholeWorkbenchPreferencePage">
 		</page>
 		<page name="Whole Languages"
-			category="org.whole.lang.ui.preferences.WholePreferencePage"
-			class="org.whole.lang.ui.preferences.EditorPreferencePage"
-			id="org.whole.lang.ui.preferences.EditorPreferencePage">
+			category="org.whole.lang.ui.preferences.WholeWorkbenchPreferencePage"
+			class="org.whole.lang.ui.preferences.EditorWorkbenchPreferencePage"
+			id="org.whole.lang.ui.preferences.EditorWorkbenchPreferencePage">
 		</page>
 	</extension>
 
@@ -118,6 +113,14 @@
 				name="Whole"
 				id="org.whole.lang.ui.views.category">
 		</category>
+		<view
+				category="org.whole.lang.ui.views.category"
+				id="org.whole.lang.e4.ui.part.palette"
+				class="org.whole.lang.e4.ui.compatibility.PaletteViewPart"
+				icon="icons/views/whole.gif"
+				name="Palette"
+				restorable="true">
+		</view>
 		<view
 				category="org.whole.lang.ui.views.category"
 				id="org.whole.lang.e4.ui.part.details"
@@ -306,6 +309,15 @@
             <contentTypeBinding contentTypeId="org.whole.ui.contenttype.contentTypes.xmlWhole"/>
       </editor>
       <editor
+            name="XML Adaptive Builder Persistence"
+            extensions="xwl,xml"
+            icon="icons/editors/xml_builder.gif"
+            default="false"
+            class="org.whole.lang.e4.ui.compatibility.EditorPart"
+            id="org.whole.lang.entities.XmlAdaptiveBuilderEditor">
+            <contentTypeBinding contentTypeId="org.whole.ui.contenttype.contentTypes.xmlWhole"/>
+      </editor>
+      <editor
             name="Text Editor (Whole)"
             extensions="text,txt,csv,flf"
             icon="icons/editors/text_source.gif"
@@ -436,10 +448,6 @@
 		<processor
 				beforefragment="false"
 				class="org.whole.lang.e4.ui.addon.CommandProcessor">
-		</processor>
-		<processor
-				beforefragment="false"
-				class="org.whole.lang.e4.ui.addon.ViewerRebuildProcessor">
 		</processor>
 	</extension>
 </plugin>

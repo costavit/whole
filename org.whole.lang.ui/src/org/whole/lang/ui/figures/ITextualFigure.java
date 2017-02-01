@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,8 +17,10 @@
  */
 package org.whole.lang.ui.figures;
 
+import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Caret;
 
 /** 
@@ -38,4 +40,7 @@ public interface ITextualFigure extends ITextFigure {
 
 	public int getCaretLines();
 	public int getLineFromPosition(int position);
+
+	public Label getEmbeddedLabel();
+	public Font getEmbeddedLabelFont();
 }

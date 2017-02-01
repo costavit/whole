@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.whole.lang.ui.figures.ContentPaneFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.layout.ITabularLayoutClient;
 import org.whole.lang.ui.layout.RowLayout;
 
@@ -48,7 +48,7 @@ public class DerivationPointFigure extends ContentPaneFigure {
 		Rectangle bounds = getBounds();
 		Rectangle expressionBounds = getContentPane(1).getBounds();
 
-		g.setBackgroundColor(FigurePrefs.hostLanguageColor);
+		g.setBackgroundColor(FigureConstants.hostLanguageColor);
 		g.fillRectangle(expressionBounds.x-1, bounds.y, expressionBounds.width+2, bounds.height);
 		g.setForegroundColor(ColorConstants.lightGray);
 		g.drawRectangle(bounds.x, bounds.y, bounds.width-1, bounds.height-1);

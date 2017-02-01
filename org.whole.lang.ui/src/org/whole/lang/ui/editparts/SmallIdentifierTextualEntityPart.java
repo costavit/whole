@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -19,18 +19,17 @@ package org.whole.lang.ui.editparts;
 
 import org.eclipse.draw2d.IFigure;
 import org.whole.lang.ui.figures.EntityLabel;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.figures.TextualFigure;
-import org.whole.lang.ui.util.UIUtils;
 
 /**
  * @author Riccardo Solmi
  */
 public class SmallIdentifierTextualEntityPart extends AbstractTextualEntityPart {
 	protected IFigure createFigure() {
-		EntityLabel label = new EntityLabel();
-		label.setFont(UIUtils.getOpenSymbolSmallFont());
-		label.setForegroundColor(FigurePrefs.identifiersColor);
+		EntityLabel label = LabelFactory.createMonospaceSmall();
+		label.setForegroundColor(FigureConstants.identifiersColor);
 		return new TextualFigure(label);
 	}
 }

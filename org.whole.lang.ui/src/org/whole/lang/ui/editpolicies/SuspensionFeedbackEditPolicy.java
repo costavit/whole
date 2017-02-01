@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -53,8 +53,6 @@ public class SuspensionFeedbackEditPolicy extends AbstractEditPolicy {
 
 	protected DebugLabeledHandle handle;
 	protected void addSuspensionFeedbak() {
-		removeSuspensionFeedback();
-
 		if (!suspensionKind.isSuspended())
 			return;
 
@@ -69,5 +67,6 @@ public class SuspensionFeedbackEditPolicy extends AbstractEditPolicy {
 		IFigure layer = getLayer(LayerConstants.HANDLE_LAYER);
 		layer.remove(handle);
 		handle = null;
+		getHost().removeEditPolicy(SUSPENSION_FEEDBACK_ROLE);
 	}
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -18,6 +18,7 @@
 package org.whole.lang.semantics.ui.figures;
 
 import org.whole.lang.ui.figures.ContentPaneFigure;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.layout.RowLayout;
 
 /**
@@ -29,7 +30,7 @@ public class TransitionFigure extends ContentPaneFigure {
 		initContentPanes(2);
 
 		add(createContentPane(0));
-		addLargeMath("\u21d2");
+		add(LabelFactory.createSymbolLargeContent("\u21d2"));
 		add(createContentPane(1));
 	}
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -18,14 +18,11 @@
 package org.whole.lang.queries.ui.figures;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.whole.lang.ui.figures.ContentPaneFigure;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.EntityLabel;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.layout.RowLayout;
 import org.whole.lang.ui.layout.TableRowLayout;
-import org.whole.lang.ui.util.UIUtils;
 
 /**
  * @author Riccardo Solmi
@@ -37,14 +34,7 @@ public class ForRowFigure extends ContentPaneFigure {
 
 		EntityFigure col0 = new EntityFigure(new RowLayout().withSpacing(1));
 		col0.add(createContentPane(0));
-		col0.add(new EntityLabel("/") {
-			public Color getLocalForegroundColor() {
-				return ColorConstants.gray;
-			}
-			public Font getLocalFont() {
-				return UIUtils.getOpenSymbolLargeFont();
-			}
-		});
+		col0.add(LabelFactory.createSymbolLarge("/", ColorConstants.gray));
 		add(col0);
 
 		add(createContentPane(1));

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -19,6 +19,7 @@ package org.whole.lang.exceptions;
 
 import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.model.IEntity;
+import org.whole.lang.operations.OperationCanceledException;
 
 /**
  * @author Riccardo Solmi
@@ -37,7 +38,9 @@ public interface IWholeRuntimeException {
 	}
 
 	public static RuntimeException asWholeException(Throwable e, IEntity sourceEntity, IBindingManager bm) {
-		if (e instanceof IWholeRuntimeException) {
+		if (e instanceof OperationCanceledException)
+			return (OperationCanceledException) e;
+		else if (e instanceof IWholeRuntimeException) {
 			IWholeRuntimeException wre = (IWholeRuntimeException) e;
 			return wre.getSourceEntity() != null ? wre.asException() : wre.withSourceEntity(sourceEntity).withBindings(bm).asException();
 		} else if (e instanceof IllegalArgumentException)

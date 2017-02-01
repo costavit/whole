@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.swt.SWT;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.ContentPaneFigure;
 import org.whole.lang.ui.layout.ColumnLayout;
 import org.whole.lang.ui.layout.RowLayout;
@@ -72,7 +72,7 @@ public class GuardedActionFigure extends ContentPaneFigure {
 		super.paintFigure(g);
 		
 		if (row2.isVisible()) {// && row3
-			g.setForegroundColor(FigurePrefs.contentLighterColor);
+			g.setForegroundColor(FigureConstants.contentLighterColor);
 			g.setLineStyle(SWT.LINE_CUSTOM);
 			g.setLineDash(new int[] {1,1});
 	

@@ -1,5 +1,5 @@
 /**
- *  Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ *  Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  *  This file is part of the Whole Platform.
  *  The Whole Platform is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU Lesser General Public License as published by
@@ -20,7 +20,8 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.graphics.Color;
 import org.whole.lang.ui.figures.CompositePlaceHolderBorder;
 import org.whole.lang.ui.figures.EntityLabel;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.EyeFigure;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.TableFigure;
 import org.whole.lang.ui.figures.TableRowFigure;
 import org.whole.lang.ui.layout.Alignment;
@@ -32,8 +33,8 @@ import org.whole.lang.ui.layout.TableLayout;
 public class DeclarationsFigure extends TableFigure {
 
     public DeclarationsFigure() {
-        super(new TableLayout(3)
-        		.withColumnSpacing(10).withRowSpacing(10).withColumnAlignment(2, Alignment.FILL)
+        super(new TableLayout(4)
+        		.withColumnSpacing(10).withRowSpacing(10).withColumnAlignment(3, Alignment.FILL)
         		.withMarginTop(5).withMarginBottom(5).withMarginLeft(3).withMarginRight(3));
         setBorder(CompositePlaceHolderBorder.OPTIONAL_VERTICAL);
         TableRowFigure headers = new TableRowFigure();
@@ -41,9 +42,10 @@ public class DeclarationsFigure extends TableFigure {
         EntityLabel label = new EntityLabel("Types");
         label.setForegroundColor(color);
         headers.add(label);
-        label = new EntityLabel(" Name");
+        label = new EntityLabel("Name");
         label.setForegroundColor(color);
         headers.add(label);
+        headers.add(new EyeFigure());
         label = new EntityLabel("Definition");
         label.setForegroundColor(color);
         headers.add(label);
@@ -55,23 +57,24 @@ public class DeclarationsFigure extends TableFigure {
         super.paintFigure(graphics);
         TableLayout l = getLayoutManager();
         if (l.rows() == 0)
-            return ;
+            return;
         
 		Rectangle b = getBounds();
-		graphics.setBackgroundColor(FigurePrefs.hostLanguageColor);
+		graphics.setBackgroundColor(FigureConstants.hostLanguageColor);
 		graphics.fillRectangle(b.x, b.y, b.width, b.height);
         
         graphics.setBackgroundColor(ColorConstants.gray);
         drawHeadersRowBackground(graphics);
-        graphics.setBackgroundColor(ColorConstants.lightGray);
+        graphics.setBackgroundColor(FigureConstants.modulesColor);
         int oldAlpha = graphics.getAlpha();
         graphics.setAlpha(getBackgroundAlpha());
         Rectangle tb = getTableBounds();
-        Rectangle cb1 = l.getColumnBounds(0);
-        graphics.fillRectangle(cb1.x, tb.y, cb1.width, tb.height);
+        Rectangle cb1 = l.getColumnBounds(1);
+        graphics.fillRectangle(cb1.x, tb.y, cb1.width+l.getColumnBounds(2).width, tb.height);
         graphics.setAlpha(oldAlpha);
         graphics.setForegroundColor(ColorConstants.lightGray);
         drawRowSeparators(graphics);
         drawHeadersRowSeparator(graphics);
+        drawTableBottomBorder(graphics);
     }
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -21,6 +21,7 @@ import java.util.Date;
 import java.util.logging.Logger;
 
 import org.whole.lang.model.EnumValue;
+import org.whole.lang.model.ICompoundModel;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.reflect.FeatureDescriptor;
 import org.whole.lang.util.StringUtils;
@@ -28,10 +29,35 @@ import org.whole.lang.util.StringUtils;
 /**
  * @author Riccardo Solmi
  */
-public class LoggerEventHandler implements IRequestEventHandler, IChangeEventHandler {
+public class LoggerEventHandler implements IEventHandler {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger;
 
+	/* From IChangeEventHandler */
+	public boolean needsHistoryManager() {
+		return false;
+	};
+	public boolean handleHistoryEvents() {
+		return true;
+	};
+
+//	public boolean isEventHandlerEnabled();
+//	public boolean setEventHandlerEnabled(boolean value);
+
+	//TODO ? or static helper
+	public IChangeEventHandler getActualEventHandler(IChangeEventHandler eventHandler, IEntity source) {
+		if (isActualEventHandler(eventHandler, source))
+			return eventHandler;
+		else
+			return IdentityChangeEventHandler.instance;
+	}
+	public boolean isActualEventHandler(IChangeEventHandler eventHandler, IEntity source) {
+		ICompoundModel compoundModel = source.wGetModel().getCompoundModel();
+		return (compoundModel.isHistoryEnabled() || !eventHandler.needsHistoryManager()) &&
+				(!compoundModel.isHistoryEvent() || eventHandler.handleHistoryEvents());
+	}
+	/* From IChangeEventHandler */
+		
 	private static class SingletonHolder {
 		private static final LoggerEventHandler instance = new LoggerEventHandler();
 	}

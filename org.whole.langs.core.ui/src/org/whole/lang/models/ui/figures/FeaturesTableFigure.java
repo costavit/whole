@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@ import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.graphics.Color;
 import org.whole.lang.ui.figures.EntityLabel;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.CompositePlaceHolderBorder;
 import org.whole.lang.ui.figures.TableFigure;
 import org.whole.lang.ui.figures.TableRowFigure;
@@ -69,12 +70,12 @@ public class FeaturesTableFigure extends TableFigure {
 		if (l.rows() == 0)
 			return;
 
-		g.setBackgroundColor(ColorConstants.lightGray);
+		g.setBackgroundColor(FigureConstants.modulesColor);
 		int oldAlpha = g.getAlpha();
 		g.setAlpha(getBackgroundAlpha());
 		Rectangle tb = getTableBounds();
-		Rectangle cb1 = l.getColumnBounds(0);
-		g.fillRectangle(cb1.x, tb.y, cb1.width+l.getColumnSpacingBefore(1)+l.getColumnWidth(1)+1, tb.height);
+		Rectangle cb1 = l.getColumnBounds(1);
+		g.fillRectangle(cb1.x, tb.y, cb1.width, tb.height);
 		g.setAlpha(oldAlpha);
 
 		g.setForegroundColor(ColorConstants.lightGray);

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -76,7 +76,7 @@ public class TextualDragTracker extends SimpleDragTracker {
 
 		EditPart target = getCurrentViewer().findObjectAt(getLocation());
 		if (!(target instanceof ITextualEntityPart))
-			throw new IllegalStateException();
+			return null;
 
 		return (ITextualEntityPart) target;
 	}
@@ -133,6 +133,9 @@ public class TextualDragTracker extends SimpleDragTracker {
 	protected boolean handleDragInProgress() {
 		EditPartViewer viewer = getCurrentViewer();
 		ITextualEntityPart textualEntityPart = getTextualEntityPart();
+		if (textualEntityPart == null)
+			return false;
+
 		EditPart overPart = viewer.findObjectAt(getLocation());
 		if (overPart == endPart) {
 			end = textualEntityPart.getCaretPosition();

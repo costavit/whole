@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -69,7 +69,7 @@ public class DataEntityDirectEditPolicy extends DirectEditPolicy {
 			command.commit();
 			return command;
 		} catch (Exception e) {
-			command.rollback();
+			command.rollbackIfNeeded();
 			return UnexecutableCommand.INSTANCE;
 		}
 	}

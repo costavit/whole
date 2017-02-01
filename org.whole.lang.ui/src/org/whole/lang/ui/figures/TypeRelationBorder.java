@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -47,7 +47,7 @@ public class TypeRelationBorder extends MarginBorder {
 		int center = x + w/2;
 
 		g.setForegroundColor(
-				isLanguageSpecific ? FigurePrefs.modulesColor : FigurePrefs.declarationsColor);
+				isLanguageSpecific ? FigureConstants.modulesColor : FigureConstants.declarationsColor);
 
 		g.drawLine(x, y, center-H, y);
 		g.drawLine(center+H, y, x+w, y);

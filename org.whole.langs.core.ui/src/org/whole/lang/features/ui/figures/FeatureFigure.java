@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -20,7 +20,7 @@ package org.whole.lang.features.ui.figures;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.geometry.Insets;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.layout.RowLayout;
 import org.whole.lang.ui.notations.map.borders.FillGradient;
 import org.whole.lang.ui.notations.map.borders.IStyledBorder;
@@ -36,7 +36,7 @@ public class FeatureFigure extends StyledFigure {
 		super(layout);
 		setShapeInsets(new Insets(1,0,0,3));
 		setShapeFillColor(ColorConstants.white);
-		setShapeFillColor2(FigurePrefs.brightBlueColor);
+		setShapeFillColor2(FigureConstants.brightBlueColor);
 		setShapeFillGradient(FillGradient.VERTICAL);
 	}
 
@@ -49,6 +49,11 @@ public class FeatureFigure extends StyledFigure {
 		shapeFigure.add(createFoldingToggle(1));
 		
 		add(shapeFigure);
+//TODO add view tracking support (FIXME connections painting)
+//		EntityFigure trackingFigure = new EntityFigure(new MonoLayout().withMajorAlignment(Alignment.CENTER).withAutoresizeWeight(1f)).withViewportTracking(ViewportTracking.VERTICAL);
+//		trackingFigure.add(shapeFigure);
+//		add(trackingFigure);
+
 		add(createContentPane(1));		
 	}
 

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -26,7 +26,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.swt.SWT;
 import org.whole.lang.reflect.EntityDescriptor;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.ContentPaneFigure;
 import org.whole.lang.ui.figures.CompositeFigure;
 import org.whole.lang.ui.layout.Alignment;
@@ -76,7 +76,7 @@ public class CompositeEntityOutlineFigure extends ContentPaneFigure {
 
 	@SuppressWarnings("unchecked")
 	protected void paintConnections(Graphics graphics) {
-		graphics.setForegroundColor(FigurePrefs.contentLighterColor);
+		graphics.setForegroundColor(FigureConstants.contentLighterColor);
 		
 		Point rootPoint = getFoldingToggle(0).getBounds().getBottom();
 

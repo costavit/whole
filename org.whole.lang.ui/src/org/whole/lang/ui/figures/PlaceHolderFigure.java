@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -27,7 +27,7 @@ public class PlaceHolderFigure extends CompositeFigure {
     public PlaceHolderFigure(boolean isError, final boolean isOptional) {
         super(false);
         getLayoutManager().withMargin(0);
-		setBackgroundColor(FigurePrefs.templateLanguageColor);
+		setBackgroundColor(FigureConstants.templateLanguageColor);
 		setBorder(isOptional ? PlaceHolderBorder.OPTIONAL : PlaceHolderBorder.MANDATORY);
     }
 }

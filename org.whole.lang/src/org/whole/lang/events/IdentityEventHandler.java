@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -20,15 +20,41 @@ package org.whole.lang.events;
 import java.util.Date;
 
 import org.whole.lang.model.EnumValue;
+import org.whole.lang.model.ICompoundModel;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.reflect.FeatureDescriptor;
 
 /**
  * @author Riccardo Solmi
  */
-public class IdentityEventHandler implements IRequestEventHandler, IChangeEventHandler {
+public class IdentityEventHandler implements IEventHandler {
 	private static final long serialVersionUID = 1L;
 
+	/* From IChangeEventHandler */
+	public boolean needsHistoryManager() {
+		return false;
+	};
+	public boolean handleHistoryEvents() {
+		return true;
+	};
+
+//	public boolean isEventHandlerEnabled();
+//	public boolean setEventHandlerEnabled(boolean value);
+
+	//TODO ? or static helper
+	public IChangeEventHandler getActualEventHandler(IChangeEventHandler eventHandler, IEntity source) {
+		if (isActualEventHandler(eventHandler, source))
+			return eventHandler;
+		else
+			return IdentityChangeEventHandler.instance;
+	}
+	public boolean isActualEventHandler(IChangeEventHandler eventHandler, IEntity source) {
+		ICompoundModel compoundModel = source.wGetModel().getCompoundModel();
+		return (compoundModel.isHistoryEnabled() || !eventHandler.needsHistoryManager()) &&
+				(!compoundModel.isHistoryEvent() || eventHandler.handleHistoryEvents());
+	}
+	/* From IChangeEventHandler */
+		
 	public IRequestEventHandler cloneRequestEventHandler(IRequestEventHandler parentEventHandler) {
         return this;
     }

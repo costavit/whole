@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@ public class ArgumentsTableRowFigure extends ContentPaneFigure {
 	public ArgumentsTableRowFigure() {
 		initContentPanes(1);
 		setLayoutManager(new TableRowLayout());
-		addLabel("");
+		addEmptyLabel();
 //		TableRowFigure argumentsFigure = new TableRowFigure();
 //		argumentsFigure.setStartingCellIndex(1);
 //FIXME

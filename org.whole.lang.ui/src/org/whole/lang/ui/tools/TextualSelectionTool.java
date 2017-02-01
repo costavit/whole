@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -351,14 +351,8 @@ public class TextualSelectionTool extends SelectionTool implements PositionConst
 	}
 
 	protected void handleModelKeyPressed(KeyEvent event) {
-		if (isEditEvent(event))
-			return;
 		getCurrentViewer().getKeyHandler().keyPressed(event);
 	}
-	protected boolean isEditEvent(KeyEvent event) {
-		return (event.stateMask & SWT.MODIFIER_MASK & ~SWT.SHIFT) == 0 && event.character >= ' ';
-	}
-
 	protected void handleModelKeyReleased(KeyEvent event) {
 		getCurrentViewer().getKeyHandler().keyReleased(event);
 	}
@@ -366,7 +360,6 @@ public class TextualSelectionTool extends SelectionTool implements PositionConst
 	protected boolean handleBackspace() {
 		return handleTextRequest(TextualRequest.createBackspaceRequest());
 	}
-
 	protected boolean handleDelete() {
 		return handleTextRequest(TextualRequest.createDeleteRequest());
 	}

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -32,7 +32,7 @@ import org.whole.lang.ui.figures.LabelFactory;
  */
 public class NotProperSubsetPart extends AbstractContentPanePart {
 	protected IFigure createFigure() {
-		return new InfixContentPaneFigure(LabelFactory.createContentMath("\u2284"), 2);
+		return new InfixContentPaneFigure(LabelFactory.createSymbolRegularContent("\u2284"), 2);
 	}
 
 	protected List<IEntity> getModelSpecificChildren() {

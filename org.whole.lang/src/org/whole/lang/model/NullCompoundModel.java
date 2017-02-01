@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,7 +17,6 @@
  */
 package org.whole.lang.model;
 
-import java.beans.PropertyChangeListener;
 import java.io.ObjectStreamException;
 import java.io.Serializable;
 import java.util.Collections;
@@ -26,6 +25,7 @@ import java.util.List;
 import org.whole.lang.commands.ICommand;
 import org.whole.lang.commands.NullCommand;
 import org.whole.lang.events.IChangeEventHandler;
+import org.whole.lang.events.IPropertyChangeObserver;
 import org.whole.lang.events.IRequestEventHandler;
 import org.whole.lang.events.IdentityChangeEventHandler;
 import org.whole.lang.events.IdentityRequestEventHandler;
@@ -76,15 +76,28 @@ public class NullCompoundModel implements ICompoundModel, Serializable, IHistory
 	public void setHistoryManager(IHistoryManager historyManager, boolean mergeHistory) {
 		throw new IllegalStateException(WholeMessages.null_model);		
 	}
-    
-    public void addEventListener(PropertyChangeListener l) {
+
+	public IChangeEventHandler getPropertyChangeEventHandler() {
 		throw new IllegalStateException(WholeMessages.null_model);
     }
-    public void removeEventListener(PropertyChangeListener l) {
+	public void fireNotationEvent(IEntity source, String name, Object data) {
 		throw new IllegalStateException(WholeMessages.null_model);
     }
 
+    public void addEventListener(IPropertyChangeObserver l) {
+		throw new IllegalStateException(WholeMessages.null_model);
+    }
+    public void removeEventListener(IPropertyChangeObserver l) {
+		throw new IllegalStateException(WholeMessages.null_model);
+    }
 
+    public boolean isObserved(IEntity entity) {
+    	return false;
+    }
+
+    public boolean isHistoryEvent() {
+    	return false;
+    }
 	public boolean isHistoryEnabled() {
 		return false;
 	}

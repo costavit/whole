@@ -1,5 +1,5 @@
 /**
- *  Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ *  Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  *  This file is part of the Whole Platform.
  *  
  *  The Whole Platform is free software: you can redistribute it and/or modify
@@ -76,7 +76,8 @@ public class ReusablesEntityDescriptorEnum extends EntityDescriptorEnum {
         putSimpleEntity(Reuse_ord, "Reuse", Reuse.class, false, Synch_ord).withFeature(ReusablesFeatureDescriptorEnum.source, Source_ord).withFeature(ReusablesFeatureDescriptorEnum.original, Reusable_ord, true, false, false, true, false).withFeature(ReusablesFeatureDescriptorEnum.adapter, PathExpression_ord, true, false, false, false, false).withFeature(ReusablesFeatureDescriptorEnum.adapted, Reusable_ord, true, false, false, true, false).withFeature(ReusablesFeatureDescriptorEnum.adaptedRevision, Revision_ord, true, false, false, false, false);
         putSimpleEntity(Synch_ord, "Synch", Synch.class, false).withFeature(ReusablesFeatureDescriptorEnum.source, Source_ord).withFeature(ReusablesFeatureDescriptorEnum.original, Reusable_ord, true, false, false, true, false).withFeature(ReusablesFeatureDescriptorEnum.adapter, PathExpression_ord, true, false, false, false, false).withFeature(ReusablesFeatureDescriptorEnum.adapted, Reusable_ord, true, false, false, true, false).withFeature(ReusablesFeatureDescriptorEnum.adaptedRevision, Revision_ord, true, false, false, false, false).withFeature(ReusablesFeatureDescriptorEnum.variant, Reusable_ord, true, false, false, false, false).withFeature(ReusablesFeatureDescriptorEnum.variantRevision, Revision_ord, true, false, false, false, false);
         putSimpleEntity(Include_ord, "Include", Include.class, false).withFeature(ReusablesFeatureDescriptorEnum.source, Source_ord);
-        putCompositeEntity(Reusables_ord, "Reusables", Reusables.class, false, Reusable_ord, true, false);
+        putCompositeEntity(
+		Reusables_ord, "Reusables", Reusables.class, false, Reusable_ord, true, false);
         putSimpleEntity(Source_ord, "Source", Source.class, true, Resource_ord, Registry_ord, PathExpression_ord, ReferenceStep_ord, StepExpression_ord);
         putSimpleEntity(PathExpression_ord, "PathExpression", PathExpression.class, true, ReferenceStep_ord, StepExpression_ord);
         putSimpleEntity(StepExpression_ord, "StepExpression", StepExpression.class, true, ReferenceStep_ord);

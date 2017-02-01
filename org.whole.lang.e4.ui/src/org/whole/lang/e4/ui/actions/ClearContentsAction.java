@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,14 +17,14 @@
  */
 package org.whole.lang.e4.ui.actions;
 
-import static org.whole.lang.e4.ui.actions.IUIConstants.*;
+import static org.whole.lang.e4.ui.actions.IE4UIConstants.*;
 
 import java.net.URL;
 
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.whole.lang.e4.ui.util.E4Utils;
 import org.whole.lang.model.IEntity;
-import org.whole.lang.status.codebase.EmptyStatusTemplate;
 import org.whole.lang.ui.viewers.IEntityPartViewer;
 
 /**
@@ -53,6 +53,6 @@ public class ClearContentsAction extends AbstractE4Action {
 	}
 
 	protected IEntity createDefaultContents() {
-		return new EmptyStatusTemplate().create();
+		return E4Utils.createEmptyStatusContents();
 	}
 }

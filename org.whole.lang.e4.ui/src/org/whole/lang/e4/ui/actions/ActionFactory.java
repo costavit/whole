@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  */
 package org.whole.lang.e4.ui.actions;
 
-import static org.whole.lang.e4.ui.actions.IUIConstants.*;
+import static org.whole.lang.e4.ui.actions.IE4UIConstants.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +27,6 @@ import org.whole.lang.codebase.StringPersistenceProvider;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.reflect.ReflectionFactory;
 import org.whole.lang.ui.actions.IUpdatableAction;
-import org.whole.lang.ui.tools.Tools;
 
 /**
  * @author Enrico Persiani
@@ -98,9 +97,6 @@ public class ActionFactory {
 		}
 	}
 
-	public IUpdatableAction createActivateToolAction(Tools tool) {
-		return new ActivateToolAction(context, tool);
-	}
 	public IUpdatableAction createDirectEditAction() {
 		return new DirectEditAction(context);
 	}

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -21,6 +21,7 @@ import org.whole.lang.commons.model.Quantifier;
 import org.whole.lang.commons.model.QuantifierEnum;
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
 import org.whole.lang.commons.visitors.ICommonsVisitor;
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.model.AbstractDataEntity;
 import org.whole.lang.model.EnumValue;
 import org.whole.lang.reflect.EntityDescriptor;
@@ -42,7 +43,11 @@ public class QuantifierImpl extends AbstractDataEntity implements Quantifier {
 	}
 
 	public void accept(ICommonsVisitor visitor) {
-		visitor.visit(this);
+		try {
+			visitor.visit(this);
+		} catch (Exception e) {
+			throw WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
+		}
 	}
 
 	public int wGetEntityOrd() {

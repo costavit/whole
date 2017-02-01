@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -19,9 +19,8 @@ package org.whole.lang.math.ui.figures;
 
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.ParenthesizedStringSeparatedCompositeRowFigure;
-import org.whole.lang.ui.util.UIUtils;
 
 /**
  * @author Riccardo Solmi
@@ -36,11 +35,11 @@ public class ParenthesizedMathCompositeRowFigure extends ParenthesizedStringSepa
 
 	@Override
 	public Color getLocalForegroundColor() {
-		return FigurePrefs.contentColor;
+		return FigureConstants.contentColor;
 	}
 	@Override
 	protected Font getLocalFont() {
-		return UIUtils.getOpenSymbolFont();
+		return FigureConstants.symbolFontRegular;
 	}
 	@Override
 	protected int getSeparatorAscent() {

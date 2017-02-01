@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -34,7 +34,7 @@ public class CompositeEntityDescriptor<E extends IEntity> extends AbstractEntity
     protected CompositeEntityDescriptor() {} //Reserved to standard serialization
 	protected CompositeEntityDescriptor(int ordinal, String name, String implName, Class<E> type,
 			boolean isRelationship, boolean isOrdered, boolean isUnique,
-			int elementEdOrdinal, boolean isReference, boolean isDerived, boolean isShared) {
+			int elementEdOrdinal, boolean isOptional, boolean isReference, boolean isDerived, boolean isShared) {
     	super(ordinal, name, implName, type, false, isRelationship);
 
 		if (isOrdered)
@@ -43,7 +43,7 @@ public class CompositeEntityDescriptor<E extends IEntity> extends AbstractEntity
 			compositeKind = isUnique ? CompositeKinds.SET : CompositeKinds.BAG;
 
 		withFeature(CommonsFeatureDescriptorEnum.composite_element, elementEdOrdinal,
-        		false, false, isReference, isDerived, isShared);
+				isOptional, false, isReference, isDerived, isShared);
 	}
 
 	public boolean isToManyRelationship() {

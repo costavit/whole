@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -55,10 +55,11 @@ public class EditPartTransferDragSourceListener extends AbstractSelectionTransfe
 			event.image = dragSourceImage = WholeNonResizableEditPolicy.createFeedbackImage(
 					(IGraphicalEntityPart) selectedEditParts.get(0), FeedbackImageFigure.ALPHA, true, FitToScreenStrategy.instance());
 
+		storeSelection(selectedEditParts);
+
 		// this is an hack to allow drop enablement calculations
 		// see the selected entities before the final drop event
-		EditPartsTransfer.instance().setObject(selectedEditParts);
-		storeSelection(selectedEditParts);
+		EditPartsTransfer.instance().setObject(getSelectedEditParts());
 	}
 	@Override
 	public void dragFinished(DragSourceEvent event) {

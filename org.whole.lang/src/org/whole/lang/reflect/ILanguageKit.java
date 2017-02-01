@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -40,6 +40,7 @@ import org.whole.lang.visitors.IVisitorFactory;
  */
 public interface ILanguageKit extends IResource {
 	public boolean isDynamic();
+	public boolean isCurrent();
 
 	public IEntity getMetaModel();
 	public ITemplateFactory<?> getMetaModelTemplate();
@@ -62,7 +63,9 @@ public interface ILanguageKit extends IResource {
     public IDataTypeParser getDataTypeParser(DataTypeParsers kind);
 	public ITemplateManager getTemplateManager();
 	
-	public void addLanguageAdapter(IChangeEventHandler eventHandler);
+	public void addReactionsHandler(IChangeEventHandler eventHandler);
+	public void removeReactionsHandler(IChangeEventHandler eventHandler);
+	public IChangeEventHandler getReactionsHandler();
 	
 	public void addBuilderFactory(String operationId, IBuilderFactory builderFactory);
 	public boolean hasBuilder(String name);

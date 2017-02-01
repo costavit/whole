@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -23,9 +23,10 @@ import java.util.Set;
 
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
+import org.eclipse.core.runtime.jobs.MultiRule;
 import org.eclipse.draw2d.FigureCanvas;
-import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.LightweightEditDomain;
+import org.eclipse.gef.EditPartViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.MouseEvent;
@@ -101,7 +102,13 @@ public class EntityEditDomain extends LightweightEditDomain implements IScheduli
 
 	@Override
 	public boolean contains(ISchedulingRule rule) {
-		return this == rule || rule instanceof IResource;
+		if (rule instanceof MultiRule) {
+			for (ISchedulingRule childRule : ((MultiRule) rule).getChildren())
+				if (!contains(childRule))
+					return false;
+			return true;
+		} else
+			return this == rule || rule instanceof IResource;
 	}
 
 	@Override

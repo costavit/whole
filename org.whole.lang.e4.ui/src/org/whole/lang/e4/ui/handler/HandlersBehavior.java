@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  */
 package org.whole.lang.e4.ui.handler;
 
-import static org.whole.lang.e4.ui.actions.IUIConstants.*;
+import static org.whole.lang.e4.ui.actions.IE4UIConstants.*;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -41,7 +41,7 @@ import org.whole.lang.codebase.IPersistenceProvider;
 import org.whole.lang.commons.factories.CommonsEntityFactory;
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
 import org.whole.lang.commons.reflect.CommonsFeatureDescriptorEnum;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.e4.ui.jobs.RunnableWithResult;
 import org.whole.lang.e4.ui.util.E4Utils;
 import org.whole.lang.factories.GenericEntityFactory;
@@ -160,17 +160,19 @@ public class HandlersBehavior {
 		return isValidFocusEntityPart(bm);
 	}
 	public static void copyEntityPath(IBindingManager bm) {
-		IEntity focusEntity = bm.wGet("focusEntity");
-		try {
-			Class<?> queryUtilsClass = Class.forName("org.whole.lang.queries.util.QueriesUtils",
-					true, ReflectionFactory.getClassLoader(bm));
-			Method createRootPathMethod = queryUtilsClass.getMethod("createRootPath", new Class[] {IEntity.class});
-			IEntity entityPath = (IEntity) createRootPathMethod.invoke(null, focusEntity);
-			Clipboard.instance().setEntityContents(BindingManagerFactory.instance.createTuple(true, entityPath));
-		} catch (Exception e) {
-			String location = EntityUtils.getLocation(focusEntity);
-			Clipboard.instance().setTextContents(location);
-		}
+		E4Utils.syncExec(bm, () -> {
+			IEntity focusEntity = bm.wGet("focusEntity");
+			try {
+				Class<?> queryUtilsClass = Class.forName("org.whole.lang.queries.util.QueriesUtils",
+						true, ReflectionFactory.getClassLoader(bm));
+				Method createRootPathMethod = queryUtilsClass.getMethod("createRootPath", new Class[] {IEntity.class});
+				IEntity entityPath = (IEntity) createRootPathMethod.invoke(null, focusEntity);
+				Clipboard.instance().setEntityContents(BindingManagerFactory.instance.createTuple(true, entityPath));
+			} catch (Exception e) {
+				String location = EntityUtils.getLocation(focusEntity);
+				Clipboard.instance().setTextContents(location);
+			}
+		});
 	}
 	public static boolean canCopyAsImage(IBindingManager bm) {
 		if (!isValidFocusEntityPart(bm))
@@ -656,7 +658,7 @@ public class HandlersBehavior {
 	}
 	public static boolean canGenerateJava(IBindingManager bm) {
 		return bm.wIsSet("self") &&
-				bm.wGet("self").wGetLanguageKit().hasVisitor(IUIConstants.JAVA_COMPILER_OPERATION_ID) &&
+				bm.wGet("self").wGetLanguageKit().hasVisitor(IE4UIConstants.JAVA_COMPILER_OPERATION_ID) &&
 				bm.wIsSet("viewer") && ((IEntityPartViewer) bm.wGetValue("viewer")).isOperationExecutable();
 	}
 

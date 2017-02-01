@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@ import org.eclipse.draw2d.FigureUtilities;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.MarginBorder;
 import org.whole.lang.ui.figures.EntityFigure;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.figures.PaintFigureHelper;
 import org.whole.lang.ui.figures.TableFigure;
 import org.whole.lang.ui.figures.TableRowFigure;
@@ -42,8 +43,8 @@ public class LoadModelFigure extends AbstractActivityWithTableFigure {
 		contentFigure.add(row);
 
 		row = new TableRowFigure();
-		row.addLabel("");
-		row.addMath(" \u2191");
+		row.addEmptyLabel();
+		row.add(LabelFactory.createSymbolRegularContent(" \u2191"));
 		contentFigure.add(row);
 
 		EntityFigure resourceFigure = new EntityFigure(new RowLayout().withSpacing(4));

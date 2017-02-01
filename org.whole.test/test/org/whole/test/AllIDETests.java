@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -22,6 +22,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 import org.whole.gen.ArtifactsGeneratorTest;
 import org.whole.lang.java.JavaImportExportTests;
+import org.whole.lang.ui.image.ImagesGeneratorTest;
 
 /**
  * Run as -> JUnit Plug-in Test in an Eclipse with the Whole Platform installed
@@ -41,7 +42,8 @@ import org.whole.lang.java.JavaImportExportTests;
 @RunWith(Suite.class)
 @SuiteClasses( {
 	ArtifactsGeneratorTest.class,
-	JavaImportExportTests.class
+	JavaImportExportTests.class,
+	ImagesGeneratorTest.class,
 })
 public class AllIDETests {
 }

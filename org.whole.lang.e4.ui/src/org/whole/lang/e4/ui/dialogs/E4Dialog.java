@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -48,14 +48,13 @@ import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.e4.ui.actions.ActionRegistry;
 import org.whole.lang.e4.ui.actions.E4KeyHandler;
 import org.whole.lang.e4.ui.actions.E4NavigationKeyHandler;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.e4.ui.handler.HandlersBehavior;
 import org.whole.lang.e4.ui.menu.JFaceMenuBuilder;
 import org.whole.lang.e4.ui.menu.PopupMenuProvider;
 import org.whole.lang.e4.ui.util.E4Utils;
 import org.whole.lang.e4.ui.viewers.E4GraphicalViewer;
 import org.whole.lang.model.IEntity;
-import org.whole.lang.status.codebase.ErrorStatusTemplate;
 import org.whole.lang.ui.IUIProvider;
 import org.whole.lang.ui.editparts.IEntityPart;
 import org.whole.lang.ui.editparts.IPartFocusListener;
@@ -82,7 +81,7 @@ public class E4Dialog extends Dialog {
 
 	@Inject
 	@Optional
-	protected void refreshViewer(@UIEventTopic(IUIConstants.TOPIC_REFRESH_VIEWER) IEntity source) {
+	protected void refreshViewer(@UIEventTopic(IE4UIConstants.TOPIC_REFRESH_VIEWER) IEntity source) {
 		if (source == null)
 			getViewer().refreshNotation();
 		else if (source.wGetModel() == getViewer().getEntityContents().wGetModel())
@@ -91,7 +90,7 @@ public class E4Dialog extends Dialog {
 
 	@Inject
 	@Optional
-	protected void rebuildViewer(@UIEventTopic(IUIConstants.TOPIC_REBUILD_VIEWER) IEntity source) {
+	protected void rebuildViewer(@UIEventTopic(IE4UIConstants.TOPIC_REBUILD_VIEWER) IEntity source) {
 		if (source == null)
 			getViewer().rebuildNotation();
 		else if (source.wGetModel() == getViewer().getEntityContents().wGetModel())
@@ -100,7 +99,7 @@ public class E4Dialog extends Dialog {
 
 	@Inject
 	@Optional
-	protected void rebuildViewerConditional(@UIEventTopic(IUIConstants.TOPIC_REBUILD_VIEWER_CONDITIONAL) String resourceUri) {
+	protected void rebuildViewerConditional(@UIEventTopic(IE4UIConstants.TOPIC_REBUILD_VIEWER_CONDITIONAL) String resourceUri) {
 		if (getViewer().getReferencedResources().contains(resourceUri))
 			getViewer().rebuildNotation();
 	}
@@ -180,6 +179,6 @@ public class E4Dialog extends Dialog {
 	}
 
 	protected IEntity createDefaultContents() {
-		return new ErrorStatusTemplate().create();
+		return E4Utils.createErrorStatusContents();
 	}
 }

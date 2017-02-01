@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -28,6 +28,7 @@ import org.whole.lang.bindings.BindingManagerFactory;
 import org.whole.lang.bindings.IBindingManager;
 import org.whole.lang.bindings.ITransactionScope;
 import org.whole.lang.e4.ui.jobs.EntityEditDomainJob;
+import org.whole.lang.lifecycle.RollbackException;
 import org.whole.lang.ui.commands.ModelTransactionCommand;
 import org.whole.lang.ui.viewers.IEntityPartViewer;
 
@@ -65,8 +66,10 @@ public abstract class ModelTransactionHandler {
 				mtc.commit();
 				if (mtc.canUndo())
 					commandStack.execute(mtc);
+			} catch (RollbackException e) {
+				//rollback done
 			} catch (RuntimeException e) {
-				mtc.rollback();
+				mtc.rollbackIfNeeded();
 				throw e;
 			} finally {
 				ts.rollback();

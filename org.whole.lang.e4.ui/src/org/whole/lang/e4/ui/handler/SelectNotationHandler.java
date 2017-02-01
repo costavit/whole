@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,7 +17,7 @@
  */
 package org.whole.lang.e4.ui.handler;
 
-import static org.whole.lang.e4.ui.actions.IUIConstants.*;
+import static org.whole.lang.e4.ui.actions.IE4UIConstants.*;
 
 import javax.inject.Named;
 
@@ -32,6 +32,7 @@ import org.whole.lang.reflect.IEditorKit;
 import org.whole.lang.reflect.ReflectionFactory;
 import org.whole.lang.ui.commands.ModelTransactionCommand;
 import org.whole.lang.ui.viewers.IEntityPartViewer;
+import org.whole.lang.util.EntityUtils;
 
 /**
  * @author Enrico Persiani
@@ -59,12 +60,13 @@ public class SelectNotationHandler {
 		ModelTransactionCommand command = new ModelTransactionCommand(focusEntity);
 		try {
 			command.begin();
-			viewer.rebuildNotation(focusEntity);
+			IEntity fragmentRoot = EntityUtils.getLanguageFragmentRoot(focusEntity);
+			viewer.rebuildNotation(fragmentRoot);
 			command.commit();
 			if (command.canUndo())
 				viewer.getEditDomain().getCommandStack().execute(command);
 		} catch (Exception e) {
-			command.rollback();
+			command.rollbackIfNeeded();
 		}
 			
 		synchronize.asyncExec(new Runnable() {

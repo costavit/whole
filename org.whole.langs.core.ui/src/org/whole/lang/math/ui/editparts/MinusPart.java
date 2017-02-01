@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -33,7 +33,7 @@ import org.whole.lang.ui.figures.PrefixContentPaneFigure;
  */
 public class MinusPart extends AbstractContentPanePart {
 	protected IFigure createFigure() {
-		return new PrefixContentPaneFigure(LabelFactory.createContentMath("\u2212"), 0);
+		return new PrefixContentPaneFigure(LabelFactory.createSymbolRegularContent("\u2212"), 0);
 	}
 
 	protected List<IEntity> getModelSpecificChildren() {

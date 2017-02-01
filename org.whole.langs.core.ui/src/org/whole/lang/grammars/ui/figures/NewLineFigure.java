@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -18,9 +18,8 @@
 package org.whole.lang.grammars.ui.figures;
 
 import org.eclipse.draw2d.ColorConstants;
-import org.whole.lang.ui.figures.EntityLabel;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.layout.FractionLayout;
-import org.whole.lang.ui.util.UIUtils;
 
 /**
  * @author Riccardo Solmi
@@ -38,10 +37,7 @@ public class NewLineFigure extends RuleFractionFigure {
 				return 0;
 			}
 		});
-		addLabel("");
-		EntityLabel symbol = new EntityLabel("\u21a9");
-		symbol.setFont(UIUtils.getOpenSymbolMediumFont());
-		symbol.setForegroundColor(ColorConstants.lightGray);
-		add(symbol);
+		addEmptyLabel();
+		add(LabelFactory.createSymbolMedium("\u21a9", ColorConstants.lightGray));
 	}
 }

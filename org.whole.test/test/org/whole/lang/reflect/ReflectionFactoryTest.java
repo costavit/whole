@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -57,14 +57,14 @@ public class ReflectionFactoryTest {
 		ReflectionFactory.deploy(TreeUIDeployer.class);
 
 		Assert.assertEquals(languageKitsSize+2, ReflectionFactory.getLanguageKits(true).size());
-		Assert.assertEquals(editorKitsSize+3, ReflectionFactory.getEditorKits().size());
+		Assert.assertEquals(editorKitsSize+4, ReflectionFactory.getEditorKits().size());
 
 		ReflectionFactory.deploy(CommonsLanguageDeployer.class);
 		ReflectionFactory.deploy(ModelsLanguageDeployer.class);
 		ReflectionFactory.deploy(TreeUIDeployer.class);
 
 		Assert.assertEquals(languageKitsSize+2, ReflectionFactory.getLanguageKits(true).size());
-		Assert.assertEquals(editorKitsSize+3, ReflectionFactory.getEditorKits().size());
+		Assert.assertEquals(editorKitsSize+4, ReflectionFactory.getEditorKits().size());
 
 		ReflectionFactory.undeploy(ModelsLanguageDeployer.class);
 		ReflectionFactory.undeploy(TreeUIDeployer.class);

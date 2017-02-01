@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -23,7 +23,7 @@ import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPlaceholderFolderLayout;
 import org.eclipse.ui.console.IConsoleConstants;
-import org.whole.lang.e4.ui.actions.IUIConstants;
+import org.whole.lang.e4.ui.actions.IE4UIConstants;
 import org.whole.lang.ui.WholeUIPerspectiveFactory;
 
 /**
@@ -39,7 +39,7 @@ public class LanguageWorkbenchPerspectiveFactory extends WholeUIPerspectiveFacto
 	}
 
 	protected void addBottomRightViews(IFolderLayout folder) {
-		folder.addPlaceholder(IUIConstants.RESULTS_PART_ID);
+		folder.addPlaceholder(IE4UIConstants.RESULTS_PART_ID);
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class LanguageWorkbenchPerspectiveFactory extends WholeUIPerspectiveFacto
 		super.addShowViewShortcuts(layout);
 		layout.addShowViewShortcut(JavaUI.ID_PACKAGES);
 		layout.addShowViewShortcut(IConsoleConstants.ID_CONSOLE_VIEW);
-		layout.addShowViewShortcut(IUIConstants.SAMPLE_PART_ID);
-		layout.addShowViewShortcut(IUIConstants.CONTEXT_PART_ID);
+		layout.addShowViewShortcut(IE4UIConstants.SAMPLE_PART_ID);
+		layout.addShowViewShortcut(IE4UIConstants.CONTEXT_PART_ID);
 	}
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -36,9 +36,11 @@ public class CommonsActionFactory extends ActionFactory {
 	public Object[][] wrapActions() {
 		EnablerPredicateFactory pf = EnablerPredicateFactory.instance;
 		return new Object[][] {
-				{ pf.alwaysTrue(), CommonsEntityDescriptorEnum.SameStageFragment, "SameStageFragment", wrapIn0},
-				{ pf.alwaysTrue(), CommonsEntityDescriptorEnum.StageDownFragment, "StageDownFragment", wrapIn0},
-				{ pf.alwaysTrue(), CommonsEntityDescriptorEnum.StageUpFragment, "StageUpFragment", wrapIn0}
+				{ pf.alwaysTrue(), CommonsEntityDescriptorEnum.SameStageFragment, "SameStageFragment", wrapIn0 },
+				{ pf.alwaysTrue(), CommonsEntityDescriptorEnum.StageDownFragment, "StageDownFragment", wrapIn0 },
+				{ pf.alwaysTrue(), CommonsEntityDescriptorEnum.StageUpFragment, "StageUpFragment", wrapIn0 },
+				{ pf.alwaysTrue(), CommonsEntityDescriptorEnum.TemplateFragment, "TemplateFragment", wrapIn(1) },
+				{ pf.alwaysTrue(), CommonsEntityDescriptorEnum.BaseFragment, "BaseFragment", wrapIn(1) }
 		};
 	}
 }

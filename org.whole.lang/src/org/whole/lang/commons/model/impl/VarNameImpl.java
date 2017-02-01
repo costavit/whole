@@ -1,6 +1,9 @@
 package org.whole.lang.commons.model.impl;
 
+import org.whole.lang.model.AbstractDataEntity;
 import org.whole.lang.commons.model.VarName;
+import org.whole.lang.commons.visitors.ICommonsVisitor;
+import org.whole.lang.exceptions.IWholeRuntimeException;
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
 import org.whole.lang.commons.visitors.ICommonsVisitor;
 import org.whole.lang.exceptions.WholeExceptionUtil;

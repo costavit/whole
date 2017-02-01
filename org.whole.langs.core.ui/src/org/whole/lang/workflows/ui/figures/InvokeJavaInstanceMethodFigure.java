@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -54,7 +54,7 @@ public class InvokeJavaInstanceMethodFigure extends AbstractActivityWithTableFig
 		invokeFigure.addContentLight(" = ");
 		invokeFigure.add(createContentPane(3));
 		invokeFigure.addContentLight(".");
-		methodLabel = (Label) invokeFigure.addLabel("");
+		methodLabel = invokeFigure.addEmptyLabel();
 		invokeFigure.addContentLight("(");
 		invokeFigure.add(createContentPane(4));
 		invokeFigure.addContentLight(")");

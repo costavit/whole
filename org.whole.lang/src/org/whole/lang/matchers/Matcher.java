@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -103,6 +103,31 @@ public class Matcher {
 		return null;
 	}
 
+	public static IEntity findAncestorOrSelf(EntityKinds kind, IEntity model) {
+		return findAncestorOrSelf(GenericMatcherFactory.instance.hasKindMatcher(kind), model);
+	}
+	@SuppressWarnings("unchecked")
+	public static <E extends IEntity> E findAncestorOrSelf(EntityDescriptor<E> descriptor, IEntity model) {
+		return (E) findAncestorOrSelf(GenericMatcherFactory.instance.hasTypeMatcher(descriptor), model);
+	}
+	@SuppressWarnings("unchecked")
+	public static <E extends IEntity> E findAncestorOrSelf(E pattern, IEntity model) {
+		return (E) findAncestorOrSelf(GenericMatcherFactory.instance.match(pattern), model);
+	}
+	@SuppressWarnings("unchecked")
+	public static <E extends IEntity> E findAncestorOrSelf(E pattern, IEntity model, IBindingManager bindings) {
+		IVisitor mv = GenericMatcherFactory.instance.matchInScope(pattern);
+		mv.setBindings(bindings);
+		return (E) findAncestorOrSelf(mv, model);
+	}
+	public static IEntity findAncestorOrSelf(IVisitor matcherVisitor, IEntity model) {
+		AbstractPatternFilterIterator<IEntity> i = IteratorFactory.ancestorOrSelfMatcherIterator().withPattern(matcherVisitor);
+		i.reset(model);
+		for (IEntity e : i)
+			return e;
+		return null;
+	}
+
 	public static IEntity findChild(EntityKinds kind, IEntity model) {
 		return findChild(GenericMatcherFactory.instance.hasKindMatcher(kind), model);
 	}
@@ -186,6 +211,13 @@ public class Matcher {
 
 	public static boolean matchAtFeature(FeatureDescriptor fd, IEntity model) {
 		return EntityUtils.hasParent(model) && fd.equals(model.wGetParent().wGetFeatureDescriptor(model));
+	}
+	public static boolean matchAtEntityFeature(FeatureDescriptor efd, IEntity model) {
+		return matchAtEntityFeature(efd.getParentEntityDescriptor(), efd, model);
+	}
+	public static boolean matchAtEntityFeature(EntityDescriptor<?> ed, FeatureDescriptor fd, IEntity model) {
+		IEntity parent = model.wGetParent();
+		return !EntityUtils.isNull(parent) && isAssignableAsIsFrom(ed, parent) && fd.equals(parent.wGetFeatureDescriptor(model));
 	}
 
 	public static boolean isAssignableAsIsFrom(EntityDescriptor<?> descriptor, IEntity model) {

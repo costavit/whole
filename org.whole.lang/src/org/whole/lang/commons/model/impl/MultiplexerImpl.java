@@ -1,7 +1,9 @@
 package org.whole.lang.commons.model.impl;
 
-import org.whole.lang.commons.model.Any;
-import org.whole.lang.commons.model.Multiplexer;
+import org.whole.lang.model.AbstractCollectionCompositeEntity;
+import org.whole.lang.commons.model.*;
+import org.whole.lang.commons.visitors.ICommonsVisitor;
+import org.whole.lang.exceptions.IWholeRuntimeException;
 import org.whole.lang.commons.reflect.CommonsEntityDescriptorEnum;
 import org.whole.lang.commons.visitors.ICommonsVisitor;
 import org.whole.lang.exceptions.WholeExceptionUtil;
@@ -11,8 +13,7 @@ import org.whole.lang.reflect.EntityDescriptor;
 /** 
  * @generator Whole
  */
-public class MultiplexerImpl extends AbstractCollectionCompositeEntity<Any>
-		implements Multiplexer {
+public class MultiplexerImpl extends AbstractCollectionCompositeEntity<Any> implements Multiplexer {
 	private static final long serialVersionUID = 1;
 
 	public void accept(ICommonsVisitor visitor) {

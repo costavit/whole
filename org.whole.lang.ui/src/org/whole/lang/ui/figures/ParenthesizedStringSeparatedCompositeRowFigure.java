@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -56,7 +56,7 @@ public class ParenthesizedStringSeparatedCompositeRowFigure extends StringSepara
 		super.paintChildDecorations(g, index, childBounds, childAscent, spacing);
 
 		Color color = g.getForegroundColor();
-		g.setForegroundColor(FigurePrefs.contentLighterColor);
+		g.setForegroundColor(FigureConstants.contentLighterColor);
 
 		if (showParentheses.get(index))
     		RoundBracketsBorder.paintRoundBrackets(g, childBounds.getExpanded(spacing/2-1, 0));

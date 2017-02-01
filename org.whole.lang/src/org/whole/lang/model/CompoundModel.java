@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -17,7 +17,6 @@
  */
 package org.whole.lang.model;
 
-import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.Collections;
@@ -27,8 +26,11 @@ import org.whole.lang.commands.ICommand;
 import org.whole.lang.commands.NullCommand;
 import org.whole.lang.events.CompositeChangeEventHandler;
 import org.whole.lang.events.IChangeEventHandler;
+import org.whole.lang.events.IPropertyChangeObserver;
 import org.whole.lang.events.IRequestEventHandler;
+import org.whole.lang.events.IdentityChangeEventHandler;
 import org.whole.lang.events.IdentityRequestEventHandler;
+import org.whole.lang.events.MappingChangeEventHandler;
 import org.whole.lang.events.PropertyChangeEventHandler;
 import org.whole.lang.lifecycle.HistoryManager;
 import org.whole.lang.lifecycle.IHistoryManager;
@@ -52,7 +54,10 @@ public class CompoundModel extends CompositeChangeEventHandler implements ICompo
     }
 
 	public CompoundModel() {
-		super();
+		super(
+				IdentityChangeEventHandler.instance, // placeholder for HistoryManager
+				IdentityChangeEventHandler.instance, // placeholder for propertyChangeEventHandler
+				new MappingChangeEventHandler.LanguageReactionsChangeEventMapper());
 		historyManager = this;
 	}
 
@@ -111,19 +116,36 @@ public class CompoundModel extends CompositeChangeEventHandler implements ICompo
 	protected boolean hasPropertyChangeEventHandler() {
 		return propertyChangeEventHandler != null;
 	}
-	protected PropertyChangeEventHandler getPropertyChangeEventHandler() {
+	public PropertyChangeEventHandler getPropertyChangeEventHandler() {
     	if (propertyChangeEventHandler == null)
-    		addChangeEventHandler(propertyChangeEventHandler = new PropertyChangeEventHandler());
+    		setChangeEventHandler(1, propertyChangeEventHandler = new PropertyChangeEventHandler());
 		return propertyChangeEventHandler;
 	}
-	public synchronized void addEventListener(PropertyChangeListener l) {
+	public synchronized void addEventListener(IPropertyChangeObserver l) {
 		getPropertyChangeEventHandler().addEventListener(l);
     }
-    public synchronized void removeEventListener(PropertyChangeListener l) {
+    public synchronized void removeEventListener(IPropertyChangeObserver l) {
 		getPropertyChangeEventHandler().removeEventListener(l);
     }
+    public void fireNotationEvent(IEntity source, String name, Object data) {
+    	getPropertyChangeEventHandler().notifyEvent(source, name, data);
+    }
 
+    public boolean isObserved(IEntity entity) {
+    	if (hasPropertyChangeEventHandler())
+    		for (IPropertyChangeObserver o : getPropertyChangeEventHandler().getEventListeners())
+    			if (o.isObserving(entity))
+    				return true;
 
+    	return false;
+    }
+
+    public boolean isHistoryEvent() {
+		if (historyManager != this)
+			return historyManager.isHistoryEvent();
+
+		return false;
+    }
 	public boolean isHistoryEnabled() {
 		if (historyManager != this)
 			return historyManager.isHistoryEnabled();
@@ -144,9 +166,8 @@ public class CompoundModel extends CompositeChangeEventHandler implements ICompo
 		setHistoryManager(new HistoryManager());
 	}
 	protected void setHistoryManager(IHistoryManager historyManager) {
-		removeChangeEventHandler((IChangeEventHandler) this.historyManager);
 		this.historyManager = historyManager;
-		addChangeEventHandler((IChangeEventHandler) this.historyManager);
+		setChangeEventHandler(0, (IChangeEventHandler) this.historyManager);
 	}
 
 	public int getHistoryCapacity() {

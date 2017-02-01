@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -19,8 +19,8 @@ package org.whole.lang.firstorderlogic.ui.figures;
 
 import org.eclipse.draw2d.IFigure;
 import org.whole.lang.ui.figures.ContentPaneFigure;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.layout.RowLayout;
-import org.whole.lang.ui.util.UIUtils;
 
 /**
  *  @author Riccardo Solmi
@@ -34,7 +34,7 @@ public class BinaryStatementFigure extends ContentPaneFigure {
         p1 = addContentLighter("(");
         add(createContentPane(0));
         p2 = addContentLighter(")");
-        addLabel(operatorLabel).setFont(UIUtils.getOpenSymbolMediumFont());
+        add(LabelFactory.createSymbolMediumContent(operatorLabel));
         p3 = addContentLighter("(");
         add(createContentPane(1));
         p4 = addContentLighter(")");

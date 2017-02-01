@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -19,7 +19,6 @@ package org.whole.lang.text.ui;
 
 import org.whole.lang.reflect.ILanguageKit;
 import org.whole.lang.text.reflect.TextLanguageKit;
-import org.whole.lang.text.ui.actions.TextActionFactory;
 import org.whole.lang.text.ui.editparts.TextPartFactoryVisitor;
 import org.whole.lang.ui.editor.AbstractEditorKit;
 import org.whole.lang.ui.editor.IActionFactory;
@@ -40,7 +39,7 @@ public class TextEditorKit extends AbstractEditorKit {
 	}
 
 	public String getName() {
-		return "Text";
+		return "Text textual";
 	}
 
 	public IEditPartFactory getPartFactory() {
@@ -48,12 +47,7 @@ public class TextEditorKit extends AbstractEditorKit {
 	}
 
 	public boolean canApply(ILanguageKit languageKit) {
-		return languageKit.getURI().equals(TextLanguageKit.URI) && !languageKit.isDynamic();
-	}
-
-	@Override
-	public IActionFactory getActionFactory() {
-		return TextActionFactory.instance();
+		return languageKit.getURI().equals(TextLanguageKit.URI) && isStaticAndCurrent(languageKit);
 	}
 
 	@Override

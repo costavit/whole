@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -88,7 +88,7 @@ public abstract class AbstractArtifactsGeneratorVisitor extends ArtifactsTravers
 					pk.writeModel(model, pp);
 					contentsWritten = true;
 				} catch (Exception inner) {
-					// do nothing
+					throw new IllegalStateException(inner);
 				}
 		}
 		try {

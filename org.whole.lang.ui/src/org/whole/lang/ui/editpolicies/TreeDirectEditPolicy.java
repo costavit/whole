@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -48,7 +48,7 @@ public class TreeDirectEditPolicy extends AbstractEditPolicy {
 			if (mtc.canUndo())
 				getTreeEntityPart().getViewer().getEditDomain().getCommandStack().execute(mtc);
 		} catch (RuntimeException e) {
-			mtc.rollback();
+			mtc.rollbackIfNeeded();
 		} finally {
 		}
 

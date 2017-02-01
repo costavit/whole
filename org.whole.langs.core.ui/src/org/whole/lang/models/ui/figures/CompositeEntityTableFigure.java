@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -18,17 +18,13 @@
 package org.whole.lang.models.ui.figures;
 
 import org.eclipse.draw2d.MarginBorder;
-import org.eclipse.swt.graphics.Color;
-import org.eclipse.swt.graphics.Font;
 import org.whole.lang.ui.figures.ContentPaneFigure;
 import org.whole.lang.ui.figures.EntityFigure;
-import org.whole.lang.ui.figures.EntityLabel;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.LabelFactory;
 import org.whole.lang.ui.layout.Alignment;
 import org.whole.lang.ui.layout.RowLayout;
 import org.whole.lang.ui.layout.TableRowLayout;
 import org.whole.lang.ui.layout.UnderColumnLayout;
-import org.whole.lang.ui.util.UIUtils;
 
 /**
  * @author Riccardo Solmi
@@ -47,14 +43,7 @@ public class CompositeEntityTableFigure extends ContentPaneFigure {
 
 		EntityFigure row = new EntityFigure(new RowLayout());
 		row.add(createContentPane(4));
-		row.add(new EntityLabel("\u2026") {
-			public Color getLocalForegroundColor() {
-				return FigurePrefs.contentLighterColor;
-			}	
-			public Font getLocalFont() {
-				return UIUtils.getOpenSymbolMediumFont();
-			}
-		});
+		row.add(LabelFactory.createSymbolMediumContentLighter("\u2026"));
 		row.add(createContentPane(3, new MarginBorder(0,4,0,0)));
 		add(row);
 	}

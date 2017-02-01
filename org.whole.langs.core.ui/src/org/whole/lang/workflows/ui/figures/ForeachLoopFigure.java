@@ -1,5 +1,5 @@
 /**
- * Copyright 2004-2015 Riccardo Solmi. All rights reserved.
+ * Copyright 2004-2016 Riccardo Solmi. All rights reserved.
  * This file is part of the Whole Platform.
  *
  * The Whole Platform is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@ import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.Graphics;
 import org.whole.lang.ui.figures.AnchorFactory;
-import org.whole.lang.ui.figures.FigurePrefs;
+import org.whole.lang.ui.figures.FigureConstants;
 import org.whole.lang.ui.figures.PaintFigureHelper;
 import org.whole.lang.ui.figures.TableFigure;
 import org.whole.lang.ui.figures.TableRowFigure;
@@ -69,6 +69,6 @@ public class ForeachLoopFigure extends AbstractActivityWithTableFigure {
 	public void paintFigure(Graphics g) {
         super.paintFigure(g);
         PaintFigureHelper.drawFilledRoundRectangle(g, getBounds(),
-        		ColorConstants.black, FigurePrefs.lightGray);
+        		ColorConstants.black, FigureConstants.lightGray);
 	}
 }
