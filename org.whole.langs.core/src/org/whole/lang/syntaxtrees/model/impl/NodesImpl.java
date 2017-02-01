@@ -17,12 +17,13 @@
  */
 package org.whole.lang.syntaxtrees.model.impl;
 
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.model.AbstractListCompositeEntity;
-import org.whole.lang.syntaxtrees.model.*;
-import org.whole.lang.syntaxtrees.visitors.ISyntaxTreesVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
-import org.whole.lang.syntaxtrees.reflect.SyntaxTreesEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
+import org.whole.lang.syntaxtrees.model.Node;
+import org.whole.lang.syntaxtrees.model.Nodes;
+import org.whole.lang.syntaxtrees.reflect.SyntaxTreesEntityDescriptorEnum;
+import org.whole.lang.syntaxtrees.visitors.ISyntaxTreesVisitor;
 
 /**
  *  @generator Whole
@@ -34,7 +35,7 @@ public class NodesImpl extends AbstractListCompositeEntity<Node> implements Node
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

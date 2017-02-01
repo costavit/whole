@@ -60,7 +60,16 @@ public interface IChangeEventHandler extends Serializable {
     public void notifyChanged(IEntity source, FeatureDescriptor fd, EnumValue oldValue, EnumValue newValue);
     public void notifyChanged(IEntity source, FeatureDescriptor fd, Object oldValue, Object newValue);
 
-	default boolean needsHistoryManager() {
+    boolean needsHistoryManager();
+	boolean handleHistoryEvents();
+
+//	public boolean isEventHandlerEnabled();
+//	public boolean setEventHandlerEnabled(boolean value);
+
+	//TODO ? or static helper
+	IChangeEventHandler getActualEventHandler(IChangeEventHandler eventHandler, IEntity source);
+	boolean isActualEventHandler(IChangeEventHandler eventHandler, IEntity source);
+	/*default boolean needsHistoryManager() {
 		return false;
 	};
 	default boolean handleHistoryEvents() {
@@ -81,5 +90,5 @@ public interface IChangeEventHandler extends Serializable {
 		ICompoundModel compoundModel = source.wGetModel().getCompoundModel();
 		return (compoundModel.isHistoryEnabled() || !eventHandler.needsHistoryManager()) &&
 				(!compoundModel.isHistoryEvent() || eventHandler.handleHistoryEvents());
-	}
+	}*/
 }

@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.util.Date;
 
 import org.whole.lang.model.EnumValue;
+import org.whole.lang.model.ICompoundModel;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.reflect.FeatureDescriptor;
 
@@ -31,6 +32,31 @@ public class CompositeChangeEventHandler implements IChangeEventHandler {
 	private static final long serialVersionUID = 1L;
 	transient private IChangeEventHandler[] handlers = new IChangeEventHandler[0];
 
+	/* From IChangeEventHandler */
+	public boolean needsHistoryManager() {
+		return false;
+	};
+	public boolean handleHistoryEvents() {
+		return true;
+	};
+
+//	public boolean isEventHandlerEnabled();
+//	public boolean setEventHandlerEnabled(boolean value);
+
+	//TODO ? or static helper
+	public IChangeEventHandler getActualEventHandler(IChangeEventHandler eventHandler, IEntity source) {
+		if (isActualEventHandler(eventHandler, source))
+			return eventHandler;
+		else
+			return IdentityChangeEventHandler.instance;
+	}
+	public boolean isActualEventHandler(IChangeEventHandler eventHandler, IEntity source) {
+		ICompoundModel compoundModel = source.wGetModel().getCompoundModel();
+		return (compoundModel.isHistoryEnabled() || !eventHandler.needsHistoryManager()) &&
+				(!compoundModel.isHistoryEvent() || eventHandler.handleHistoryEvents());
+	}
+	/* From IChangeEventHandler */
+		
     private void readObject(java.io.ObjectInputStream in) throws IOException, ClassNotFoundException {
     	in.defaultReadObject();
     	handlers = new IChangeEventHandler[0];

@@ -250,4 +250,10 @@ public class Lexer implements Iterator<String> {
 		}
 		return sb.toString();
 	}
+
+	@Override
+	public void remove() {
+		//In JDK 8 default in Iterator
+		throw new UnsupportedOperationException("remove");
+	}
 }

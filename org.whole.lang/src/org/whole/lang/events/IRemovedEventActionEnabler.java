@@ -23,7 +23,7 @@ import org.whole.lang.reflect.FeatureDescriptor;
 /**
  * @author Riccardo Solmi
  */
-@FunctionalInterface
+//@FunctionalInterface //Not present in JDK 1.7
 public interface IRemovedEventActionEnabler {
 	public boolean apply(IEntity source, FeatureDescriptor fd, int index, IEntity oldValue);
 }

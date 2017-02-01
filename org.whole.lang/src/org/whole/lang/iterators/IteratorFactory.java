@@ -98,7 +98,7 @@ public class IteratorFactory {
     }
     @SuppressWarnings("unchecked")
 	public static <E extends IEntity> IEntityIterator<E> ancestorOrSelfIterator() {
-    	return sequenceIterator(selfIterator(), IteratorFactory.<E>ancestorIterator());
+    	return (IEntityIterator<E>) sequenceIterator(selfIterator(), IteratorFactory.<E>ancestorIterator()); //VITTO check if it works!!!
     }
 
     public static IEntityIterator<IEntity> ancestorReverseIterator() {

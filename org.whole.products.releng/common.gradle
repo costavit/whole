@@ -36,7 +36,7 @@ ext {
 	repo = new FileRepositoryBuilder().setWorkTree(new File(repoDir)).build()
 
 	versionNum = "1.0.7"
-	versionNumOld = "1.0.0"
+	versionNumOld = "1.0.7"
 
 	failure = false
 

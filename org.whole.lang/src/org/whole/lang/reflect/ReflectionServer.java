@@ -45,7 +45,11 @@ public class ReflectionServer {
 
 	public Set<IEntity> getRootEntities() {
 		//TODO replace with early code in wSetParent
-		rootEntities.removeIf(e -> EntityUtils.hasParent(e));
+		for (IEntity e : rootEntities) {
+			if (EntityUtils.hasParent(e))
+				rootEntities.remove(e);
+		}
+		//rootEntities.removeIf(e -> EntityUtils.hasParent(e));
 
 		return rootEntities;
 	}

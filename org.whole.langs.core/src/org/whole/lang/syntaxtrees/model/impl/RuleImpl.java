@@ -17,16 +17,16 @@
  */
 package org.whole.lang.syntaxtrees.model.impl;
 
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.model.AbstractSimpleEntity;
-import org.whole.lang.syntaxtrees.model.Rule;
-import org.whole.lang.reflect.EntityDescriptor;
-import org.whole.lang.syntaxtrees.reflect.SyntaxTreesEntityDescriptorEnum;
-import org.whole.lang.syntaxtrees.visitors.ISyntaxTreesVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
-import org.whole.lang.syntaxtrees.model.Name;
-import org.whole.lang.syntaxtrees.reflect.SyntaxTreesFeatureDescriptorEnum;
 import org.whole.lang.model.IEntity;
+import org.whole.lang.reflect.EntityDescriptor;
+import org.whole.lang.syntaxtrees.model.Name;
 import org.whole.lang.syntaxtrees.model.Nodes;
+import org.whole.lang.syntaxtrees.model.Rule;
+import org.whole.lang.syntaxtrees.reflect.SyntaxTreesEntityDescriptorEnum;
+import org.whole.lang.syntaxtrees.reflect.SyntaxTreesFeatureDescriptorEnum;
+import org.whole.lang.syntaxtrees.visitors.ISyntaxTreesVisitor;
 
 /**
  *  @generator Whole
@@ -46,7 +46,7 @@ public class RuleImpl extends AbstractSimpleEntity implements Rule {
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
     private Name name;

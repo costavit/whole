@@ -17,12 +17,12 @@
  */
 package org.whole.lang.syntaxtrees.model.impl;
 
+import org.whole.lang.exceptions.WholeExceptionUtil;
 import org.whole.lang.model.AbstractDataEntity;
-import org.whole.lang.syntaxtrees.model.Text;
-import org.whole.lang.syntaxtrees.visitors.ISyntaxTreesVisitor;
-import org.whole.lang.exceptions.IWholeRuntimeException;
-import org.whole.lang.syntaxtrees.reflect.SyntaxTreesEntityDescriptorEnum;
 import org.whole.lang.reflect.EntityDescriptor;
+import org.whole.lang.syntaxtrees.model.Text;
+import org.whole.lang.syntaxtrees.reflect.SyntaxTreesEntityDescriptorEnum;
+import org.whole.lang.syntaxtrees.visitors.ISyntaxTreesVisitor;
 
 /**
  *  @generator Whole
@@ -43,7 +43,7 @@ public class TextImpl extends AbstractDataEntity implements Text {
         try {
             visitor.visit(this);
         } catch (Exception e) {
-            throw IWholeRuntimeException.asWholeException(e, this, visitor.getBindings());
+            throw WholeExceptionUtil.asWholeException(e, this, visitor.getBindings());
         }
     }
 

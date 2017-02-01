@@ -20,6 +20,7 @@ package org.whole.lang.events;
 import java.util.Date;
 
 import org.whole.lang.model.EnumValue;
+import org.whole.lang.model.ICompoundModel;
 import org.whole.lang.model.IEntity;
 import org.whole.lang.reflect.FeatureDescriptor;
 
@@ -29,6 +30,31 @@ import org.whole.lang.reflect.FeatureDescriptor;
 public class IdentityEventHandler implements IEventHandler {
 	private static final long serialVersionUID = 1L;
 
+	/* From IChangeEventHandler */
+	public boolean needsHistoryManager() {
+		return false;
+	};
+	public boolean handleHistoryEvents() {
+		return true;
+	};
+
+//	public boolean isEventHandlerEnabled();
+//	public boolean setEventHandlerEnabled(boolean value);
+
+	//TODO ? or static helper
+	public IChangeEventHandler getActualEventHandler(IChangeEventHandler eventHandler, IEntity source) {
+		if (isActualEventHandler(eventHandler, source))
+			return eventHandler;
+		else
+			return IdentityChangeEventHandler.instance;
+	}
+	public boolean isActualEventHandler(IChangeEventHandler eventHandler, IEntity source) {
+		ICompoundModel compoundModel = source.wGetModel().getCompoundModel();
+		return (compoundModel.isHistoryEnabled() || !eventHandler.needsHistoryManager()) &&
+				(!compoundModel.isHistoryEvent() || eventHandler.handleHistoryEvents());
+	}
+	/* From IChangeEventHandler */
+		
 	public IRequestEventHandler cloneRequestEventHandler(IRequestEventHandler parentEventHandler) {
         return this;
     }

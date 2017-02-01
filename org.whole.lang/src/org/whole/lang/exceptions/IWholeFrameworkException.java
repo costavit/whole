@@ -21,7 +21,8 @@ package org.whole.lang.exceptions;
  * @author Riccardo Solmi
  */
 public interface IWholeFrameworkException {
+	/*
 	default public RuntimeException asException() {
 		return (RuntimeException) this;
-	}
+	}*/
 }
